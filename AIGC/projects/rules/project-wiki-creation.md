@@ -19,12 +19,38 @@
 ```text
 {project_wiki_root}/
   INDEX.md
+  README.md
+  SCHEMA.md
+  index.yaml
+  project.md
   status.md
-  context.md
   decisions/
     INDEX.md
+    active.md
+    deprecated.md
+  architecture/
+    INDEX.md
+    entry-map.md
+    repository-structure.md
+    module-boundaries.md
+    dependency-direction.md
+    configuration-surface.md
+  source-map/
+    INDEX.md
+    important-files.md
+    build-test-run.md
+    external-services.md
+  workflows/
+    INDEX.md
+    development.md
+    verification.md
+  rules/
+    retrieval.md
+    building.md
+    health.md
+  templates/
+    project-card.md
   open-questions.md
-  source-map.md
 ```
 
 ## 推荐扩展结构
@@ -33,9 +59,7 @@
 
 ```text
 {project_wiki_root}/
-  architecture/
   requirements/
-  workflows/
   glossary.md
   risks.md
 ```

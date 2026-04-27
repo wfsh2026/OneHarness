@@ -15,5 +15,6 @@
 - 未确认产品边界、技术路线或写入范围时，先进入 `planning-discussion`。
 - 已确认目标、边界和验证方式时，进入 `development`。
 - 需要吸收外部 harness、旧项目经验或更新 AIGC 能力版本时，进入 `capability-evolution`。
+- 任何工作流需要目标项目事实时，先通过 `AIGC/projects/INDEX.md` 路由到项目 wiki 检索规则。
 - 开发中出现会影响范围或决策的歧义时，回到 `planning-discussion` 或向用户确认。
 - 任何工作流都不能把目标项目事实写入通用 AIGC。

@@ -21,6 +21,8 @@
 - 已确认技术决策。
 - 后续开发会重复查询的稳定经验。
 
+目标项目 wiki 不存在时，先执行 `../../../projects/rules/project-wiki-bootstrap.md`。目标项目 wiki 已存在时，按 `../../../projects/rules/project-wiki-update.md` 更新。
+
 ## 写入运行记录
 
 以下内容写入本次工作流运行记录：
@@ -54,4 +56,4 @@
 - 不允许把一次性调试过程写入 wiki。
 - 不允许把未确认内容写成稳定架构结论。
 
-通用 wiki 创建规则见 `../../../wiki/rules/building.md`。项目事实边界见 `../../../projects/PROJECT_ADAPTER.md`。Wiki 健康检查规则见 `../../../wiki/rules/health.md`。
+通用 wiki 创建规则见 `../../../wiki/rules/building.md`。项目事实边界见 `../../../projects/PROJECT_ADAPTER.md`。项目 wiki 检索规则见 `../../../projects/rules/project-wiki-retrieval.md`。Wiki 健康检查规则见 `../../../wiki/rules/health.md` 和 `../../../projects/rules/project-wiki-health.md`。

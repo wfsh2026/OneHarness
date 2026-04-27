@@ -2,7 +2,7 @@
 
 本目录记录当前 AIGC 可用能力，只保存路由、状态和版本信息，不保存具体项目事实。
 
-当前系统版本：`0.2.0`
+当前系统版本：`0.3.0`
 
 ## 当前能力
 
@@ -12,6 +12,8 @@
 | `development` | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 0.1.0 | 目标明确，需要开发、修复、补文档、补测试或推进 MVP 闭环。 |
 | `capability-evolution` | AIGC 能力演化 | active | `../workflows/capability-evolution/WORKFLOW.md` | 0.1.0 | 需要分析外部 harness、提取可复用能力、更新能力索引或版本记录。 |
 | `generic-architecture-wiki` | 通用架构 Wiki | active | `../wiki/INDEX.md` | 0.2.0 | 需要检索跨项目通用架构搭建知识。 |
+| `project-wiki-bootstrap` | 项目 Wiki 主动搭建 | active | `../projects/rules/project-wiki-bootstrap.md` | 0.3.0 | 需要检索已有工程并主动搭建目标项目 wiki。 |
+| `project-wiki-update` | 项目 Wiki 更新 | active | `../projects/rules/project-wiki-update.md` | 0.3.0 | 需要在开发后更新目标项目 wiki。 |
 
 ## 状态说明
 

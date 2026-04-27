@@ -27,15 +27,46 @@
         INDEX.md
   wiki/
     INDEX.md
+    README.md
+    SCHEMA.md
+    index.yaml
+    project.md
     status.md
-    context.md
     decisions/
       INDEX.md
+      active.md
+      deprecated.md
+    architecture/
+      INDEX.md
+      entry-map.md
+      repository-structure.md
+      module-boundaries.md
+      dependency-direction.md
+      configuration-surface.md
+    source-map/
+      INDEX.md
+      important-files.md
+      build-test-run.md
+      external-services.md
+    workflows/
+      INDEX.md
+      development.md
+      verification.md
+    rules/
+      retrieval.md
+      building.md
+      health.md
+    templates/
+      project-card.md
     open-questions.md
-    source-map.md
 ```
 
 ## 边界
 
 通用 AIGC 提供规则和模板。目标项目适配层保存项目事实。
 
+## 调用规则
+
+- 需要通用架构知识时读取通用 `AIGC/wiki/INDEX.md`。
+- 需要目标项目事实时读取目标项目 `{project_aigc_root}/ADAPTER.md`，再读取 `{project_wiki_root}/INDEX.md`。
+- 项目 wiki 的实际路径必须来自适配配置，不允许写死到通用 AIGC。

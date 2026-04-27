@@ -33,6 +33,7 @@ AI 进入本目录时，优先按以下顺序读取：
 4. 命中工作流的 `rules/INDEX.md`
 5. `AIGC/wiki/INDEX.md`
 6. 按 `read_when` 命中的规则继续读取
+7. 需要目标项目事实时，读取 `AIGC/projects/INDEX.md` 和目标项目 wiki 入口
 
 禁止为了保险一次性读取全部 wiki 或全部历史记录。
 
@@ -97,6 +98,8 @@ AI 进入本目录时，优先按以下顺序读取：
 如果要执行开发，进入 `workflows/development/`。
 
 如果要为目标项目创建 AIGC 工作区，读取 `projects/PROJECT_ADAPTER.md`。
+
+如果要为目标项目搭建或更新项目 wiki，读取 `projects/rules/project-wiki-bootstrap.md` 或 `projects/rules/project-wiki-update.md`。
 
 如果要沉淀通用架构知识，先读取 `wiki/INDEX.md`、`wiki/SCHEMA.md` 和 `wiki/rules/building.md`。
 

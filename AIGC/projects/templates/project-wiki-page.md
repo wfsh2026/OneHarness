@@ -2,20 +2,28 @@
 
 ---
 id:
-type:
+title:
+summary:
+type: project-card
 status:
+tags: []
+relates: []
 read_when:
 source:
-last_verified:
+updated:
 ---
 
 # 标题
 
-## 用途
+## 结论
 
-## 适用范围
+## 当前事实
 
-## 当前结论
+## 读取入口
+
+## 更新条件
+
+## 验证方式
 
 ## 来源
 

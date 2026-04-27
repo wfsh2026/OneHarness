@@ -10,6 +10,7 @@
 4. 命中工作流的 `rules/INDEX.md`
 5. `AIGC/wiki/INDEX.md`
 6. 按 `read_when` 命中的规则继续读取下级文件。
+7. 需要目标项目事实时，读取 `AIGC/projects/INDEX.md`，再按目标项目适配配置读取项目 wiki。
 
 ## 目录职责
 

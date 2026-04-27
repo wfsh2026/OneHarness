@@ -1,5 +1,12 @@
 # AIGC 变更记录
 
+## 0.3.0
+
+- 新增 `project-wiki-bootstrap` 能力，用于检索已有工程并主动搭建目标项目 wiki。
+- 新增 `project-wiki-update` 能力，用于开发后更新目标项目 wiki。
+- 补充项目 wiki 检索、健康检查、创建结构和页面模板规则。
+- 明确通用 wiki 与项目 wiki 的调用边界：通用架构知识读 `AIGC/wiki`，项目事实读目标项目适配层 wiki。
+
 ## 0.2.0
 
 - 废弃旧 wiki 搭建方式，不再保留 `raw/knowledge/log/html/common` 混合项目 wiki 结构。
