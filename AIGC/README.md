@@ -98,9 +98,9 @@ AI 进入本目录时，优先按以下顺序读取：
 
 如果要为目标项目创建 AIGC 工作区，读取 `projects/PROJECT_ADAPTER.md`。
 
-如果要沉淀知识，先读取 `wiki/reliability.md` 和 `wiki/wiki-creation.md`。
+如果要沉淀通用架构知识，先读取 `wiki/INDEX.md`、`wiki/SCHEMA.md` 和 `wiki/rules/building.md`。
 
-如果要检查 wiki 质量，读取 `wiki/wiki-health.md`。
+如果要检查 wiki 质量，读取 `wiki/rules/health.md`。
 
 如果要分析外部 harness 或更新 AIGC 能力版本，进入 `workflows/capability-evolution/`。
 

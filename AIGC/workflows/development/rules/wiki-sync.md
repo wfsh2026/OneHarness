@@ -1,14 +1,15 @@
 # 开发 Wiki 同步规则
 
-## 写入通用 AIGC wiki
+## 写入通用架构 wiki
 
-满足以下全部条件时，写入 `AIGC/wiki/common/candidates/`：
+满足以下全部条件时，按 `../../../wiki/rules/building.md` 写入 `AIGC/wiki/architecture/`：
 
 - 与具体项目无关。
-- 可被多个项目复用。
+- 可被多个项目复用为架构搭建知识。
 - 有明确来源。
-- 已在开发或验证中产生证据。
+- 已在开发或验证中产生稳定结论。
 - 低频变化。
+- 能通过 `read_when` 精确检索。
 
 ## 写入目标项目 wiki
 
@@ -39,18 +40,18 @@
 
 | 内容 | 写入位置 |
 | --- | --- |
-| 可跨项目复用的经验教训 | `AIGC/wiki/common/candidates/` |
-| 可跨项目复用的被否决方案 | `AIGC/wiki/common/candidates/` |
+| 可跨项目复用的架构结论 | `AIGC/wiki/architecture/` |
+| 通用 wiki 检索、写入、健康检查规则 | `AIGC/wiki/rules/` |
 | 目标项目技术决策 | 目标项目 wiki |
 | 目标项目踩坑经验 | 目标项目 wiki 或运行记录 |
 | 一次性调试过程 | 运行记录 |
 
-知识碎片模板见 `../../../wiki/templates/knowledge-fragment.md`。
+通用架构页模板见 `../../../wiki/templates/architecture-card.md`。
 
 ## 禁止
 
 - 不允许把项目事实写入通用 wiki。
 - 不允许把一次性调试过程写入 wiki。
-- 不允许把未确认内容写入 `accepted`。
+- 不允许把未确认内容写成稳定架构结论。
 
-通用 wiki 创建规则见 `../../../wiki/wiki-creation.md`。项目 wiki 创建规则见 `../../../projects/rules/project-wiki-creation.md`。Wiki 健康检查规则见 `../../../wiki/wiki-health.md`。
+通用 wiki 创建规则见 `../../../wiki/rules/building.md`。项目事实边界见 `../../../projects/PROJECT_ADAPTER.md`。Wiki 健康检查规则见 `../../../wiki/rules/health.md`。

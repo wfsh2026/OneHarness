@@ -1,13 +1,14 @@
 # Wiki 同步规则
 
-## 写入通用 wiki
+## 写入通用架构 wiki
 
-满足以下条件时，写入 `AIGC/wiki/common/candidates/`：
+满足以下条件时，按 `../../../wiki/rules/building.md` 写入 `AIGC/wiki/architecture/`：
 
 - 与具体项目无关。
-- 可被多个项目复用。
+- 可被多个项目复用为架构搭建知识。
 - 有明确来源。
 - 低频变化。
+- 能通过 `read_when` 精确检索。
 
 ## 写入目标项目 wiki
 
@@ -22,5 +23,4 @@
 ## 禁止
 
 - 不允许把项目事实写入通用 wiki。
-- 不允许把未确认内容写入 accepted。
-
+- 不允许把未确认内容写成稳定架构结论。

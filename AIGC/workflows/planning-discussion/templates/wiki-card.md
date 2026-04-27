@@ -1,20 +1,21 @@
-# Wiki 知识卡片模板
+# 通用架构 Wiki 写入建议模板
 
 ---
 id:
-status: candidate
-scope:
+type: architecture-card
 source:
-last_verified:
 read_when:
-confidence:
+verify:
 ---
 
 # 标题
 
 ## 结论
 
-## 适用范围
+## 适用场景
+
+## 最小做法
+
+## 验证方式
 
 ## 来源
-

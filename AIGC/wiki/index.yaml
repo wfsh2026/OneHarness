@@ -1,0 +1,6 @@
+watch:
+  - AIGC/wiki/architecture/
+  - AIGC/wiki/rules/
+exclude:
+  - INDEX.md
+  - templates/
