@@ -1,3 +1,0 @@
-开源项目，本地自己搭建使用
-github 地址：https://github.com/CoplayDev/unity-mcp
-package 地址：https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main

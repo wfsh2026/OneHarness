@@ -9,7 +9,9 @@
 | `task-breakdown.md` | 需要把目标拆成可执行开发任务。 |
 | `implementation.md` | 需要执行代码、文档、测试或配置修改。 |
 | `verification.md` | 需要验证新增、修复、重构或文档改动。 |
+| `quality-gate.md` | 交付前需要检查目标、范围、验证、边界和结果一致性。 |
 | `delivery.md` | 需要输出开发交付物或收尾记录。 |
+| `issue-routing.md` | 开发中发现问题，需要判断写入运行记录、项目 wiki、通用 wiki 还是能力索引。 |
 | `wiki-sync.md` | 需要沉淀开发知识、项目事实或运行记录。 |
 | `lifecycle.md` | 需要处理长任务、上下文移交、阻塞或重建。 |
 | `mvp-closure.md` | 用户要求持续推进到可试用 MVP。 |
