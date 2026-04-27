@@ -1,6 +1,6 @@
 # AIGC 版本
 
-current_version: 0.3.0
+current_version: 0.4.0
 
 ## 版本级别
 
@@ -18,6 +18,7 @@ current_version: 0.3.0
 - AIGC 能力演化工作流。
 - 通用架构 wiki。
 - 项目 wiki 主动搭建和更新能力。
+- 项目 wiki 维护工作流。
 
 ## 当前版本功能
 
@@ -26,6 +27,7 @@ current_version: 0.3.0
 | 低 token 工作流路由 | active | `../workflows/INDEX.md` | 先读索引，再按 `read_when` 读取命中的工作流和规则。 |
 | 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 把模糊需求讨论成目标、范围、约束、风险和成功标准明确的策划案。 |
 | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 把已确认目标转成最小可验证代码、文档、测试或配置改动。 |
+| 项目 Wiki 维护 | active | `../workflows/project-wiki-maintenance/WORKFLOW.md` | 为目标项目搭建、检索、更新或检查项目 wiki。 |
 | AIGC 能力演化 | active | `../workflows/capability-evolution/WORKFLOW.md` | 分析外部 harness 或旧项目，提取可复用能力，并更新能力索引和版本记录。 |
 | 通用架构 wiki | active | `../wiki/INDEX.md` | 保存跨项目可复用的项目架构搭建知识，用于低 token 架构检索。 |
 | 项目适配层规则 | active | `../projects/INDEX.md` | 定义目标项目自己的 AIGC 适配层创建方式，隔离项目事实。 |
@@ -45,4 +47,5 @@ current_version: 0.3.0
 - 当前能力可从 `INDEX.md` 路由。
 - 通用架构 wiki 可从 `../wiki/INDEX.md` 路由。
 - 项目 wiki 主动搭建和更新规则可从 `../projects/INDEX.md` 路由。
+- 项目 wiki 维护工作流可从 `../workflows/INDEX.md` 路由。
 - 写入边界仍保持：项目事实进入目标项目适配层，通用知识进入通用 wiki。

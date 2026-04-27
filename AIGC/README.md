@@ -43,6 +43,7 @@ AI 进入本目录时，优先按以下顺序读取：
 | --- | --- |
 | 需求模糊，需要澄清目标、范围、非目标、约束或成功标准 | `planning-discussion` |
 | 目标明确，需要开发、修复、补文档、补测试或推进 MVP 闭环 | `development` |
+| 需要为目标项目搭建、检索、更新或检查项目 wiki | `project-wiki-maintenance` |
 | 需要分析外部 harness、提取可复用能力或更新 AIGC 能力版本 | `capability-evolution` |
 
 如果开发过程中出现关键歧义，必须暂停执行，回到澄清或让用户确认。
@@ -99,7 +100,7 @@ AI 进入本目录时，优先按以下顺序读取：
 
 如果要为目标项目创建 AIGC 工作区，读取 `projects/PROJECT_ADAPTER.md`。
 
-如果要为目标项目搭建或更新项目 wiki，读取 `projects/rules/project-wiki-bootstrap.md` 或 `projects/rules/project-wiki-update.md`。
+如果要为目标项目搭建、检索、更新或检查项目 wiki，进入 `workflows/project-wiki-maintenance/`。
 
 如果要沉淀通用架构知识，先读取 `wiki/INDEX.md`、`wiki/SCHEMA.md` 和 `wiki/rules/building.md`。
 

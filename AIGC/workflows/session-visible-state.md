@@ -18,6 +18,7 @@
 | --- | --- |
 | `planning-discussion` | 策划案讨论 |
 | `development` | 开发执行 |
+| `project-wiki-maintenance` | 项目 Wiki 维护 |
 | `capability-evolution` | AIGC 能力演化 |
 
 ## 显示时机

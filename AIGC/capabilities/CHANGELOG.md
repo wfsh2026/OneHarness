@@ -1,5 +1,12 @@
 # AIGC 变更记录
 
+## 0.4.0
+
+- 新增 `project-wiki-maintenance` 工作流，用于统一项目 wiki 搭建、检索、更新和健康检查入口。
+- 修正根 README 的旧 wiki 路径，默认入口改为新版 `AIGC/INDEX.md`。
+- 补充有效 AGENTS 规则，避免 `AIGC/AGENTS.md` 指向不存在的根文件。
+- 明确一次性运行事实写入目标项目运行记录，不写入项目 wiki。
+
 ## 0.3.0
 
 - 新增 `project-wiki-bootstrap` 能力，用于检索已有工程并主动搭建目标项目 wiki。
@@ -11,7 +18,7 @@
 
 - 废弃旧 wiki 搭建方式，不再保留 `raw/knowledge/log/html/common` 混合项目 wiki 结构。
 - 新增通用架构 wiki，只保存跨项目可复用的项目架构搭建知识。
-- 参考 `sausage-harness` 的 YAML 头、自描述索引和关联检索思路，但不迁入其项目内容。
+- 参考外部 harness 的 YAML 头、自描述索引和关联检索思路，但不迁入其项目内容。
 - 移除已不存在的策划能力库候选入口。
 
 ## 0.1.1

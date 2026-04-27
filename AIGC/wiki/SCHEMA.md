@@ -1,3 +1,16 @@
+---
+id: wiki-schema
+title: Wiki 页面 Schema
+summary: 定义通用 wiki 可检索页面的类型、元数据和正文规则。
+type: rule
+status: active
+tags: [wiki, schema, metadata]
+relates: ["[[wiki-health]]", "[[wiki-building]]"]
+read_when: 需要创建、修改或审查通用 wiki 页面格式。
+source: OneHarness 通用 wiki 重建设计。
+updated: 2026-04-27
+---
+
 # Wiki 页面 Schema
 
 ## 页面类型
