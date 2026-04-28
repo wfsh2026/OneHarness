@@ -1,3 +1,12 @@
+---
+id: workflow-project-wiki-maintenance-routing
+title: 项目 Wiki 维护路由规则
+workflow: project-wiki-maintenance
+phase: routing
+read_when: 需要判断本轮是搭建、创建结构、检索、更新还是健康检查项目 wiki。
+updated: 2026-04-27
+---
+
 # 项目 Wiki 维护路由规则
 
 ## 结论

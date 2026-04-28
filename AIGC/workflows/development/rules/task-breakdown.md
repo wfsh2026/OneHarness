@@ -1,3 +1,12 @@
+---
+id: workflow-development-task-breakdown
+title: 开发任务拆解规则
+workflow: development
+phase: task-breakdown
+read_when: 需要把目标拆成可执行开发任务。
+updated: 2026-04-27
+---
+
 # 开发任务拆解规则
 
 开发任务必须满足：

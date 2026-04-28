@@ -1,3 +1,12 @@
+---
+id: workflow-development-issue-routing
+title: 问题路由规则
+workflow: development
+phase: issue-routing
+read_when: 开发中发现问题，需要判断写入运行记录、项目 wiki、通用 wiki 还是能力索引。
+updated: 2026-04-27
+---
+
 # 问题路由规则
 
 ## 结论

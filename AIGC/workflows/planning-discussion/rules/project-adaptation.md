@@ -1,3 +1,12 @@
+---
+id: workflow-planning-discussion-project-adaptation
+title: 项目适配规则
+workflow: planning-discussion
+phase: project-adaptation
+read_when: 需要在目标项目建立运行记录、项目 wiki 或项目文档规则。
+updated: 2026-04-27
+---
+
 # 项目适配规则
 
 目标项目启动工作流时，必须先建立项目适配层。
@@ -19,4 +28,3 @@
 - 项目 wiki 入口。
 - 当前工作流运行记录入口。
 - 项目开放问题。
-

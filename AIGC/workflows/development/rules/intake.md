@@ -1,3 +1,12 @@
+---
+id: workflow-development-intake
+title: 开发输入确认规则
+workflow: development
+phase: intake
+read_when: 开发前需要确认目标、边界、禁止事项和验证方式。
+updated: 2026-04-27
+---
+
 # 开发输入确认规则
 
 开发前必须明确：

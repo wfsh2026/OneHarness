@@ -1,3 +1,12 @@
+---
+id: workflow-development-wiki-sync
+title: 开发 Wiki 同步规则
+workflow: development
+phase: wiki-sync
+read_when: 需要沉淀开发知识、项目事实或运行记录。
+updated: 2026-04-27
+---
+
 # 开发 Wiki 同步规则
 
 ## 写入通用架构 wiki

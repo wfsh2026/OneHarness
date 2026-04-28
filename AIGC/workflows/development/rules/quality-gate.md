@@ -1,3 +1,12 @@
+---
+id: workflow-development-quality-gate
+title: 质量门控规则
+workflow: development
+phase: quality-gate
+read_when: 交付前需要检查目标、范围、验证、边界和结果一致性。
+updated: 2026-04-28
+---
+
 # 质量门控规则
 
 ## 结论
@@ -9,6 +18,7 @@
 - 输出开发计划、技术方案、文档或代码交付物前。
 - 多个页面、模块或执行者共同产出同一结果时。
 - 本轮改动影响验证方式、项目 wiki、运行记录或通用规则时。
+- 交付 OneHarness 自身改动前。
 
 ## 最小门控
 
@@ -19,12 +29,14 @@
 | 验证可执行 | 每个成功标准都有命令、测试、手动步骤或无法验证说明。 |
 | 边界干净 | 项目事实没有写入通用 AIGC，临时过程没有写入 wiki。 |
 | 结果一致 | 交付说明、修改文件、验证记录和 wiki/运行记录判断一致。 |
+| 自检通过 | 命中 `self-check.md` 的命令已运行；交付前 `python tools\oneharness.py gate` 已通过。 |
 
 ## 不通过处理
 
 - 缺输入：回到 `intake.md`。
 - 缺任务拆解：回到 `task-breakdown.md`。
 - 缺验证：回到 `verification.md`。
+- 缺自检：回到 `self-check.md`。
 - 写入边界错误：回到 `wiki-sync.md` 和项目适配规则。
 - 多执行者冲突：回到 `lifecycle.md`，明确文件归属。
 

@@ -1,0 +1,44 @@
+第一梯队：框架可执行化（0.5.0 → 0.6.0）
+
+| 方向 | 具体内容 | 预期效果 |
+|------|---------|---------|
+| **CLI 工具** | 开发 `oneharness` 命令行工具，实现工作流启动、阶段切换、入口文件自动加载 | 将"AI 自觉遵守"变为"工具强制执行" |
+| **规则引擎** | 将 `read_when` 条件解析为结构化规则（JSON/YAML），由工具根据用户意图自动匹配工作流和下一阶段 | 消除 AI 手动路由的歧义和 token 消耗 |
+| **质量门控自动化** | 将 `quality-gate.md` 的五项检查做成脚本化的前置 hook，交付前自动校验 | 差缺防漏，不再依赖 AI 自觉 |
+
+### 第二梯队：内容充实化
+
+| 方向 | 具体内容 |
+|------|---------|
+| **填充 Agent RULE.md** | 当前 `facilitator/RULE.md`、`coordinator/RULE.md` 等几乎为空，需要补充可操作的提示词模板和判例 |
+| **补齐子规则文件** | `workflows/development/rules/delivery.md`、`intake.md`、`verification.md` 等仍有空洞，需补充最小流程和判例 |
+| **反冗余清理** | 合并 `project-isolation.md` / `knowledge-boundary.md` / `project-adapter-layer.md` 的重复内容，遵循自身的"索引不复制正文"原则 |
+
+### 第三梯队：工作流扩展
+
+| 新工作流 | 用途 |
+|---------|------|
+| `testing` | 统一管理单元测试、集成测试、回归测试的编写和验证闭环 |
+| `release` | 版本发布、CHANGELOG 生成、tag 创建的标准化流程 |
+| `code-review` | 对 AI 产出的代码做结构化审查（安全、性能、边界） |
+| `debugging` | 漏洞复现→最小修复→回归验证的专用工作流 |
+
+### 第四梯队：工具链集成
+
+| 方向 | 具体内容 |
+|------|---------|
+| **Git Hook 集成** | 在 `pre-commit` 中检查运行记录是否已写入、wiki 入口是否可达 |
+| **AI Agent SDK 适配** | 将 Agent 定义转为 Claude SubAgent / OpenAI Assistant / 自定义 Agent 的可执行配置 |
+| **`index.yaml` 自动化** | 将当前手写的 `index.yaml` 改为由工具扫描所有 YAML 头自动生成，真正实现机器可检索 |
+| **跨项目适配层自动生成** | 基于 `PROJECT_ADAPTER.md` 模板，一键为目标项目创建完整 AIGC 工作区 |
+
+### 第五梯队：框架自身的验证闭环
+
+| 方向 | 具体内容 |
+|------|---------|
+| **用 OneHarness 开发 OneHarness** | 以自身框架为项目目标，走一次完整的 `planning-discussion → development → wiki-sync` 闭环，生成项目 wiki 和运行记录 |
+| **真实项目试点** | 选取 1-2 个实际项目接入 OneHarness 工作流，从适配配置到交付验证跑完整流程，积累判例和边界数据 |
+
+---
+
+**一句话总结**：当前 OneHarness 是一份精良的规范文档，下一步的关键是从"文档型规则集"进化为"可执行的工作流工具"。第一优先级的 CLI + 规则引擎足以让框架质变。

@@ -1,3 +1,12 @@
+---
+id: workflow-development-scope
+title: 开发执行范围规则
+workflow: development
+phase: scope
+read_when: 判断是否应进入开发执行，以及开发工作流边界。
+updated: 2026-04-27
+---
+
 # 开发执行范围规则
 
 ## 本工作流负责

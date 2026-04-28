@@ -1,3 +1,12 @@
+---
+id: workflow-capability-evolution-extraction
+title: 候选提取规则
+workflow: capability-evolution
+phase: extraction
+read_when: 需要提取可复用能力、规则、模板或知识。
+updated: 2026-04-27
+---
+
 # 候选提取规则
 
 提取内容必须拆成最小可复用单位。

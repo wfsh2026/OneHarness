@@ -1,0 +1,74 @@
+framework_root: AIGC
+
+required_entries:
+  - AIGC/INDEX.md
+  - AIGC/workflows/INDEX.md
+  - AIGC/wiki/INDEX.md
+  - AIGC/projects/INDEX.md
+  - AIGC/capabilities/INDEX.md
+
+wiki_index_file: AIGC/wiki/index.yaml
+wiki_front_matter_required_fields:
+  - id
+  - title
+  - summary
+  - type
+  - status
+  - tags
+  - relates
+  - read_when
+  - source
+  - updated
+wiki_front_matter_allow_empty_fields:
+  - relates
+
+workflow_root: AIGC/workflows
+workflow_rules_dir_name: rules
+workflow_rules_index_name: INDEX.md
+workflow_rule_required_fields:
+  - id
+  - title
+  - workflow
+  - phase
+  - read_when
+  - updated
+workflow_rule_exclude_files:
+  - INDEX.md
+
+gate_required_paths:
+  - AIGC/workflows/development/rules/intake.md
+  - AIGC/workflows/development/rules/scope.md
+  - AIGC/workflows/development/rules/verification.md
+  - AIGC/workflows/development/rules/self-check.md
+  - AIGC/workflows/development/rules/quality-gate.md
+  - AIGC/workflows/development/rules/delivery.md
+  - AIGC/workflows/development/rules/issue-routing.md
+  - AIGC/workflows/development/rules/wiki-sync.md
+  - AIGC/workflows/development/templates/development-task-delivery.md
+  - AIGC/projects/rules/project-isolation.md
+  - AIGC/projects/rules/project-wiki-retrieval.md
+  - AIGC/projects/rules/project-wiki-update.md
+
+gate_boundary_scan_paths:
+  - AIGC/wiki
+  - AIGC/workflows
+  - AIGC/projects
+gate_boundary_exclude_names:
+  - templates
+gate_boundary_forbidden_patterns:
+  - ':\'
+  - "file:///"
+  - "/home/"
+  - "/Users/"
+
+self_check_path_rules:
+  - AIGC/wiki|python tools\oneharness.py index --check
+  - AIGC/workflows|python tools\oneharness.py doctor
+  - AIGC/projects|python tools\oneharness.py doctor
+  - AIGC/capabilities|python tools\oneharness.py doctor
+  - AIGC/oneharness.yaml|python tools\oneharness.py gate
+  - tools|python tools\oneharness.py gate
+  - tools|python -m unittest tools.test_oneharness
+
+self_check_delivery_commands:
+  - python tools\oneharness.py gate

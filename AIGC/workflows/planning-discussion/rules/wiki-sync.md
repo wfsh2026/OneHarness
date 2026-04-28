@@ -1,3 +1,12 @@
+---
+id: workflow-planning-discussion-wiki-sync
+title: Wiki 同步规则
+workflow: planning-discussion
+phase: wiki-sync
+read_when: 需要沉淀通用知识或项目知识。
+updated: 2026-04-27
+---
+
 # Wiki 同步规则
 
 ## 写入通用架构 wiki

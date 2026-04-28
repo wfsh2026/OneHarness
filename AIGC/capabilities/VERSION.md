@@ -1,6 +1,6 @@
 # AIGC 版本
 
-current_version: 0.5.0
+current_version: 0.6.2
 
 ## 版本级别
 
@@ -20,6 +20,9 @@ current_version: 0.5.0
 - 项目 wiki 主动搭建和更新能力。
 - 项目 wiki 维护工作流。
 - 质量门控、问题路由和知识分层能力。
+- 最小自检 CLI、wiki 索引校验和文档门控检查。
+- 开发工作流内的自检触发规则。
+- 一致性工具层、索引写回和自检命令规划。
 
 ## 当前版本功能
 
@@ -37,13 +40,18 @@ current_version: 0.5.0
 | 项目适配层规则 | active | `../projects/INDEX.md` | 定义目标项目自己的 AIGC 适配层创建方式，隔离项目事实。 |
 | 项目 wiki 主动搭建 | active | `../projects/rules/project-wiki-bootstrap.md` | 检索已有工程并在目标项目适配层建立项目 wiki。 |
 | 项目 wiki 更新 | active | `../projects/rules/project-wiki-update.md` | 在开发后更新目标项目 wiki，并保持项目事实可检索。 |
+| OneHarness 自检 | active | `../../tools/oneharness.py` | 用 `doctor`、`index --check` 和 `gate` 检查入口、元数据、索引和门控。 |
+| 自检触发规则 | active | `../workflows/development/rules/self-check.md` | 按 OneHarness 自身改动范围自动选择并运行自检命令。 |
+| Wiki 索引同步 | active | `../../tools/oneharness.py` | 用 `index --write` 按扫描结果写回 wiki 页面清单。 |
+| 自检命令规划 | active | `../../tools/oneharness.py` | 用 `self-check --path ... --delivery` 输出本轮应运行的自检命令。 |
 
 ## 当前版本边界
 
-- 当前版本只定义通用工作流、索引、模板、wiki 规则和能力版本。
+- 当前版本定义通用工作流、索引、模板、wiki 规则、能力版本和最小自检工具。
 - 当前版本不保存具体项目运行记录、项目 wiki、项目决策事实或项目代码结构分析。
 - 通用架构 wiki 只保存跨项目架构搭建知识，不保存项目专用资料。
 - 项目 wiki 只保存到目标项目适配层，不保存到通用 `AIGC/wiki`。
+- 自检配置只保存通用检查入口、扫描范围、必需字段和门控规则，不保存目标项目事实。
 
 ## 当前版本验证结果
 
@@ -55,3 +63,11 @@ current_version: 0.5.0
 - 质量门控和问题路由规则可从 `../workflows/development/rules/INDEX.md` 路由。
 - 知识分层架构页可从 `../wiki/architecture/INDEX.md` 路由。
 - 写入边界仍保持：项目事实进入目标项目适配层，通用知识进入通用 wiki。
+- `python tools/oneharness.py doctor` 可检查入口、wiki 元数据和工作流规则元数据。
+- `python tools/oneharness.py index --check` 可检查 `AIGC/wiki/index.yaml` 页面清单一致性。
+- `python tools/oneharness.py gate` 可执行交付前的最小结构门控。
+- `../workflows/development/rules/self-check.md` 可从开发规则索引命中。
+- 开发交付模板包含自检结果记录区域。
+- `python tools/oneharness.py index --write` 可写回 wiki 页面清单并保持 `index --check` 通过。
+- `python tools/oneharness.py self-check --path AIGC/wiki/architecture/entry-map.md --delivery` 可输出 `index --check` 和 `gate`。
+- `python -m unittest tools.test_oneharness` 覆盖 CLI 无效输入、索引写回和自检命令规划。

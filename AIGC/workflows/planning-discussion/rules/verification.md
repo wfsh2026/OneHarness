@@ -1,3 +1,12 @@
+---
+id: workflow-planning-discussion-verification
+title: 验证规则
+workflow: planning-discussion
+phase: verification
+read_when: 需要判断本轮策划案是否完成。
+updated: 2026-04-27
+---
+
 # 验证规则
 
 策划案讨论完成前必须验证：

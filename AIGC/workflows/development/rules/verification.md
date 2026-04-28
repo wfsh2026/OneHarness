@@ -1,3 +1,12 @@
+---
+id: workflow-development-verification
+title: 验证规则
+workflow: development
+phase: verification
+read_when: 需要验证新增、修复、重构或文档改动。
+updated: 2026-04-27
+---
+
 # 验证规则
 
 开发完成前必须验证：

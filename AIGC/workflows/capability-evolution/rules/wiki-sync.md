@@ -1,3 +1,12 @@
+---
+id: workflow-capability-evolution-wiki-sync
+title: Wiki 同步规则
+workflow: capability-evolution
+phase: wiki-sync
+read_when: 需要把可复用结论写入通用 wiki。
+updated: 2026-04-27
+---
+
 # Wiki 同步规则
 
 能力演化产生的通用架构知识，按通用 wiki 规则写入。

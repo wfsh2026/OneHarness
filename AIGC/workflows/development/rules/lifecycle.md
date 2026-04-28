@@ -1,3 +1,12 @@
+---
+id: workflow-development-lifecycle
+title: 生命周期和移交规则
+workflow: development
+phase: lifecycle
+read_when: 需要处理长任务、上下文移交、阻塞或重建。
+updated: 2026-04-27
+---
+
 # 生命周期和移交规则
 
 长任务或上下文接近上限时，必须先收尾再继续。

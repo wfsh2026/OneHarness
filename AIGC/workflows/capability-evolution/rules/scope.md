@@ -1,3 +1,12 @@
+---
+id: workflow-capability-evolution-scope
+title: 范围规则
+workflow: capability-evolution
+phase: scope
+read_when: 判断是否应进入能力演化工作流，以及本轮边界。
+updated: 2026-04-27
+---
+
 # 范围规则
 
 ## 本工作流负责

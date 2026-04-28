@@ -1,3 +1,12 @@
+---
+id: workflow-capability-evolution-verification
+title: 验证规则
+workflow: capability-evolution
+phase: verification
+read_when: 需要判断本轮能力演化是否完成。
+updated: 2026-04-27
+---
+
 # 验证规则
 
 能力演化完成前必须验证：

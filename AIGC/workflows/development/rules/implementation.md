@@ -1,3 +1,12 @@
+---
+id: workflow-development-implementation
+title: 实施规则
+workflow: development
+phase: implementation
+read_when: 需要执行代码、文档、测试或配置修改。
+updated: 2026-04-27
+---
+
 # 实施规则
 
 实施时必须遵守：

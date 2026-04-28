@@ -108,6 +108,18 @@ AI 进入本目录时，优先按以下顺序读取：
 
 如果要分析外部 harness 或更新 AIGC 能力版本，进入 `workflows/capability-evolution/`。
 
+如果要执行框架自检，使用仓库根目录下的最小 CLI：
+
+```powershell
+python tools/oneharness.py doctor
+python tools/oneharness.py index --check
+python tools/oneharness.py index --write
+python tools/oneharness.py self-check --path AIGC/wiki/architecture/entry-map.md --delivery
+python tools/oneharness.py gate
+```
+
+修改 OneHarness 自身时，开发工作流按 `workflows/development/rules/self-check.md` 自动触发对应自检；`self-check` 命令可按变更路径输出应运行的自检命令。
+
 ## 成功标准
 
 这套 AIGC 规则生效时，应满足：

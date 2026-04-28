@@ -2,7 +2,7 @@
 
 本目录记录当前 AIGC 可用能力，只保存路由、状态和版本信息，不保存具体项目事实。
 
-当前系统版本：`0.5.0`
+当前系统版本：`0.6.2`
 
 ## 当前能力
 
@@ -18,6 +18,10 @@
 | `knowledge-layering` | 知识分层 | active | `../wiki/architecture/knowledge-layering.md` | 0.5.0 | 需要拆分过大的规则、知识页、说明文档或能力入口。 |
 | `project-wiki-bootstrap` | 项目 Wiki 主动搭建 | active | `../projects/rules/project-wiki-bootstrap.md` | 0.3.0 | 需要检索已有工程并主动搭建目标项目 wiki。 |
 | `project-wiki-update` | 项目 Wiki 更新 | active | `../projects/rules/project-wiki-update.md` | 0.3.0 | 需要在开发后更新目标项目 wiki。 |
+| `oneharness-self-check` | OneHarness 自检 | active | `../../tools/oneharness.py` | 0.6.0 | 需要检查入口、元数据、wiki 索引或交付门控是否存在结构问题。 |
+| `workflow-self-check-trigger` | 自检触发规则 | active | `../workflows/development/rules/self-check.md` | 0.6.1 | OneHarness 自身改动影响 AIGC 文档、规则、配置、工具或准备交付时。 |
+| `index-sync` | Wiki 索引同步 | active | `../../tools/oneharness.py` | 0.6.2 | 需要按扫描结果校验或写回 `AIGC/wiki/index.yaml` 页面清单。 |
+| `self-check-planner` | 自检命令规划 | active | `../../tools/oneharness.py` | 0.6.2 | 需要按变更路径确定本轮应该运行哪些自检命令。 |
 
 ## 状态说明
 

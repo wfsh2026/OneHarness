@@ -1,3 +1,12 @@
+---
+id: workflow-capability-evolution-versioning
+title: 版本规则
+workflow: capability-evolution
+phase: versioning
+read_when: 需要更新 AIGC 能力索引、版本或变更记录。
+updated: 2026-04-27
+---
+
 # 版本规则
 
 更新 AIGC 能力时，必须同步检查 `AIGC/capabilities/`。

@@ -1,3 +1,12 @@
+---
+id: workflow-development-mvp-closure
+title: MVP 闭环推进规则
+workflow: development
+phase: mvp-closure
+read_when: 用户要求持续推进到可试用 MVP。
+updated: 2026-04-27
+---
+
 # MVP 闭环推进规则
 
 当用户要求持续推进到可试用状态时，必须先定义最小可验证闭环。

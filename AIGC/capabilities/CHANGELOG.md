@@ -1,5 +1,28 @@
 # AIGC 变更记录
 
+## 0.6.2
+
+- 将 `tools/oneharness.py` 拆分为配置、Markdown、索引、检查和自检规划模块，降低单个 CLI 文件职责。
+- 新增 `python tools\oneharness.py index --write`，按扫描结果写回 `AIGC/wiki/index.yaml` 的页面清单。
+- 新增 `python tools\oneharness.py self-check --path ... --delivery`，按变更路径输出应运行的自检命令。
+- 扩展 `AIGC/oneharness.yaml`，将自检路径规则和交付前命令移入配置。
+- 将 wiki 元数据检查补齐到 `type` 和 `status` 字段，与 `AIGC/wiki/SCHEMA.md` 保持一致。
+
+## 0.6.1
+
+- 新增 `workflows/development/rules/self-check.md`，定义 OneHarness 自身改动的自检触发矩阵。
+- 将 `self-check.md` 接入开发执行规则索引和最小门控配置。
+- 更新开发执行工作流、质量门控规则和交付规则，要求交付前运行 `python tools\oneharness.py gate`。
+- 更新开发交付模板，新增自检结果记录区域。
+
+## 0.6.0
+
+- 新增 `tools/oneharness.py` 最小自检 CLI，支持 `doctor`、`index --check` 和 `gate`。
+- 新增 `AIGC/oneharness.yaml`，集中配置入口文件、wiki 索引、规则元数据和质量门控检查范围。
+- 为 `workflows/**/rules/*.md` 补充最小 YAML 元数据，使工作流规则可被机器检查。
+- 扩展 `AIGC/wiki/index.yaml`，加入显式页面清单，支持索引一致性校验。
+- 新增 `tools/test_oneharness.py`，覆盖未知命令、缺失配置和当前仓库健康检查。
+
 ## 0.5.0
 
 - 从历史资料中提炼通用质量门控能力，新增 `quality-gate` 规则。
