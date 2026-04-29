@@ -2,13 +2,13 @@
 
 本目录记录当前 AIGC 可用能力，只保存路由、状态和版本信息，不保存具体项目事实。
 
-当前系统版本：`0.6.2`
+当前系统版本：`0.7.0`
 
 ## 当前能力
 
 | capability_id | 名称 | 状态 | 入口 | 版本 | read_when |
 | --- | --- | --- | --- | --- | --- |
-| `planning-discussion` | 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 0.1.0 | 需求模糊，需要讨论方案、范围、约束或成功标准。 |
+| `planning-discussion` | 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 0.2.0 | 需求模糊，需要讨论方案、游戏玩法、范围、约束或成功标准。 |
 | `development` | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 0.1.0 | 目标明确，需要开发、修复、补文档、补测试或推进 MVP 闭环。 |
 | `quality-gate` | 质量门控 | active | `../workflows/development/rules/quality-gate.md` | 0.5.0 | 交付前需要检查目标、范围、验证、边界和结果一致性。 |
 | `issue-routing` | 问题路由 | active | `../workflows/development/rules/issue-routing.md` | 0.5.0 | 开发中发现问题，需要判断沉淀位置。 |
@@ -22,6 +22,7 @@
 | `workflow-self-check-trigger` | 自检触发规则 | active | `../workflows/development/rules/self-check.md` | 0.6.1 | OneHarness 自身改动影响 AIGC 文档、规则、配置、工具或准备交付时。 |
 | `index-sync` | Wiki 索引同步 | active | `../../tools/oneharness.py` | 0.6.2 | 需要按扫描结果校验或写回 `AIGC/wiki/index.yaml` 页面清单。 |
 | `self-check-planner` | 自检命令规划 | active | `../../tools/oneharness.py` | 0.6.2 | 需要按变更路径确定本轮应该运行哪些自检命令。 |
+| `game-design-method-cards` | 游戏策划方法卡 | active | `../workflows/planning-discussion/method-cards/INDEX.md` | 0.1.0 | 需要把游戏设定、玩法想法或体验目标转成可开发、可反馈、可验证的策划结构。 |
 
 ## 状态说明
 

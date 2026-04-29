@@ -1,6 +1,6 @@
 # AIGC 版本
 
-current_version: 0.6.2
+current_version: 0.7.0
 
 ## 版本级别
 
@@ -23,13 +23,14 @@ current_version: 0.6.2
 - 最小自检 CLI、wiki 索引校验和文档门控检查。
 - 开发工作流内的自检触发规则。
 - 一致性工具层、索引写回和自检命令规划。
+- 游戏策划方法卡体系和触发索引。
 
 ## 当前版本功能
 
 | 功能 | 状态 | 入口 | 说明 |
 | --- | --- | --- | --- |
 | 低 token 工作流路由 | active | `../workflows/INDEX.md` | 先读索引，再按 `read_when` 读取命中的工作流和规则。 |
-| 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 把模糊需求讨论成目标、范围、约束、风险和成功标准明确的策划案。 |
+| 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 把模糊需求讨论成目标、范围、约束、风险和成功标准明确的策划案；游戏策划问题会进一步转成玩家幻想、核心体验、机制、反馈和验证原型。 |
 | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 把已确认目标转成最小可验证代码、文档、测试或配置改动。 |
 | 质量门控 | active | `../workflows/development/rules/quality-gate.md` | 交付前检查目标、范围、验证、边界和结果一致性。 |
 | 问题路由 | active | `../workflows/development/rules/issue-routing.md` | 判断问题和经验应写入运行记录、项目 wiki、通用 wiki 还是能力索引。 |
@@ -44,6 +45,7 @@ current_version: 0.6.2
 | 自检触发规则 | active | `../workflows/development/rules/self-check.md` | 按 OneHarness 自身改动范围自动选择并运行自检命令。 |
 | Wiki 索引同步 | active | `../../tools/oneharness.py` | 用 `index --write` 按扫描结果写回 wiki 页面清单。 |
 | 自检命令规划 | active | `../../tools/oneharness.py` | 用 `self-check --path ... --delivery` 输出本轮应运行的自检命令。 |
+| 游戏策划方法卡 | active | `../workflows/planning-discussion/method-cards/INDEX.md` | 按来源、阶段和触发词组织原则卡、提问卡、转译卡和检查卡。 |
 
 ## 当前版本边界
 
@@ -52,6 +54,7 @@ current_version: 0.6.2
 - 通用架构 wiki 只保存跨项目架构搭建知识，不保存项目专用资料。
 - 项目 wiki 只保存到目标项目适配层，不保存到通用 `AIGC/wiki`。
 - 自检配置只保存通用检查入口、扫描范围、必需字段和门控规则，不保存目标项目事实。
+- 游戏策划方法卡只保存方法论结构和来源锚点，不保存书籍原文或具体项目玩法事实。
 
 ## 当前版本验证结果
 
@@ -71,3 +74,4 @@ current_version: 0.6.2
 - `python tools/oneharness.py index --write` 可写回 wiki 页面清单并保持 `index --check` 通过。
 - `python tools/oneharness.py self-check --path AIGC/wiki/architecture/entry-map.md --delivery` 可输出 `index --check` 和 `gate`。
 - `python -m unittest tools.test_oneharness` 覆盖 CLI 无效输入、索引写回和自检命令规划。
+- 游戏策划方法卡可从 `../workflows/planning-discussion/method-cards/INDEX.md` 路由，并由 `game-design-methodology.md` 调用。

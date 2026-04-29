@@ -58,6 +58,17 @@ class OneHarnessCliTests(unittest.TestCase):
         self.assertIn("python tools\\oneharness.py gate", result.stdout)
         self.assertIn("python -m unittest tools.test_oneharness", result.stdout)
 
+    def test_game_design_methodology_is_routable(self) -> None:
+        rules_index = (ROOT / "AIGC/workflows/planning-discussion/rules/INDEX.md").read_text(encoding="utf-8")
+        template_index = (ROOT / "AIGC/workflows/planning-discussion/templates/INDEX.md").read_text(encoding="utf-8")
+        method_index = (ROOT / "AIGC/workflows/planning-discussion/method-cards/INDEX.md").read_text(encoding="utf-8")
+
+        self.assertIn("game-design-methodology.md", rules_index)
+        self.assertIn("game-design-plan.md", template_index)
+        self.assertIn("design-and-maintenance.md", method_index)
+        self.assertIn("phase-index.md", method_index)
+        self.assertIn("trigger-index.md", method_index)
+
 
 if __name__ == "__main__":
     unittest.main()
