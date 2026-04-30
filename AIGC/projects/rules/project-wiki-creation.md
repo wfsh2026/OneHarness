@@ -40,6 +40,14 @@
     important-files.md
     build-test-run.md
     external-services.md
+  design/
+    INDEX.md
+    features/
+  development/
+    INDEX.md
+    tasks/
+    subtasks/
+    contracts/
   workflows/
     INDEX.md
     development.md
@@ -75,6 +83,10 @@
 | `decision` | 已确认决策。 |
 | `architecture` | 稳定架构和模块边界。 |
 | `requirement` | 稳定需求。 |
+| `design` | 已确认策划案、功能设计和体验目标。 |
+| `development-task` | 主程评审后的开发任务拆解。 |
+| `development-subtask` | 分配给固定开发角色的子任务入口。 |
+| `development-contract` | 任务间接口契约、事件、数据或资源约定。 |
 | `workflow` | 项目内流程。 |
 | `glossary` | 术语。 |
 | `risk` | 已确认风险。 |
@@ -94,8 +106,10 @@
 
 - 项目事实写入项目 wiki。
 - 项目决策写入 `decisions/`。
+- 策划案和功能设计写入 `design/`。
+- 主程任务拆解、子任务分配和接口契约写入 `development/`。
 - 未确认内容写入 `open-questions.md`。
-- 来源写入 `source-map.md`。
+- 来源写入 `source-map/`。
 - 临时执行过程写入运行记录，不进入项目 wiki。
 
 ## 假设晋升规则

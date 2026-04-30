@@ -22,6 +22,8 @@
 | 依赖方向、禁止依赖 | `architecture/dependency-direction.md` |
 | 配置、环境、参数 | `architecture/configuration-surface.md` |
 | 构建、测试、运行 | `source-map/build-test-run.md` |
+| 策划案、功能设计、体验目标 | `design/INDEX.md`、命中的 `design/features/{feature_id}.md` |
+| 主程任务拆解、子任务、接口契约 | `development/INDEX.md`、命中的 `development/tasks/{task_id}.md` |
 | 已确认决策 | `decisions/active.md` |
 | 未决问题 | `open-questions.md` |
 

@@ -48,6 +48,14 @@
       important-files.md
       build-test-run.md
       external-services.md
+    design/
+      INDEX.md
+      features/
+    development/
+      INDEX.md
+      tasks/
+      subtasks/
+      contracts/
     workflows/
       INDEX.md
       development.md
@@ -70,3 +78,5 @@
 - 需要通用架构知识时读取通用 `AIGC/wiki/INDEX.md`。
 - 需要目标项目事实时读取目标项目 `{project_aigc_root}/ADAPTER.md`，再读取 `{project_wiki_root}/INDEX.md`。
 - 项目 wiki 的实际路径必须来自适配配置，不允许写死到通用 AIGC。
+- 策划案、主程任务拆解、子任务分配和接口契约属于目标项目事实，写入目标项目 wiki。
+- 工作流运行过程、失败尝试和一次性验证输出写入 `{workflow_runs_root}`，不写入项目 wiki 正文。

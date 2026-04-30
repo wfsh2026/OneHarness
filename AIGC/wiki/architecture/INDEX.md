@@ -13,6 +13,7 @@
 | `architecture-capability-registry` | 需要设计能力入口、状态、版本和可检索维护规则。 | `capability-registry.md` |
 | `architecture-project-adapter-layer` | 需要隔离通用框架与目标项目事实、运行记录和项目 wiki。 | `project-adapter-layer.md` |
 | `architecture-knowledge-boundary` | 需要判断一条知识应该写入通用 wiki 还是项目适配层。 | `knowledge-boundary.md` |
+| `architecture-wiki-mediated-workflow-handoff` | 需要设计策划、主程拆解、开发执行之间的低 token 交接方式。 | `wiki-mediated-workflow-handoff.md` |
 | `architecture-verifiable-work-loop` | 需要把任务压缩成一个可验证的最小闭环。 | `verifiable-work-loop.md` |
 | `architecture-knowledge-layering` | 需要拆分过大的规则、知识页、说明文档或能力入口。 | `knowledge-layering.md` |
 
