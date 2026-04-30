@@ -2,16 +2,17 @@
 
 本目录记录当前 AIGC 可用能力，只保存路由、状态和版本信息，不保存具体项目事实。
 
-当前系统版本：`0.7.0`
+当前系统版本：`1.0.0`
 
 ## 当前能力
 
 | capability_id | 名称 | 状态 | 入口 | 版本 | read_when |
 | --- | --- | --- | --- | --- | --- |
 | `planning-discussion` | 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 0.2.0 | 需求模糊，需要讨论方案、游戏玩法、范围、约束或成功标准。 |
-| `development` | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 0.1.0 | 目标明确，需要开发、修复、补文档、补测试或推进 MVP 闭环。 |
-| `quality-gate` | 质量门控 | active | `../workflows/development/rules/quality-gate.md` | 0.5.0 | 交付前需要检查目标、范围、验证、边界和结果一致性。 |
-| `issue-routing` | 问题路由 | active | `../workflows/development/rules/issue-routing.md` | 0.5.0 | 开发中发现问题，需要判断沉淀位置。 |
+| `development` | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 1.0.0 | 目标明确，需要主程按总策划案拆解项目任务包，并分配子任务给全新会话执行。 |
+| `game-development-role-routing` | 游戏开发角色路由 | active | `../workflows/development/rules/game-role-routing.md` | 1.0.0 | 需要按 UI、3C、场景、战斗、AI、玩法系统、工具、技术美术或 QA 验证分配开发子任务。 |
+| `quality-gate` | 质量门控 | active | `../workflows/development/rules/quality-gate.md` | 1.0.0 | 交付前需要检查目标、范围、任务包、子任务会话隔离、验证、边界和结果一致性。 |
+| `issue-routing` | 问题路由 | active | `../workflows/development/rules/issue-routing.md` | 1.0.0 | 开发中发现问题，需要形成候选并由主程审核沉淀位置。 |
 | `project-wiki-maintenance` | 项目 Wiki 维护 | active | `../workflows/project-wiki-maintenance/WORKFLOW.md` | 0.4.0 | 需要为目标项目搭建、检索、更新或检查项目 wiki。 |
 | `capability-evolution` | AIGC 能力演化 | active | `../workflows/capability-evolution/WORKFLOW.md` | 0.1.0 | 需要分析外部 harness、提取可复用能力、更新能力索引或版本记录。 |
 | `generic-architecture-wiki` | 通用架构 Wiki | active | `../wiki/INDEX.md` | 0.2.0 | 需要检索跨项目通用架构搭建知识。 |
