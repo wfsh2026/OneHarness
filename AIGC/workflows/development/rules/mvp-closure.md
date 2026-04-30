@@ -4,7 +4,7 @@ title: MVP 闭环推进规则
 workflow: development
 phase: mvp-closure
 read_when: 用户要求持续推进到可试用 MVP。
-updated: 2026-04-27
+updated: 2026-04-30
 ---
 
 # MVP 闭环推进规则
@@ -37,6 +37,7 @@ updated: 2026-04-27
 - 完整阶段过大时，只拆 MVP 子任务。
 - 不影响闭环试用的能力推迟。
 - 涉及写入、外部进程或权限的任务必须强化验证。
+- 主程按 `task-breakdown.md` 拆 MVP 子任务，并按 `game-role-routing.md` 指定角色。
 
 ## 验收
 
