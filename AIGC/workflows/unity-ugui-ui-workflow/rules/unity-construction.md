@@ -11,12 +11,20 @@ updated: 2026-05-08
 
 Unity 施工员负责把 UI 策划和技术美术产物落地为 Unity 工程内容。
 
+## 角色声明
+
+- Unity 施工员开始输出时，必须先显示 `角色：Unity 施工员`。
+- Unity 施工员只接收 UI 策划审核通过的技术美术交接包；不能绕过 UI 策划直接使用未审核切片。
+- 如果技术美术交接包返工，已经生成的施工内容降级为草稿，必须基于新交接包重新修订。
+
 ## 生成前条件
 
 生成 Unity 代码前必须已经有：
 
 - UI 策划输出。
 - 技术美术拆解。
+- 技术美术正式资源包或明确的占位资源策略。
+- UI 策划对技术美术资源包的审核结论。
 - UGUI 层级。
 - RectTransform 布局表。
 - 资源路径依赖表。
@@ -24,6 +32,19 @@ Unity 施工员负责把 UI 策划和技术美术产物落地为 Unity 工程内
 - 按钮事件表。
 
 缺失时先输出待确认项，不直接生成完整代码。
+
+## 占位资源策略
+
+如果 L2 或 L3 输入中存在缺失资源，但用户允许先施工，Unity 施工员可以使用占位资源策略：
+
+| 缺失类型 | 占位策略 |
+| --- | --- |
+| 缺少 Sprite | 创建 Image 节点但不绑定 Sprite，并输出缺失日志 |
+| 缺少字体 | 使用项目默认 TMP Font Asset，并写入待替换项 |
+| 缺少 Hover 状态图 | 使用 Normal 图代替，并写入待替换项 |
+| 缺少动态数据来源 | 只暴露 Bind 字段，不写死测试值 |
+
+使用占位策略时，产物必须标记为草稿，不得标记为最终交付。
 
 ## 必须输出
 
@@ -36,6 +57,30 @@ Unity 施工员负责把 UI 策划和技术美术产物落地为 Unity 工程内
 - 资源路径依赖表。
 - 运行检查清单。
 - 截图校准反馈表。
+
+## `UILayoutSpec` 最低字段
+
+Unity 施工员输出的 `UILayoutSpec` 或等价集中配置，至少包含：
+
+| 字段 | 说明 |
+| --- | --- |
+| nodeName | 节点名 |
+| nodeType | Image / Button / TMP_Text / CanvasGroup / Empty |
+| parentPath | 父节点路径 |
+| anchorPreset | 锚点预设 |
+| pivot | Pivot |
+| anchoredPosition | 位置 |
+| sizeDelta | 尺寸 |
+| localScale | 缩放 |
+| siblingIndex | 层级顺序 |
+| spritePath | 图片资源路径，可为空 |
+| textContent | 固定文本，可为空 |
+| textStyle | 文本样式，可为空 |
+| buttonEvent | 按钮事件名，可为空 |
+| raycastTarget | 是否参与点击 |
+| activeDefault | 默认显示状态 |
+
+布局、资源、按钮配置必须来自 `UILayoutSpec` 或集中表，不得散落在 Controller 业务代码中。
 
 ## 文件职责
 
@@ -87,7 +132,9 @@ Unity 施工员负责把 UI 策划和技术美术产物落地为 Unity 工程内
 - 正式文本默认使用 `TextMeshProUGUI`，不使用 Unity 默认 `Text`。
 - 所有可交互元素必须独立节点化。
 - 按钮文字与按钮背景分离，除非用户明确要求静态贴图按钮。
-- 资源路径、布局参数、按钮配置集中管理。
+- 资源路径、布局参数、按钮配置集中管理；不能把可调参数散落在 Controller 业务代码中。
+- 只能加载技术美术 `Final` 或等价正式资源集合，不能加载 `ReferenceOnly`、污染裁剪或未审核候选资源。
+- 不允许把整张效果图或任一全屏截图作为唯一背景；背景必须按技术美术交接包组合分层资源。
 - Controller 只负责 UI 行为和事件转发，不写复杂业务逻辑。
 - 未确认 Tween 库时，不强行引入第三方依赖。
 
@@ -118,3 +165,5 @@ Assets/
 6. Button 点击能触发 Controller 事件。
 7. Controller 只暴露事件或接口，不包含业务跳转硬编码。
 8. 关闭和销毁时没有残留 Tween。
+9. 资源依赖表只包含 UI 策划审核通过的正式资源集合。
+10. 施工代码没有引用参考图、整图背景、`ReferenceOnly` 或未审核候选切片。

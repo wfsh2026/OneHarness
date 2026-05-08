@@ -9,3 +9,15 @@
 | `technical-art-slicing.md` | 需要拆分 UI 素材、运行切图工具、审核 preview 或输出拼接还原文档。 |
 | `unity-construction.md` | 需要生成 Unity UGUI Prefab 施工方案、Editor 创建脚本、Controller 或绑定表。 |
 | `screenshot-calibration.md` | 需要基于目标 UI 图和 Unity 截图输出偏差表、回派角色和修正清单。 |
+
+
+## 组合读取规则
+
+| 用户请求 | 必读文件 |
+| --- | --- |
+| 判断输入是否够 | `input-completeness.md` |
+| 只做 UI 语义分析 | `input-completeness.md` + `ui-planning.md` |
+| 输出 UGUI 施工方案 | `input-completeness.md` + `ui-planning.md` + `technical-art-slicing.md` |
+| 生成 Unity 脚本 | `input-completeness.md` + `ui-planning.md` + `technical-art-slicing.md` + `unity-construction.md` |
+| 做截图校准 | `screenshot-calibration.md` + 必要时回读 `technical-art-slicing.md` 或 `unity-construction.md` |
+| 输出完整报告 | `templates/ui-ugui-delivery.md` + 当前阶段对应规则 |
