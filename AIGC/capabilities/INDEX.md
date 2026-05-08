@@ -2,7 +2,7 @@
 
 本目录记录当前 AIGC 可用能力，只保存路由、状态和版本信息，不保存具体项目事实。
 
-当前系统版本：`2.0.0`
+当前系统版本：`2.1.0`
 
 ## 当前能力
 
@@ -10,6 +10,7 @@
 | --- | --- | --- | --- | --- | --- |
 | `planning-discussion` | 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 1.0.0 | 需求模糊，需要讨论方案、游戏玩法、范围、约束或成功标准，并把确认后的项目策划事实写入目标项目 wiki。 |
 | `development` | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 2.0.0 | 目标明确，需要主程按项目 wiki 策划页面拆解项目 wiki 开发任务页，并分配子任务给全新会话执行。 |
+| `unity-ugui-ui-workflow` | Unity UGUI UI 图转施工工作流 | active | `../workflows/unity-ugui-ui-workflow/WORKFLOW.md` | 1.0.0 | 用户提供 UI 截图、效果图或素材图，需要输出 UI 策划、技术美术切图、UGUI Prefab 施工、Controller 事件接口和截图校准反馈。 |
 | `game-development-role-routing` | 游戏开发角色路由 | active | `../workflows/development/rules/game-role-routing.md` | 2.0.0 | 需要按 UI、3C、场景、战斗、AI、玩法系统、工具、技术美术或 QA 验证分配开发子任务，并限制角色读取项目 wiki 子任务页允许的入口。 |
 | `quality-gate` | 质量门控 | active | `../workflows/development/rules/quality-gate.md` | 2.0.0 | 交付前需要检查目标、范围、项目 wiki 任务页、子任务会话隔离、验证、边界和结果一致性。 |
 | `issue-routing` | 问题路由 | active | `../workflows/development/rules/issue-routing.md` | 1.0.0 | 开发中发现问题，需要形成候选并由主程审核沉淀位置。 |

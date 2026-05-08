@@ -1,6 +1,6 @@
 # AIGC 版本
 
-current_version: 2.0.0
+current_version: 2.1.0
 
 ## 版本级别
 
@@ -30,6 +30,7 @@ current_version: 2.0.0
 - Wiki 候选知识审核和沉淀边界。
 - 策划到开发通过目标项目 wiki 衔接。
 - 项目 wiki `design/` 和 `development/` 分区。
+- Unity UGUI UI 图转施工工作流。
 
 ## 当前版本功能
 
@@ -38,6 +39,7 @@ current_version: 2.0.0
 | 低 token 工作流路由 | active | `../workflows/INDEX.md` | 先读索引，再按 `read_when` 读取命中的工作流和规则。 |
 | 策划案讨论 | active | `../workflows/planning-discussion/WORKFLOW.md` | 把模糊需求讨论成目标、范围、约束、风险和成功标准明确的项目 wiki 策划页面；游戏策划问题会进一步转成玩家幻想、核心体验、机制、反馈和验证原型。 |
 | 开发执行 | active | `../workflows/development/WORKFLOW.md` | 由主程把项目 wiki 中已确认的策划页面拆成项目 wiki 开发任务页，按游戏模块角色分配给全新会话执行，并集成验收。 |
+| Unity UGUI UI 图转施工 | active | `../workflows/unity-ugui-ui-workflow/WORKFLOW.md` | 把 UI 截图、效果图或素材图转成 UI 策划、技术美术切图、UGUI Prefab 施工、Controller 事件接口和截图校准反馈。 |
 | 游戏开发角色路由 | active | `../workflows/development/rules/game-role-routing.md` | 按 UI、3C、场景、战斗、AI、玩法系统、工具、技术美术和 QA 验证分配子任务，并限制角色读取项目 wiki 子任务页允许的入口。 |
 | 质量门控 | active | `../workflows/development/rules/quality-gate.md` | 交付前检查目标、范围、项目 wiki 任务页、验证、边界和结果一致性。 |
 | 问题路由 | active | `../workflows/development/rules/issue-routing.md` | 将开发中发现的问题先形成候选，再由主程审核写入运行记录、项目 wiki、通用 wiki 或能力索引。 |
@@ -62,6 +64,7 @@ current_version: 2.0.0
 - 项目 wiki 只保存到目标项目适配层，不保存到通用 `AIGC/wiki`。
 - 项目策划事实写入目标项目 wiki 的 `design/` 分区。
 - 主程任务拆解、子任务分配和接口契约写入目标项目 wiki 的 `development/` 分区。
+- Unity UGUI UI 工作流只保存跨项目可复用的三角色流程、切图工具规则、施工约束和报告模板；具体界面事实、素材路径、项目 UI 规范和运行记录仍写入目标项目适配层。
 - 工作流运行过程、失败尝试、命令输出和候选知识审核过程写入运行记录或交付物，不写入项目 wiki 正文。
 - 自检配置只保存通用检查入口、扫描范围、必需字段和门控规则，不保存目标项目事实。
 - 游戏策划方法卡只保存方法论结构和来源锚点，不保存书籍原文或具体项目玩法事实。
@@ -93,3 +96,4 @@ current_version: 2.0.0
 - 策划工作流可从 `../workflows/planning-discussion/WORKFLOW.md` 路由到项目 wiki 策划页面输出。
 - 开发任务拆解规则可从 `../workflows/development/rules/INDEX.md` 命中，并写入项目 wiki `development/` 分区。
 - 项目 wiki `design/` 和 `development/` 分区可从项目 wiki 入口模板和项目 wiki 检索规则命中。
+- Unity UGUI UI 工作流可从 `../workflows/INDEX.md` 路由到 `../workflows/unity-ugui-ui-workflow/WORKFLOW.md`，并按输入完整度、UI 策划、技术美术切图、Unity 施工和截图校准规则继续读取。
