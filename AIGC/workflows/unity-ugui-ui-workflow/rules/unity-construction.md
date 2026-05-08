@@ -40,7 +40,7 @@ Unity 施工员负责把 UI 策划和技术美术产物落地为 Unity 工程内
 | 缺失类型 | 占位策略 |
 | --- | --- |
 | 缺少 Sprite | 创建 Image 节点但不绑定 Sprite，并输出缺失日志 |
-| 缺少字体 | 使用项目默认 TMP Font Asset，并写入待替换项 |
+| 缺少字体 | 使用项目默认 Font，并写入待替换项 |
 | 缺少 Hover 状态图 | 使用 Normal 图代替，并写入待替换项 |
 | 缺少动态数据来源 | 只暴露 Bind 字段，不写死测试值 |
 
@@ -65,7 +65,7 @@ Unity 施工员输出的 `UILayoutSpec` 或等价集中配置，至少包含：
 | 字段 | 说明 |
 | --- | --- |
 | nodeName | 节点名 |
-| nodeType | Image / Button / TMP_Text / CanvasGroup / Empty |
+| nodeType | Image / Button / Text / CanvasGroup / Empty |
 | parentPath | 父节点路径 |
 | anchorPreset | 锚点预设 |
 | pivot | Pivot |
@@ -89,10 +89,10 @@ Unity 施工员输出的 `UILayoutSpec` 或等价集中配置，至少包含：
 职责：
 
 - 创建 Canvas、SafeArea 和 UI Layer。
-- 创建 Image、Button、TMP_Text 等节点。
+- 创建 Image、Button、Text 等节点。
 - 设置 RectTransform。
 - 按资源路径加载 Sprite。
-- 绑定 Button、Image、TMP_Text。
+- 绑定 Button、Image、Text。
 - 添加 `XXXPanelController`。
 - 保存 Prefab。
 - 输出缺失资源日志。
@@ -129,7 +129,7 @@ Unity 施工员输出的 `UILayoutSpec` 或等价集中配置，至少包含：
 
 ## UGUI 规则
 
-- 正式文本默认使用 `TextMeshProUGUI`，不使用 Unity 默认 `Text`。
+- 所有 UGUI 文本显示必须使用旧版 `UnityEngine.UI.Text` 组件，不使用 `TextMeshProUGUI`、`TMP_Text` 或其他 TextMeshPro 组件。
 - 所有可交互元素必须独立节点化。
 - 按钮文字与按钮背景分离，除非用户明确要求静态贴图按钮。
 - 资源路径、布局参数、按钮配置集中管理；不能把可调参数散落在 Controller 业务代码中。
@@ -160,7 +160,7 @@ Assets/
 1. Unity 编译通过。
 2. Editor 菜单能创建 Prefab。
 3. Prefab 能生成到目标路径。
-4. Prefab 无缺失 Sprite / TMP / Button 引用。
+4. Prefab 无缺失 Sprite / Text / Button 引用。
 5. Inspector 字段绑定完整。
 6. Button 点击能触发 Controller 事件。
 7. Controller 只暴露事件或接口，不包含业务跳转硬编码。

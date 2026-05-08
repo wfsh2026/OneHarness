@@ -16,6 +16,14 @@ from collections import Counter, defaultdict, deque
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
+DISABLED_MESSAGE = (
+    "Unity UI Auto Slicer is disabled for unity-ugui-ui-workflow. "
+    "Provide pre-sliced element images instead."
+)
+
+if __name__ == "__main__":
+    raise SystemExit(DISABLED_MESSAGE)
+
 try:
     from PIL import Image, ImageDraw, ImageFont
 except Exception as exc:
@@ -538,6 +546,7 @@ def run_once(image_path: Path, settings: Dict[str, int]) -> Path:
 
 
 def main() -> None:
+    raise SystemExit(DISABLED_MESSAGE)
     try:
         if len(sys.argv) > 1:
             image_path = normalize_input_path(" ".join(sys.argv[1:]))

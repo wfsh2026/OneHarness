@@ -43,6 +43,7 @@ AI 进入本目录时，优先按以下顺序读取：
 | --- | --- |
 | 需求模糊，需要澄清目标、范围、非目标、约束或成功标准 | `planning-discussion` |
 | 目标明确，需要开发、修复、补文档、补测试或推进 MVP 闭环 | `development` |
+| 用户提供 UI 截图、效果图或素材图，需要转成 Unity UGUI 策划、资源验收、Prefab 施工或截图校准交付物 | `unity-ugui-ui-workflow` |
 | 需要为目标项目搭建、检索、更新或检查项目 wiki | `project-wiki-maintenance` |
 | 需要分析外部 harness、提取可复用能力或更新 AIGC 能力版本 | `capability-evolution` |
 
@@ -97,6 +98,8 @@ AI 进入本目录时，优先按以下顺序读取：
 如果要讨论方案，进入 `workflows/planning-discussion/`。
 
 如果要执行开发，进入 `workflows/development/`。
+
+如果要把 UI 图转成 Unity UGUI 施工交付物，进入 `workflows/unity-ugui-ui-workflow/`。
 
 如果要为目标项目创建 AIGC 工作区，读取 `projects/PROJECT_ADAPTER.md`。
 

@@ -49,7 +49,7 @@ updated: 2026-05-08
 - `Final` 中不得保留 `canUseDirectly=false` 的资源。
 - `Final` 实际文件数量必须和 manifest `finalAssets` 数量一致。
 - `Final` 中不得混入 `ReferenceOnly`、旧命名重复资源或未切素材合集。
-- 带文字按钮图是否可作为正式按钮资源，必须遵守 UI 策划决策；未确认时默认要求文字独立为 TMP。
+- 带文字按钮图是否可作为正式按钮资源，必须遵守 UI 策划决策；未确认时默认要求文字独立为旧版 `Text`。
 
 ## 资源验收步骤
 

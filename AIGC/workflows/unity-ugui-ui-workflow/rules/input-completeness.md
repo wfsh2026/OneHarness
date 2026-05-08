@@ -14,7 +14,7 @@ updated: 2026-05-08
 - 最终效果图。
 - 背景图、按钮素材、图标素材、装饰素材、Logo 等已切好的元素图片。
 - 设计分辨率和目标屏幕比例。
-- Unity 版本、Canvas Scaler 设置和 TextMeshPro 要求。
+- Unity 版本、Canvas Scaler 设置和旧版 `Text` 字体要求。
 - 是否需要 Tween 库，以及已确认的 Tween 库名称。
 - 是否需要自动生成 Prefab。
 - 资源导入路径和输出路径。

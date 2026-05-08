@@ -1,1 +1,1 @@
-pillow>=10.0.0
+# Archived auto slicer only. The current workflow has no Python runtime requirements.

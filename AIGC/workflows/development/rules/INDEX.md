@@ -7,6 +7,8 @@
 | `scope.md` | 判断是否应进入开发执行，以及开发工作流边界。 |
 | `intake.md` | 开发前需要确认目标、边界、禁止事项和验证方式。 |
 | `task-breakdown.md` | 需要把目标拆成可执行开发任务。 |
+| `subagent-dispatch.md` | 进入开发执行、准备修改代码或文档、或需要把策划/任务交给程序角色执行。 |
+| `workflow-bypass-prevention.md` | 用户要求实现、继续、补齐、全量开发、修改代码或文档，且当前会话可能直接替代开发工作流执行时。 |
 | `game-role-routing.md` | 需要按游戏开发模块选择 UI、3C、场景、战斗、AI、系统、工具、技术美术或验证角色。 |
 | `implementation.md` | 需要执行代码、文档、测试或配置修改。 |
 | `verification.md` | 需要验证新增、修复、重构或文档改动。 |
