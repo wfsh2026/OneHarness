@@ -1,5 +1,13 @@
 # AIGC 变更记录
 
+## 2.2.0
+
+- 将 `unity-ugui-ui-workflow` 从默认三角色流水线瘦身为 `ui-programmer` 快速路径、`ui-asset-curator` 可选资源核查路径和独立施工路径。
+- 新增 `context-isolation.md`，定义复杂 UI 的上下文隔离触发条件：大量已切元素、图片数量过多、长 manifest、`.cs` + Prefab 施工、多轮截图校准、长报告和长资源清单。
+- 更新 UGUI 规则索引、UI 规划、资源整理、Unity 施工、截图校准和交付模板的角色命名，移除旧的 UI 策划 / 技术美术 / Unity 施工员默认三角色表述。
+- 删除未被索引引用且已禁用的 `technical-art-slicing.md`，避免 OneHarness 自检失败。
+- 版本级别为 minor，因为本次新增上下文隔离规则并调整 UGUI 工作流内部默认执行路径，不改变通用 AIGC 的项目事实写入边界。
+
 ## 2.1.0
 
 - 新增 `unity-ugui-ui-workflow` 通用工作流，用于把 UI 截图、效果图或素材图转成 Unity UGUI 策划、技术美术拆解、Prefab 施工和截图校准交付物。
