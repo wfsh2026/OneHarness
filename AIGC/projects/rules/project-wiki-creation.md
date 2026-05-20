@@ -6,13 +6,14 @@
 
 ## 创建前必须确认
 
-- `project_name`
-- `project_root`
-- `project_aigc_root`
+- `project_id`
+- `display_name`
+- `source_project_root`
+- `capsule_root`
 - `project_wiki_root`
 - `workflow_runs_root`
 
-所有路径必须来自项目适配配置，不允许在通用 AIGC 中硬编码目标项目路径。
+所有路径必须来自 `AIGC/_local/registry.yaml` 或项目胶囊配置，不允许在通用 AIGC 中硬编码目标项目路径。
 
 ## 最小结构
 
@@ -121,7 +122,7 @@
 
 ## 创建流程
 
-1. 读取项目适配配置。
+1. 读取本机 registry 和项目胶囊配置。
 2. 创建最小 wiki 结构。
 3. 使用 `../templates/project-wiki-index.md` 创建入口。
 4. 使用 `../templates/project-wiki-page.md` 创建具体页面。
@@ -136,3 +137,4 @@
 - 禁止把通用规则复制进项目 wiki；只能引用。
 - 禁止把未确认内容写成项目事实。
 - 禁止把运行记录替代决策记录。
+- 禁止提交 `AIGC/_local/` 下创建出的项目 wiki。

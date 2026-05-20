@@ -2,16 +2,17 @@
 
 ## 结论
 
-工作流需要目标项目事实时，只读取目标项目 wiki 索引和命中页面，不读取整个项目 wiki。
+工作流需要目标项目事实时，通过本机 registry 定位项目胶囊，只读取目标项目 wiki 索引和命中页面，不读取整个项目 wiki。
 
 ## 调用顺序
 
 1. 判断问题是否需要项目事实。
-2. 需要项目事实时读取 `{project_aigc_root}/ADAPTER.md`。
-3. 读取 `{project_wiki_root}/INDEX.md`。
-4. 按 `read_when` 命中一个或少数页面。
-5. 页面不足时，再读取项目源码或文档入口补证据。
-6. 补出的稳定事实按 `project-wiki-update.md` 回写。
+2. 需要项目事实时读取 `AIGC/_local/registry.yaml`，按 `project_id` 定位 `capsule_root`。
+3. 读取 `{capsule_root}/ADAPTER.md`。
+4. 读取 `{project_wiki_root}/INDEX.md`。
+5. 按 `read_when` 命中一个或少数页面。
+6. 页面不足时，再读取项目源码或文档入口补证据。
+7. 补出的稳定事实按 `project-wiki-update.md` 回写。
 
 ## 命中规则
 

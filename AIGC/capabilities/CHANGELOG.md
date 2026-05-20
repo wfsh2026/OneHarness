@@ -1,11 +1,45 @@
 # AIGC 变更记录
 
+## 3.0.3
+
+- 新增开发验证输出收敛规则：构建、测试、Unity 批处理、打包、静态扫描和日志分析等大输出命令，默认先写入日志文件，再读取失败摘要、错误行、测试汇总或最后少量关键行。
+- 明确 `git status`、`git diff`、`git show` 等仓库检查默认限定到本轮修改路径；需要全仓检查时只汇总范围、数量和风险，不输出完整无关文件清单。
+- 明确构建通过但存在大量重复 warning 时，只记录通过结论、warning 类型或数量；Unity 测试优先读取结果 XML 或测试汇总，未启动时只读取关键阻塞日志。
+- 版本级别为 patch，因为本次只收紧验证阶段的输出读取方式，不改变必须验证的质量要求。
+
+## 3.0.2
+
+- 收紧会话角色标识展示时机：用户追问 Tharness 规则、输出格式、上下文消耗、工具执行方式、规则偏差原因或要求修订规则时，回复按正式用户可见输出处理，必须展示 `【当前角色】`、`【主要职责】`、`【工作依据】` 三行标识。
+- 明确上下文压缩、会话恢复、长任务续接或只剩摘要上下文后的正式回复，不能因为摘要中记录过角色标识就省略三行标识。
+- 同步更新开发交付规则，要求规则解释和规则修订类回复说明命中的规则文件或本次修订文件。
+- 版本级别为 patch，因为本次只收紧既有会话角色标识的执行边界，不改变工作流路由、写入边界或角色选择来源。
+
+## 3.0.1
+
+- 修正会话角色标识规则：当前角色名只能来自角色选择表、项目胶囊声明的扩展角色或 `Tharness 通用工作流协调员` 兜底模板。
+- 明确输出主题、文档类型、评审对象或任务标题不能作为当前角色名，避免把 `Tharness 架构说明`、`方案评审`、`规则检查`、`能力说明` 等内容标题误写成角色。
+- 明确 Tharness 架构说明、工作流规则检查、规则偏差追查、方案评审和能力总结在未命中专业工作流角色时，必须使用 `Tharness 通用工作流协调员`。
+- 版本级别为 patch，因为本次是对既有会话角色标识兜底规则的纠偏和收紧，不改变工作流路由、写入边界或默认读取路径。
+
+## 3.0.0
+
+- 清理 AIGC 根目录中过期的 Tharness 设计评价和后续拓展路线图，当前状态以 `capabilities/VERSION.md`、`capabilities/CHANGELOG.md` 和能力索引为准。
+- 压缩开发子任务的默认 Agent 读取方式：默认只读 `agents/developer/RULE.md` 和 `rules/game-role-routing.md` 当前角色行，角色专属文件改为按需补充。
+- 新增项目扩展开发入口机制：项目专属开发规则和角色由本机项目胶囊声明，通用层只保存读取、调度和边界机制。
+- 新增项目扩展开发计划约束：扩展方案必须覆盖核心修改方案、脚本配置清单、小功能点设计、验证计划和风险待确认项。
+- 补充项目扩展输出优先级：正式开发方案必须是可拆分的程序开发输入，策划案模板只能作为上游输入，不能替代开发计划结构。
+- 补充项目扩展开发调度链路：项目扩展角色输出开发方案后，主程必须继续派发程序开发 SubAgent 或全新会话实施；方案不能替代最终代码交付。
+- 更新开发工作流、开发角色索引和游戏角色路由，使项目专属入口从本机项目胶囊读取，不进入可提交通用层。
+- 新增并接入 `session-visible-state.md` 的会话角色标识规则：会话首次正式输出、角色切换、最终结论、阶段性结论、交付汇总和正式评审结论展示当前角色、主要职责和工作依据；未命中明确角色时使用统一兜底模板。
+- 更新 UGUI 工作流相关规则和交付模板，移除过程阶段强制角色声明，改为仅正式结论阶段展示三行角色标识。
+- 版本级别为 major，因为本次调整了开发工作流默认读取路径、角色路由规则和正式结论展示规则；项目事实写入边界现在通过本机项目胶囊隔离。
+
 ## 2.2.0
 
 - 将 `unity-ugui-ui-workflow` 从默认三角色流水线瘦身为 `ui-programmer` 快速路径、`ui-asset-curator` 可选资源核查路径和独立施工路径。
 - 新增 `context-isolation.md`，定义复杂 UI 的上下文隔离触发条件：大量已切元素、图片数量过多、长 manifest、`.cs` + Prefab 施工、多轮截图校准、长报告和长资源清单。
 - 更新 UGUI 规则索引、UI 规划、资源整理、Unity 施工、截图校准和交付模板的角色命名，移除旧的 UI 策划 / 技术美术 / Unity 施工员默认三角色表述。
-- 删除未被索引引用且已禁用的 `technical-art-slicing.md`，避免 OneHarness 自检失败。
+- 删除未被索引引用且已禁用的 `technical-art-slicing.md`，避免 Tharness 自检失败。
 - 版本级别为 minor，因为本次新增上下文隔离规则并调整 UGUI 工作流内部默认执行路径，不改变通用 AIGC 的项目事实写入边界。
 
 ## 2.1.0
@@ -46,26 +80,26 @@
 
 ## 0.6.2
 
-- 将 `tools/oneharness.py` 拆分为配置、Markdown、索引、检查和自检规划模块，降低单个 CLI 文件职责。
-- 新增 `python tools\oneharness.py index --write`，按扫描结果写回 `AIGC/wiki/index.yaml` 的页面清单。
-- 新增 `python tools\oneharness.py self-check --path ... --delivery`，按变更路径输出应运行的自检命令。
-- 扩展 `AIGC/oneharness.yaml`，将自检路径规则和交付前命令移入配置。
+- 将 `tools/tharness.py` 拆分为配置、Markdown、索引、检查和自检规划模块，降低单个 CLI 文件职责。
+- 新增 `python tools\tharness.py index --write`，按扫描结果写回 `AIGC/wiki/index.yaml` 的页面清单。
+- 新增 `python tools\tharness.py self-check --path ... --delivery`，按变更路径输出应运行的自检命令。
+- 扩展 `AIGC/tharness.yaml`，将自检路径规则和交付前命令移入配置。
 - 将 wiki 元数据检查补齐到 `type` 和 `status` 字段，与 `AIGC/wiki/SCHEMA.md` 保持一致。
 
 ## 0.6.1
 
-- 新增 `workflows/development/rules/self-check.md`，定义 OneHarness 自身改动的自检触发矩阵。
+- 新增 `workflows/development/rules/self-check.md`，定义 Tharness 自身改动的自检触发矩阵。
 - 将 `self-check.md` 接入开发执行规则索引和最小门控配置。
-- 更新开发执行工作流、质量门控规则和交付规则，要求交付前运行 `python tools\oneharness.py gate`。
+- 更新开发执行工作流、质量门控规则和交付规则，要求交付前运行 `python tools\tharness.py gate`。
 - 更新开发交付模板，新增自检结果记录区域。
 
 ## 0.6.0
 
-- 新增 `tools/oneharness.py` 最小自检 CLI，支持 `doctor`、`index --check` 和 `gate`。
-- 新增 `AIGC/oneharness.yaml`，集中配置入口文件、wiki 索引、规则元数据和质量门控检查范围。
+- 新增 `tools/tharness.py` 最小自检 CLI，支持 `doctor`、`index --check` 和 `gate`。
+- 新增 `AIGC/tharness.yaml`，集中配置入口文件、wiki 索引、规则元数据和质量门控检查范围。
 - 为 `workflows/**/rules/*.md` 补充最小 YAML 元数据，使工作流规则可被机器检查。
 - 扩展 `AIGC/wiki/index.yaml`，加入显式页面清单，支持索引一致性校验。
-- 新增 `tools/test_oneharness.py`，覆盖未知命令、缺失配置和当前仓库健康检查。
+- 新增 `tools/test_tharness.py`，覆盖未知命令、缺失配置和当前仓库健康检查。
 
 ## 0.5.0
 
@@ -86,7 +120,7 @@
 - 新增 `project-wiki-bootstrap` 能力，用于检索已有工程并主动搭建目标项目 wiki。
 - 新增 `project-wiki-update` 能力，用于开发后更新目标项目 wiki。
 - 补充项目 wiki 检索、健康检查、创建结构和页面模板规则。
-- 明确通用 wiki 与项目 wiki 的调用边界：通用架构知识读 `AIGC/wiki`，项目事实读目标项目适配层 wiki。
+- 明确通用 wiki 与项目 wiki 的调用边界：通用架构知识读 `AIGC/wiki`，项目事实读本机项目胶囊 wiki。
 
 ## 0.2.0
 

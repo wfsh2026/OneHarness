@@ -1,13 +1,13 @@
 ---
 id: architecture-knowledge-boundary
 title: 知识写入边界
-summary: 用适用范围决定知识进入通用 wiki 还是项目适配层。
+summary: 用适用范围决定知识进入通用 wiki 还是本机项目胶囊。
 type: architecture-card
 status: active
 tags: [architecture, knowledge, boundary]
 relates: ["[[architecture-project-adapter-layer]]", "[[architecture-capability-registry]]"]
-read_when: 需要判断一条知识应该写入通用 wiki 还是项目适配层。
-source: OneHarness 当前写入边界规则。
+read_when: 需要判断一条知识应该写入通用 wiki 还是本机项目胶囊。
+source: Tharness 当前写入边界规则。
 updated: 2026-04-27
 ---
 
@@ -15,7 +15,7 @@ updated: 2026-04-27
 
 ## 结论
 
-知识写入位置由适用范围决定：跨项目可复用的架构知识进通用 wiki，项目事实进项目适配层。
+知识写入位置由适用范围决定：跨项目可复用的架构知识进通用 wiki，项目事实进本机项目胶囊。
 
 ## 适用场景
 

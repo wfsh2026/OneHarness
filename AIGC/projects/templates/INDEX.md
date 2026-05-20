@@ -3,10 +3,12 @@
 | 模板 | 用途 |
 | --- | --- |
 | `adapter-config.md` | 项目适配配置。 |
+| `local-registry.md` | 本机项目 registry。 |
 | `project-index.md` | 目标项目 AIGC 入口。 |
 | `project-wiki-index.md` | 目标项目 wiki 入口。 |
 | `project-card.md` | 目标项目 wiki 知识页。 |
 | `project-wiki-page.md` | 目标项目 wiki 页面。 |
+| `project-feature-implementation-doc.md` | 功能实现后的项目功能文档。 |
 | `project-decision.md` | 目标项目决策记录。 |
 | `project-open-questions.md` | 目标项目开放问题。 |
 | `project-run-record.md` | 目标项目工作流运行记录。 |

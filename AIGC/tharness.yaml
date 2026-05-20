@@ -1,4 +1,6 @@
 framework_root: AIGC
+local_project_root: AIGC/_local
+local_project_registry: AIGC/_local/registry.yaml
 
 required_entries:
   - AIGC/INDEX.md
@@ -55,20 +57,23 @@ gate_boundary_scan_paths:
   - AIGC/projects
 gate_boundary_exclude_names:
   - templates
+  - _local
 gate_boundary_forbidden_patterns:
   - ':\'
   - "file:///"
   - "/home/"
   - "/Users/"
+gate_gitignore_required_patterns:
+  - AIGC/_local/
 
 self_check_path_rules:
-  - AIGC/wiki|python tools\oneharness.py index --check
-  - AIGC/workflows|python tools\oneharness.py doctor
-  - AIGC/projects|python tools\oneharness.py doctor
-  - AIGC/capabilities|python tools\oneharness.py doctor
-  - AIGC/oneharness.yaml|python tools\oneharness.py gate
-  - tools|python tools\oneharness.py gate
-  - tools|python -m unittest tools.test_oneharness
+  - AIGC/wiki|python tools\tharness.py index --check
+  - AIGC/workflows|python tools\tharness.py doctor
+  - AIGC/projects|python tools\tharness.py doctor
+  - AIGC/capabilities|python tools\tharness.py doctor
+  - AIGC/tharness.yaml|python tools\tharness.py gate
+  - tools|python tools\tharness.py gate
+  - tools|python -m unittest tools.test_tharness
 
 self_check_delivery_commands:
-  - python tools\oneharness.py gate
+  - python tools\tharness.py gate

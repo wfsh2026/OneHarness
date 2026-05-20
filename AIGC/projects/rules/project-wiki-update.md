@@ -2,7 +2,7 @@
 
 ## 结论
 
-项目 wiki 只在项目稳定事实发生变化、或开发后产生可复用项目事实时更新。
+项目 wiki 只在项目稳定事实发生变化、或开发后产生可复用项目事实时更新；写入位置必须是本机项目胶囊。
 
 ## 触发条件
 
@@ -15,20 +15,21 @@
 
 ## 更新流程
 
-1. 读取目标项目 `{project_aigc_root}/ADAPTER.md`。
-2. 读取 `{project_wiki_root}/INDEX.md`。
-3. 按 `read_when` 命中具体页面。
-4. 对比本轮变更、当前代码事实和已有 wiki 内容。
-5. 只更新受影响页面。
-6. 决策写入 `decisions/active.md`，废弃决策写入 `decisions/deprecated.md`。
-7. 策划案和功能设计写入 `design/`。
-8. 主程任务拆解、子任务分配和接口契约写入 `development/`。
-9. 未确认内容写入 `open-questions.md`。
-10. 执行 `project-wiki-health.md`。
+1. 读取 `AIGC/_local/registry.yaml`，按 `project_id` 定位 `capsule_root`。
+2. 读取 `{capsule_root}/ADAPTER.md`。
+3. 读取 `{project_wiki_root}/INDEX.md`。
+4. 按 `read_when` 命中具体页面。
+5. 对比本轮变更、当前代码事实和已有 wiki 内容。
+6. 只更新受影响页面。
+7. 决策写入 `decisions/active.md`，废弃决策写入 `decisions/deprecated.md`。
+8. 策划案和功能设计写入 `design/`。
+9. 主程任务拆解、子任务分配和接口契约写入 `development/`。
+10. 未确认内容写入 `open-questions.md`。
+11. 执行 `project-wiki-health.md`。
 
 ## 写入规则
 
-- 稳定项目事实写入项目 wiki。
+- 稳定项目事实写入本机项目胶囊内的项目 wiki。
 - 一次性调试过程写入运行记录。
 - 通用架构结论写入通用 `AIGC/wiki/architecture/`。
 - 不确定是否通用时，先写入项目 wiki 或运行记录，不能直接写入通用 wiki。
@@ -38,4 +39,5 @@
 - 更新页面的来源仍然有效。
 - 更新页面仍能从 `INDEX.md` 到达。
 - 本轮修改没有扩大到无关页面。
-- 项目事实没有写入通用 AIGC。
+- 项目事实没有写入可提交的通用 AIGC。
+- 更新内容没有进入 Git 可提交范围。

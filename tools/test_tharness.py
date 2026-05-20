@@ -2,15 +2,19 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CLI = ROOT / "tools" / "oneharness.py"
+CLI = ROOT / "tools" / "tharness.py"
+
+sys.path.insert(0, str(ROOT / "tools"))
+from tharness_checks import missing_gitignore_patterns
 
 
-class OneHarnessCliTests(unittest.TestCase):
+class TharnessCliTests(unittest.TestCase):
     def run_cli(self, *args: str) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
             [sys.executable, str(CLI), *args],
@@ -49,14 +53,14 @@ class OneHarnessCliTests(unittest.TestCase):
     def test_self_check_plans_wiki_and_delivery_commands(self) -> None:
         result = self.run_cli("self-check", "--path", "AIGC\\wiki\\architecture\\entry-map.md", "--delivery")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("python tools\\oneharness.py index --check", result.stdout)
-        self.assertIn("python tools\\oneharness.py gate", result.stdout)
+        self.assertIn("python tools\\tharness.py index --check", result.stdout)
+        self.assertIn("python tools\\tharness.py gate", result.stdout)
 
     def test_self_check_plans_tool_commands(self) -> None:
-        result = self.run_cli("self-check", "--path", "tools\\oneharness.py")
+        result = self.run_cli("self-check", "--path", "tools\\tharness.py")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("python tools\\oneharness.py gate", result.stdout)
-        self.assertIn("python -m unittest tools.test_oneharness", result.stdout)
+        self.assertIn("python tools\\tharness.py gate", result.stdout)
+        self.assertIn("python -m unittest tools.test_tharness", result.stdout)
 
     def test_game_design_methodology_is_routable(self) -> None:
         rules_index = (ROOT / "AIGC/workflows/planning-discussion/rules/INDEX.md").read_text(encoding="utf-8")
@@ -68,6 +72,24 @@ class OneHarnessCliTests(unittest.TestCase):
         self.assertIn("design-and-maintenance.md", method_index)
         self.assertIn("phase-index.md", method_index)
         self.assertIn("trigger-index.md", method_index)
+
+    def test_missing_gitignore_patterns_detects_invalid_local_project_setup(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            repo_root = Path(temp_dir)
+            (repo_root / ".gitignore").write_text("_sources/\n", encoding="utf-8")
+
+            missing = missing_gitignore_patterns(repo_root, ["AIGC/_local/"])
+
+            self.assertEqual(missing, ["AIGC/_local/"])
+
+    def test_missing_gitignore_patterns_accepts_local_project_setup(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            repo_root = Path(temp_dir)
+            (repo_root / ".gitignore").write_text("_sources/\nAIGC/_local/\n", encoding="utf-8")
+
+            missing = missing_gitignore_patterns(repo_root, ["AIGC/_local/"])
+
+            self.assertEqual(missing, [])
 
 
 if __name__ == "__main__":

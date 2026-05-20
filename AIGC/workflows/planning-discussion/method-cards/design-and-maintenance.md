@@ -71,7 +71,7 @@
 6. 如改变阶段调用关系，更新 `phase-index.md`。
 7. 如新增触发表达，更新 `trigger-index.md`。
 8. 如影响工作流行为，更新 `game-design-methodology.md`、能力索引和版本记录。
-9. 运行 OneHarness 自检。
+9. 运行 Tharness 自检。
 
 ## 变更边界
 
@@ -79,16 +79,16 @@
 - 改变固定沟通流程时，必须更新 `game-design-methodology.md` 并记录能力版本。
 - 新增书籍或新方法维度时，必须新增卡片文件、来源索引、阶段或触发索引。
 - 删除卡片前必须确认没有阶段索引、触发索引或测试仍引用它。
-- 具体项目事实必须写入目标项目适配层，不能写入方法卡目录。
+- 具体项目事实必须写入本机项目胶囊，不能写入方法卡目录。
 
 ## 验证方式
 
 维护完成后至少执行：
 
 ```powershell
-python tools\oneharness.py doctor
-python tools\oneharness.py gate
-python -m unittest tools.test_oneharness
+python tools\tharness.py doctor
+python tools\tharness.py gate
+python -m unittest tools.test_tharness
 ```
 
 如果本次只更新来源内容，还要人工检查：

@@ -7,7 +7,7 @@ status: active
 tags: [architecture, workflow, wiki]
 relates: ["[[architecture-project-adapter-layer]]", "[[architecture-knowledge-boundary]]", "[[architecture-workflow-routing]]"]
 read_when: 需要设计策划、主程拆解、开发执行之间的低 token 交接方式。
-source: OneHarness 2.0.0 策划到开发交接规则。
+source: Tharness 2.0.0 策划到开发交接规则。
 updated: 2026-04-30
 ---
 
@@ -15,7 +15,7 @@ updated: 2026-04-30
 
 ## 结论
 
-当一个工作流的输出会成为另一个工作流的输入，且内容属于项目事实时，应把稳定事实写入目标项目 wiki，并在后续工作流中只传递页面入口。
+当一个工作流的输出会成为另一个工作流的输入，且内容属于项目事实时，应把稳定事实写入本机项目胶囊内的目标项目 wiki，并在后续工作流中只传递页面入口。
 
 ## 适用场景
 
@@ -44,7 +44,7 @@ updated: 2026-04-30
 - 后续工作流能从项目 wiki 索引命中交接页面。
 - 页面只保存稳定事实、任务边界、接口契约和验证方式。
 - 运行过程、失败尝试、命令输出和候选知识审核过程写入运行记录或交付物。
-- 通用 AIGC 不保存目标项目事实。
+- 可提交的通用 AIGC 不保存目标项目事实。
 - 子任务能在不依赖历史对话的情况下恢复上下文。
 
 ## 不适用场景

@@ -11,25 +11,25 @@ updated: 2026-04-28
 
 ## 结论
 
-修改 OneHarness 自身时，Agent 必须按影响范围自动运行对应自检命令，并把结果写入验证或交付说明。
+修改 Tharness 自身时，Agent 必须按影响范围自动运行对应自检命令，并把结果写入验证或交付说明。
 
 ## 触发矩阵
 
 | 修改范围 | 必须运行 |
 | --- | --- |
-| `AIGC/wiki/**` | `python tools\oneharness.py index --check` |
-| `AIGC/workflows/**` | `python tools\oneharness.py doctor` |
-| `AIGC/projects/**` | `python tools\oneharness.py doctor` |
-| `AIGC/capabilities/**` | `python tools\oneharness.py doctor` |
-| `AIGC/oneharness.yaml` | `python tools\oneharness.py gate` |
-| `tools/oneharness.py` 或 `tools/test_oneharness.py` | `python tools\oneharness.py gate` 和 `python -m unittest tools.test_oneharness` |
-| 交付前 | `python tools\oneharness.py gate` |
+| `AIGC/wiki/**` | `python tools\tharness.py index --check` |
+| `AIGC/workflows/**` | `python tools\tharness.py doctor` |
+| `AIGC/projects/**` | `python tools\tharness.py doctor` |
+| `AIGC/capabilities/**` | `python tools\tharness.py doctor` |
+| `AIGC/tharness.yaml` | `python tools\tharness.py gate` |
+| `tools/tharness.py` 或 `tools/test_tharness.py` | `python tools\tharness.py gate` 和 `python -m unittest tools.test_tharness` |
+| 交付前 | `python tools\tharness.py gate` |
 
 ## 执行规则
 
 1. 先按修改范围选择最小命令。
 2. 多个范围命中时，运行所有命中的命令。
-3. 交付前始终运行 `python tools\oneharness.py gate`。
+3. 交付前始终运行 `python tools\tharness.py gate`。
 4. 命令失败时，先修复失败项，再重新运行。
 5. 无法运行命令时，必须说明原因、影响和替代检查。
 
@@ -38,7 +38,7 @@ updated: 2026-04-28
 不确定命中范围时，使用 `self-check` 命令让工具输出应运行命令：
 
 ```powershell
-python tools\oneharness.py self-check --path AIGC/wiki/architecture/entry-map.md --delivery
+python tools\tharness.py self-check --path AIGC/wiki/architecture/entry-map.md --delivery
 ```
 
 ## 禁止

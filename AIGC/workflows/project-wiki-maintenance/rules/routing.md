@@ -25,13 +25,15 @@ updated: 2026-04-27
 
 ## 最小读取
 
-1. 先读取目标项目 `{project_aigc_root}/ADAPTER.md`。
-2. 项目 wiki 存在时读取 `{project_wiki_root}/INDEX.md`。
-3. 项目 wiki 不存在时，只读取项目入口文件、构建配置和主要源码目录一层结构。
-4. 命中页面不足时，再读取项目源码或文档入口补证据。
+1. 先读取 `AIGC/_local/registry.yaml`，按 `project_id` 定位 `capsule_root`。
+2. 读取目标项目 `{capsule_root}/ADAPTER.md`。
+3. 项目 wiki 存在时读取 `{project_wiki_root}/INDEX.md`。
+4. 项目 wiki 不存在时，只读取项目入口文件、构建配置和主要源码目录一层结构。
+5. 命中页面不足时，再读取项目源码或文档入口补证据。
 
 ## 禁止
 
-- 禁止把项目事实写入通用 `AIGC/wiki`。
+- 禁止把项目事实写入通用 `AIGC/wiki` 或其他可提交通用目录。
 - 禁止为了检查项目 wiki 读取整个目标项目。
 - 禁止把一次性运行过程写入项目 wiki。
+- 禁止提交 `AIGC/_local/` 下的项目胶囊。

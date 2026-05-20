@@ -7,7 +7,7 @@ status: active
 tags: [architecture, configuration, maintainability]
 relates: ["[[architecture-repository-structure]]"]
 read_when: 需要判断参数、路径、开关或环境差异应该放在哪里。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 

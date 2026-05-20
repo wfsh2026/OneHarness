@@ -1,6 +1,6 @@
 # 通用架构 Wiki
 
-本目录是 OneHarness 的通用架构知识库，只服务通用项目架构检索。
+本目录是 Tharness 的通用架构知识库，只服务通用项目架构检索。
 
 它借鉴外部 harness 的轻量信息体系：每个知识页用 YAML 头声明 `id`、`title`、`summary`、`tags`、`relates`、`status` 和 `read_when`，入口索引只负责路由，不复制正文。
 
@@ -29,4 +29,4 @@
 
 - 保留轻量 YAML 头和关联索引思想。
 - 废弃旧 `raw/knowledge/log/html` 混合式项目 wiki。
-- 通用知识只写稳定架构模式；项目事实进入目标项目适配层。
+- 通用知识只写稳定架构模式；项目事实进入本机项目胶囊。

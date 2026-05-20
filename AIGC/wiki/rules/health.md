@@ -7,7 +7,7 @@ status: active
 tags: [wiki, health, boundary]
 relates: ["[[wiki-building]]"]
 read_when: 需要检查 wiki 更新是否破坏低 token 和通用边界。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 

@@ -40,7 +40,7 @@ updated: 2026-04-30
 {project_wiki_root}/development/contracts/{contract_id}.md
 ```
 
-如果项目适配层不存在，先按 `../../../projects/rules/project-wiki-bootstrap.md` 建立或说明阻塞。
+如果本机项目胶囊不存在，先按 `../../../projects/rules/project-wiki-bootstrap.md` 建立或说明阻塞。
 
 运行过程、验证输出、失败尝试和候选知识审核记录不写入项目 wiki 正文，应写入运行记录或交付物。
 

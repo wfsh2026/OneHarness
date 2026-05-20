@@ -7,7 +7,7 @@ status: active
 tags: [wiki, template, architecture]
 relates: ["[[wiki-building]]"]
 read_when: 需要新增一张通用架构知识页。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 

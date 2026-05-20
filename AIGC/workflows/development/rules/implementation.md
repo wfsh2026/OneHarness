@@ -31,7 +31,8 @@ updated: 2026-04-30
 - 子任务页指定的项目 wiki 策划页面、任务页和接口契约。
 - 子任务指定的其他项目 wiki 页面或通用知识页面。
 - 允许修改范围内的源码、资源、配置或文档。
-- 对应角色的 `DEFINITION.md` 和 `RULE.md`。
+- `agents/developer/RULE.md`。
+- `rules/game-role-routing.md` 中当前角色对应的一行；角色专属 `DEFINITION.md` 和 `RULE.md` 只在子任务页明确要求或角色存在额外强规则时读取。
 
 需要额外读取时，必须在交付物中记录读取原因、读取入口和读到的事实。
 

@@ -2,7 +2,7 @@
 
 默认只读本索引。按用户意图命中一个工作流后，再读取该工作流的 `WORKFLOW.md`。
 
-会话中需要显式标识当前工作流时，读取 `session-visible-state.md`。
+Tharness 接管会话后的首次正式用户可见输出、角色切换、阶段性结论、交付汇总或正式评审结论，读取 `session-visible-state.md` 并展示角色标识；角色名只能来自角色选择表、项目胶囊扩展角色或兜底角色模板，未命中明确角色时使用 `Tharness 通用工作流协调员`。
 
 | 工作流 | read_when |
 | --- | --- |
@@ -21,4 +21,4 @@
 - 需要吸收外部 harness、旧项目经验或更新 AIGC 能力版本时，进入 `capability-evolution`。
 - 任何工作流需要目标项目事实时，先通过 `AIGC/projects/INDEX.md` 路由到项目 wiki 检索规则。
 - 开发中出现会影响范围或决策的歧义时，回到 `planning-discussion` 或向用户确认。
-- 任何工作流都不能把目标项目事实写入通用 AIGC。
+- 任何工作流都不能把目标项目事实写入可提交的通用 AIGC。

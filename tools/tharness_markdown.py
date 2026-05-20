@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from oneharness_config import clean_value
+from tharness_config import clean_value
 
 
 def parse_front_matter(path: Path) -> dict | None:

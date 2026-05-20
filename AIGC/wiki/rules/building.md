@@ -7,7 +7,7 @@ status: active
 tags: [wiki, writing, architecture]
 relates: ["[[wiki-retrieval]]", "[[wiki-health]]"]
 read_when: 需要创建或更新通用架构 wiki 页面。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 

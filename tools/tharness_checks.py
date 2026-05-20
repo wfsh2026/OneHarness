@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from oneharness_config import config_list, config_value, load_simple_yaml, rel_path, repo_path
-from oneharness_index import wiki_pages_from_index
-from oneharness_markdown import markdown_files, missing_front_matter_fields, parse_front_matter
+from tharness_config import config_list, config_value, load_simple_yaml, rel_path, repo_path
+from tharness_index import wiki_pages_from_index
+from tharness_markdown import markdown_files, missing_front_matter_fields, parse_front_matter
 
 
 def workflow_rule_files(repo_root: Path, config: dict) -> list[Path]:
@@ -107,6 +107,25 @@ def run_index(repo_root: Path, config: dict) -> tuple[list[str], list[str], list
     return errors, warnings, info, scanned_pages
 
 
+def missing_gitignore_patterns(repo_root: Path, required_patterns: list[str]) -> list[str]:
+    gitignore_path = repo_root / ".gitignore"
+    if not gitignore_path.exists():
+        return [pattern for pattern in required_patterns if pattern]
+
+    lines = {
+        line.strip().replace("\\", "/").rstrip("/")
+        for line in gitignore_path.read_text(encoding="utf-8-sig").splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    }
+
+    missing = []
+    for pattern in required_patterns:
+        normalized = pattern.replace("\\", "/").rstrip("/")
+        if normalized and normalized not in lines:
+            missing.append(pattern)
+    return missing
+
+
 def run_gate(repo_root: Path, config: dict) -> tuple[list[str], list[str], list[str]]:
     errors = []
     warnings = []
@@ -115,6 +134,9 @@ def run_gate(repo_root: Path, config: dict) -> tuple[list[str], list[str], list[
     for path_value in config_list(config, "gate_required_paths"):
         if not repo_path(repo_root, path_value).exists():
             errors.append(f"门控必需文件缺失: {path_value}")
+
+    for pattern in missing_gitignore_patterns(repo_root, config_list(config, "gate_gitignore_required_patterns")):
+        errors.append(f"门控必需 Git 忽略缺失: {pattern}")
 
     index_errors, index_warnings, index_info, _ = run_index(repo_root, config)
     errors.extend(f"索引门控失败: {error}" for error in index_errors)

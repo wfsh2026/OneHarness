@@ -7,7 +7,7 @@ status: active
 tags: [architecture, structure, boundary]
 relates: ["[[architecture-entry-map]]", "[[architecture-module-boundaries]]"]
 read_when: 需要规划或审查项目目录结构。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 
@@ -24,13 +24,13 @@ updated: 2026-04-27
 - `src/` 或等价源码目录：产品实现。
 - `config/` 或等价配置目录：可调整参数和环境入口。
 - `docs/`：稳定文档。
-- `runs/` 或项目适配层运行记录：任务过程和验证结果。
+- `runs/` 或本机项目胶囊运行记录：任务过程和验证结果。
 - `wiki/`：稳定、可检索、低频变化的项目知识。
-- 通用 AIGC：只保存跨项目规则和模板。
+- 可提交的通用 AIGC：只保存跨项目规则、模板和项目接入机制。
 
 ## 验证方式
 
-- 项目事实不会写入通用规则。
+- 项目事实不会写入可提交的通用规则。
 - 运行记录不会替代稳定 wiki。
 - 默认入口不会读取全部历史记录。
 

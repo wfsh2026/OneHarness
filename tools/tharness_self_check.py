@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from oneharness_config import config_list
+from tharness_config import config_list
 
 
 def normalize_path(path_value: str) -> str:

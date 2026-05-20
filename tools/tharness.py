@@ -5,10 +5,10 @@ import argparse
 import sys
 from pathlib import Path
 
-from oneharness_checks import run_doctor, run_gate, run_index
-from oneharness_config import DEFAULT_CONFIG, config_value, load_simple_yaml, rel_path, repo_path
-from oneharness_index import write_wiki_index
-from oneharness_self_check import plan_self_check_commands
+from tharness_checks import run_doctor, run_gate, run_index
+from tharness_config import DEFAULT_CONFIG, config_value, load_simple_yaml, rel_path, repo_path
+from tharness_index import write_wiki_index
+from tharness_self_check import plan_self_check_commands
 
 
 def print_report(title: str, errors: list[str], warnings: list[str], info: list[str]) -> None:
@@ -23,7 +23,7 @@ def print_report(title: str, errors: list[str], warnings: list[str], info: list[
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="OneHarness 自检工具")
+    parser = argparse.ArgumentParser(description="Tharness 自检工具")
     parser.add_argument("command", nargs="?", help="doctor | index | gate | self-check")
     parser.add_argument("--config", default=DEFAULT_CONFIG, help="检查配置文件")
     parser.add_argument("--check", action="store_true", help="index 命令只校验，不输出生成列表")

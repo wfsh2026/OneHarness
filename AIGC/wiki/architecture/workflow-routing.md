@@ -7,7 +7,7 @@ status: active
 tags: [architecture, workflow, routing]
 relates: ["[[architecture-entry-map]]", "[[architecture-verifiable-work-loop]]"]
 read_when: 需要为任务选择工作流、阶段、规则索引和后续读取路径。
-source: OneHarness 当前通用工作流结构。
+source: Tharness 当前通用工作流结构。
 updated: 2026-04-27
 ---
 

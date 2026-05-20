@@ -7,7 +7,7 @@ status: active
 tags: [architecture, workflow, verification]
 relates: ["[[architecture-workflow-routing]]", "[[architecture-knowledge-boundary]]"]
 read_when: 需要把任务压缩成一个可验证的最小闭环。
-source: OneHarness 当前最小工作循环。
+source: Tharness 当前最小工作循环。
 updated: 2026-04-27
 ---
 
@@ -32,7 +32,7 @@ updated: 2026-04-27
 - 需要读取哪些最少文件。
 - 需要修改哪些最少内容。
 - 如何验证完成。
-- 结果写入通用层还是项目适配层。
+- 结果写入可提交通用层还是本机项目胶囊。
 
 ## 验证方式
 

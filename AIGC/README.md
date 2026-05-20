@@ -21,7 +21,7 @@
 - 需要读哪些最少文件？
 - 需要修改哪些最少内容？
 - 如何验证它已经完成？
-- 结果应该写入通用 AIGC，还是目标项目适配层？
+- 结果应该写入可提交的通用 AIGC，还是本机项目胶囊？
 
 ## 默认读取路径
 
@@ -33,7 +33,7 @@ AI 进入本目录时，优先按以下顺序读取：
 4. 命中工作流的 `rules/INDEX.md`
 5. `AIGC/wiki/INDEX.md`
 6. 按 `read_when` 命中的规则继续读取
-7. 需要目标项目事实时，读取 `AIGC/projects/INDEX.md` 和目标项目 wiki 入口
+7. 需要目标项目事实时，读取 `AIGC/projects/INDEX.md`，再通过 `AIGC/_local/registry.yaml` 读取项目胶囊和项目 wiki 入口
 
 禁止为了保险一次性读取全部 wiki 或全部历史记录。
 
@@ -55,8 +55,9 @@ AI 进入本目录时，优先按以下顺序读取：
 | --- | --- |
 | `workflows/` | 保存通用工作流、阶段、Agent 职责、规则和模板。 |
 | `wiki/` | 保存可复用、可检索、低频变化的通用知识。 |
-| `projects/` | 保存目标项目适配层的创建规则和模板。 |
+| `projects/` | 保存项目接入、本机索引、项目胶囊和项目 wiki 的规则与模板。 |
 | `capabilities/` | 保存当前 AIGC 能力索引、版本和变更记录。 |
+| `_local/` | 保存本机项目索引、项目胶囊、项目 wiki 和运行记录；该目录必须被 Git 忽略。 |
 
 ## 写入边界
 
@@ -66,7 +67,7 @@ AI 进入本目录时，优先按以下顺序读取：
 - 通用规则。
 - 通用 Agent 职责。
 - 通用 wiki 创建规则。
-- 项目适配模板。
+- 项目接入规则、项目胶囊模板和本机 registry 模板。
 
 通用 `AIGC` 禁止保存：
 
@@ -75,7 +76,7 @@ AI 进入本目录时，优先按以下顺序读取：
 - 具体项目决策事实。
 - 具体项目代码结构分析。
 
-这些内容必须写入目标项目自己的 AIGC 适配层。
+这些内容必须写入 `AIGC/_local/projects/{project_id}/` 下的本机项目胶囊，不能进入可提交的通用目录。
 
 ## 设计原则
 
@@ -85,7 +86,7 @@ AI 进入本目录时，优先按以下顺序读取：
 - 最小改动：只修改完成目标必须修改的内容。
 - 必验证：没有验证就不能标记完成。
 - 可追溯：规则、决策、运行记录和 wiki 都要能追溯来源。
-- 分层沉淀：通用知识进通用 wiki，项目事实进项目 wiki。
+- 分层沉淀：通用知识进通用 wiki，项目事实进本机项目胶囊内的项目 wiki。
 - 碎片化：经验教训、被否决方案和稳定事实可以拆成单条知识碎片。
 - 闭环化：交互式任务必须说明输入、状态变化、反馈、目标和重复路径。
 - 假设晋升：未验证想法先作为假设，验证或确认后才能写成稳定事实。
@@ -101,7 +102,7 @@ AI 进入本目录时，优先按以下顺序读取：
 
 如果要把 UI 图转成 Unity UGUI 施工交付物，进入 `workflows/unity-ugui-ui-workflow/`。
 
-如果要为目标项目创建 AIGC 工作区，读取 `projects/PROJECT_ADAPTER.md`。
+如果要为目标项目创建本机项目胶囊，读取 `projects/PROJECT_ADAPTER.md`。
 
 如果要为目标项目搭建、检索、更新或检查项目 wiki，进入 `workflows/project-wiki-maintenance/`。
 
@@ -114,14 +115,14 @@ AI 进入本目录时，优先按以下顺序读取：
 如果要执行框架自检，使用仓库根目录下的最小 CLI：
 
 ```powershell
-python tools/oneharness.py doctor
-python tools/oneharness.py index --check
-python tools/oneharness.py index --write
-python tools/oneharness.py self-check --path AIGC/wiki/architecture/entry-map.md --delivery
-python tools/oneharness.py gate
+python tools/tharness.py doctor
+python tools/tharness.py index --check
+python tools/tharness.py index --write
+python tools/tharness.py self-check --path AIGC/wiki/architecture/entry-map.md --delivery
+python tools/tharness.py gate
 ```
 
-修改 OneHarness 自身时，开发工作流按 `workflows/development/rules/self-check.md` 自动触发对应自检；`self-check` 命令可按变更路径输出应运行的自检命令。
+修改 Tharness 自身时，开发工作流按 `workflows/development/rules/self-check.md` 自动触发对应自检；`self-check` 命令可按变更路径输出应运行的自检命令。
 
 ## 成功标准
 
@@ -129,6 +130,6 @@ python tools/oneharness.py gate
 
 - AI 不需要读取全部上下文也能开始工作。
 - 每轮任务都有明确目标和验证方式。
-- 项目事实不会污染通用规则。
+- 项目事实不会污染可提交的通用规则。
 - 稳定知识能被后续快速检索。
 - 一次循环结束后，可以安全进入下一次最小循环。

@@ -7,7 +7,7 @@ status: active
 tags: [architecture, capability, versioning]
 relates: ["[[architecture-workflow-routing]]"]
 read_when: 需要设计能力入口、状态、版本和可检索维护规则。
-source: OneHarness 当前能力索引结构。
+source: Tharness 当前能力索引结构。
 updated: 2026-04-27
 ---
 

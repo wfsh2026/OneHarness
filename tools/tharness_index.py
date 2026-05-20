@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from oneharness_config import config_list, load_simple_yaml, rel_path, repo_path
-from oneharness_markdown import markdown_files
+from tharness_config import config_list, load_simple_yaml, rel_path, repo_path
+from tharness_markdown import markdown_files
 
 
 def wiki_pages_from_index(repo_root: Path, index_file: Path) -> tuple[list[Path], list[str]]:

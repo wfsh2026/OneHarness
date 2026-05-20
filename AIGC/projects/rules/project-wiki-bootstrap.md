@@ -2,23 +2,24 @@
 
 ## 结论
 
-当目标项目需要反复读取项目事实，且没有项目 wiki 时，先用最小检索建立项目 wiki，再进入开发任务。
+当目标项目需要反复读取项目事实，且本机项目胶囊内没有项目 wiki 时，先用最小检索建立项目 wiki，再进入开发任务。
 
 ## 触发条件
 
 - 用户要求为当前工程搭建项目 wiki。
 - 工作流需要项目目录、构建、测试、配置或模块事实，但 `{project_wiki_root}/INDEX.md` 不存在。
-- 项目已有适配层，但缺少可检索的项目事实入口。
+- 项目已有本机项目胶囊，但缺少可检索的项目事实入口。
 
 ## 输入
 
-- `project_name`
-- `project_root`
-- `project_aigc_root`
+- `project_id`
+- `display_name`
+- `source_project_root`
+- `capsule_root`
 - `project_wiki_root`
 - `workflow_runs_root`
 
-所有输入必须来自项目适配配置。
+所有输入必须来自 `AIGC/_local/registry.yaml` 或项目胶囊配置。
 
 ## 最小检索
 
@@ -32,7 +33,7 @@
 
 ## 搭建流程
 
-1. 确认项目适配配置完整。
+1. 确认本机 registry 和项目胶囊配置完整。
 2. 创建 `PROJECT_ADAPTER.md` 中定义的项目 wiki 结构。
 3. 使用 `../templates/project-wiki-index.md` 创建入口索引。
 4. 使用 `../templates/project-card.md` 创建项目事实页。
@@ -52,3 +53,4 @@
 - 禁止把项目 wiki 写入通用 `AIGC/wiki`。
 - 禁止把源码全文复制进项目 wiki。
 - 禁止在通用 AIGC 中硬编码目标项目路径。
+- 禁止提交 `AIGC/_local/` 下的项目 wiki 和运行记录。

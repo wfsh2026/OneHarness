@@ -7,7 +7,7 @@ status: active
 tags: [wiki, retrieval, token]
 relates: []
 read_when: 需要决定 wiki 读取顺序或控制上下文大小。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 

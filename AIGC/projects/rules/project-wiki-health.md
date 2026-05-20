@@ -10,14 +10,16 @@
 - `INDEX.md` 只做路由，不复制正文。
 - 可检索页面包含 `read_when`。
 - 项目事实有来源文件、验证记录或用户确认。
-- 项目 wiki 没有写入通用 AIGC。
+- 项目 wiki 没有写入可提交的通用 AIGC。
+- 项目 wiki 位于 `AIGC/_local/projects/{project_id}/` 下，且该目录被 Git 忽略。
 - 默认读取不会展开大目录或历史运行记录。
 
 ## 异常内容
 
 - 大段源码、日志、终端输出。
 - 没有来源的稳定结论。
-- 具体项目事实出现在通用 `AIGC/wiki`。
+- 具体项目事实出现在通用 `AIGC/wiki`、通用 `AIGC/workflows` 或可提交的 `AIGC/projects` 规则正文中。
+- `AIGC/_local/` 没有被 `.gitignore` 忽略。
 - 通用规则被复制到项目 wiki，而不是通过链接引用。
 - 多个项目共享同一个项目 wiki。
 

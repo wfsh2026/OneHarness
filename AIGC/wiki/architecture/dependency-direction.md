@@ -7,7 +7,7 @@ status: active
 tags: [architecture, dependency, coupling]
 relates: ["[[architecture-module-boundaries]]"]
 read_when: 需要判断依赖方向、循环依赖或跨层调用是否合理。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 

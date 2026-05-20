@@ -7,7 +7,7 @@ status: active
 tags: [architecture, entry, retrieval]
 relates: ["[[architecture-repository-structure]]"]
 read_when: 需要为项目建立或审查架构检索入口。
-source: OneHarness 通用 wiki 重建设计。
+source: Tharness 通用 wiki 重建设计。
 updated: 2026-04-27
 ---
 

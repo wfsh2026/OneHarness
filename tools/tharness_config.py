@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 
-DEFAULT_CONFIG = "AIGC/oneharness.yaml"
+DEFAULT_CONFIG = "AIGC/tharness.yaml"
 
 
 def clean_value(value: str) -> str:
