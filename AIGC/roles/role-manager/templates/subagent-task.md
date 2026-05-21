@@ -8,10 +8,18 @@
 - 角色显示名：{被派发角色}
 - 角色规则入口：{AIGC/roles/.../RULE.md 或项目适配包角色 RULE.md}
 - 通用规则入口：AIGC/roles/common/RULE.md
+- 会话模式：{runtime-resume / runtime-mirror-resume / summary-rebuild / create-new}
+- 会话索引：{AIGC/project-adapters/{project_id}/runs/sessions/{session_file} 或 无}
+- 原始会话标识：{session_id 或 无}
+- 原始子角色标识：{agent_id 或 无}
 
 ## 任务目标
 
 {本次只完成的一件事}
+
+## 会话复活
+
+{当会话模式为 runtime-resume 或 runtime-mirror-resume 时，本段只写追加给原 session_id 和必要 agent_id 的继续目标。原会话不可唤醒时必须回报角色管理员，不得创建新会话冒充复活。summary-rebuild 只能说明为重建，不能称为复活。}
 
 ## 背景和已确认事实
 
@@ -52,3 +60,4 @@
 - 同一文件同一时间只能派给一个写入角色。
 - 写入范围不明确时不得派发。
 - 需要项目事实时，先按 `../project-adapter-routing.md` 命中项目适配包。
+- 需要继续既有角色任务时，先按 `../session-revival.md` 查找可唤醒原会话。

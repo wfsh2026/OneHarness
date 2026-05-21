@@ -17,6 +17,8 @@ updated: 2026-05-21
 
 Tharness 的工程核心是角色系统。角色管理员负责沟通、派发、回收和交付判断；具体角色只按任务包执行，读取自身 `RULE.md`、`skills/` 和 `tools/`。
 
+角色任务需要继续时，角色管理员先按 `AIGC/roles/role-manager/session-revival.md` 查找会话索引。可复活的会话必须恢复运行时原 `session_id`，Claude Code subagent 还必须恢复原 `agent_id`，不能用新会话读取摘要来冒充延续。
+
 ## 适用场景
 
 - 需要解释为什么主会话只能由角色管理员沟通。
@@ -28,6 +30,7 @@ Tharness 的工程核心是角色系统。角色管理员负责沟通、派发�
 
 - `AIGC/roles/common/` 保存所有角色必须遵守的最小规则、会话输出格式和通用模板。
 - `AIGC/roles/role-manager/` 保存角色管理员规则、角色派发检索、任务包模板和项目适配路由。
+- `AIGC/roles/role-manager/session-revival.md` 保存角色会话复活、失败处理和运行态记录要求。
 - `AIGC/roles/{role-id}/RULE.md` 是具体角色唯一根入口。
 - `AIGC/roles/{role-id}/skills/` 保存该角色执行任务时可复用的技能说明。
 - `AIGC/roles/{role-id}/tools/` 保存该角色允许使用的工具调用说明。
@@ -38,6 +41,8 @@ Tharness 的工程核心是角色系统。角色管理员负责沟通、派发�
 - 具体角色根目录没有 `INPUT.md`、`OUTPUT.md`、`BOUNDARY.md` 或 `HANDOFF.md`。
 - 具体角色不会自行扩大任务范围、改派其他角色或改变用户目标。
 - 角色管理员任务包明确允许读取、允许写入、禁止范围、成功标准和验证要求。
+- 需要继续角色任务时，任务包明确会话模式、会话索引和原始 `session_id`。
+- Claude Code subagent 复活索引必须同时包含原 `session_id` 和 `agent_id`。
 - wiki 只说明角色系统的通用架构原则，不保存具体角色技能或工具说明正文。
 
 ## 不适用场景

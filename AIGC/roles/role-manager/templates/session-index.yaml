@@ -1,0 +1,15 @@
+# 角色会话索引模板
+#
+# 本模板用于 AIGC/project-adapters/{project_id}/runs/sessions/{session_id}.yaml。
+# 项目适配包必须被 Git 忽略；不要把真实项目会话索引提交到 Tharness 通用层。
+# 运行时原始会话是事实源，本索引只保存定位原会话所需的最小字段。
+
+runtime: ""
+project_id: ""
+role_id: ""
+task_id: ""
+session_id: ""
+agent_id: ""
+status: paused
+updated_at: ""
+mirror_ref: ""

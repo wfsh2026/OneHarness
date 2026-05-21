@@ -11,6 +11,7 @@ Tharness 本体只保留一份。目标项目适配内容写入本机 `AIGC/proj
 - 用户要求接入、切换或分析某个目标项目。
 - 角色管理员需要目标项目事实、项目专属角色或项目已有 AIGC 工程入口。
 - 执行角色任务需要读取目标项目知识、决策、来源或运行记录。
+- 角色管理员需要查找、唤醒或更新某个项目下的角色会话。
 
 ## 读取顺序
 
@@ -19,6 +20,7 @@ Tharness 本体只保留一份。目标项目适配内容写入本机 `AIGC/proj
 3. 需要项目专属角色时读取 `{project_id}/roles/INDEX.md`，再按任务命中角色规则。
 4. 需要项目知识时读取 `{project_id}/knowledge/INDEX.md`，再按 `read_when` 命中具体页面。
 5. 需要恢复或追溯任务过程时读取 `{project_id}/runs/INDEX.md`。
+6. 需要唤醒已派发角色任务时读取 `{project_id}/runs/sessions/INDEX.md`，再按 `runtime`、`session_id`、`role_id` 和 `task_id` 命中角色会话索引。
 
 ## 项目适配包结构
 
@@ -38,7 +40,12 @@ AIGC/project-adapters/
       open-questions.md
     runs/
       INDEX.md
+      sessions/
+        INDEX.md
+        {session_id}.yaml
 ```
+
+角色会话索引可按 `templates/session-index.yaml` 创建；真实索引只能放在被 Git 忽略的项目适配包中。
 
 ## ADAPTER.md 必须说明
 
@@ -48,6 +55,8 @@ AIGC/project-adapters/
 - 默认项目知识入口。
 - 项目专属角色入口。
 - 运行记录入口。
+- 角色会话索引入口。
+- 角色会话索引采用的运行时类型；Claude Code subagent 需要记录 `session_id` 和 `agent_id`。
 - 允许读取、允许写入和禁止写入范围。
 - 项目事实来源优先级。
 
@@ -57,6 +66,7 @@ AIGC/project-adapters/
 - 项目专属角色只能写入 `AIGC/project-adapters/{project_id}/roles/`。
 - 项目知识只能写入 `AIGC/project-adapters/{project_id}/knowledge/`。
 - 项目运行记录只能写入 `AIGC/project-adapters/{project_id}/runs/`。
+- 角色会话索引只能写入 `AIGC/project-adapters/{project_id}/runs/sessions/`。
 - 通用角色库只保存跨项目角色，不保存项目专属角色。
 
 ## 禁止

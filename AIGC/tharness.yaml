@@ -44,6 +44,8 @@ check_required_paths:
   - AIGC/roles/role-manager/role-routing/tharness-maintainer.md
   - AIGC/roles/role-manager/issue-routing.md
   - AIGC/roles/role-manager/project-adapter-routing.md
+  - AIGC/roles/role-manager/session-revival.md
+  - AIGC/roles/role-manager/templates/session-index.yaml
   - AIGC/roles/role-manager/templates/subagent-task.md
   - AIGC/roles/role-manager/templates/dispatch-result.md
   - AIGC/roles/role-manager/game-design/INDEX.md

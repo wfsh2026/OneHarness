@@ -12,6 +12,7 @@
 | `role-library` | 角色库 | active | `../roles/INDEX.md` | 1.0.0 | 维护角色边界、允许读取、允许写入、禁止范围、调用方式和角色资料。 |
 | `project-adapter-routing` | 项目适配路由 | active | `../roles/role-manager/project-adapter-routing.md` | 1.0.0 | 需要接入、切换或读取目标项目事实、项目专属角色、项目知识或运行记录。 |
 | `session-role-marker` | 会话角色标识 | active | `../roles/common/session-visible-state.md` | 1.0.0 | 主会话正式输出展示当前角色、主要职责和工作依据；用户可见当前角色固定为角色管理员，被派发角色只能出现在派发、依据、回收或内部记录中。 |
+| `role-session-revival` | 角色会话复活 | active | `../roles/role-manager/session-revival.md` | 1.0.0 | 需要继续、唤醒、恢复或追溯已派发角色任务；Tharness 只保存最小会话索引，复活必须恢复运行时原 `session_id`；Claude Code subagent 还必须恢复原 `agent_id`。 |
 | `issue-routing` | 问题路由 | active | `../roles/role-manager/issue-routing.md` | 1.0.0 | 执行角色发现问题后形成候选，由角色管理员审核沉淀位置。 |
 | `project-knowledge-maintenance` | 项目知识维护 | active | `../roles/wiki-manager/skills/project-knowledge-routing.md` | 1.0.0 | 需要检索、更新或检查目标项目适配包中的项目知识、决策、来源或开放问题。 |
 | `capability-evolution` | AIGC 能力演化 | active | `../roles/tharness-maintainer/RULE.md` | 1.0.0 | 需要分析外部 harness、提取可复用能力、更新能力索引或版本记录。 |
