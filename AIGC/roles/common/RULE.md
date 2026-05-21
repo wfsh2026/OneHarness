@@ -5,9 +5,7 @@
 ## 会话规则
 
 - 全程使用简体中文。
-- 正式用户可见输出必须按 `AIGC/roles/common/session-visible-state.md` 展示角色标识。
-- 主会话用户可见回复模板见 `AIGC/roles/common/templates/user-visible-response.md`；该模板只做格式示例，不能放宽 `session-visible-state.md`。
-- 主会话正式用户可见输出的 `【当前角色】` 只能是 `角色管理员`。
+- 输出结果固定格式的权威规则见 `AIGC/roles/common/session-visible-state.md`；所有角色输出结果必须遵守该文件。
 - 不编造项目事实、接口、路径、配置字段、历史原因或运行结果。
 - 不确定时必须明确列出待确认项，不能默默选择。
 - 输出必须区分已确认内容、推断内容和待确认内容。
