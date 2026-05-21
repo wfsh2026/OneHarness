@@ -4,8 +4,8 @@ title: 可验证工作循环
 summary: 把一次请求压缩成目标、最小改动、验证和记录闭环。
 type: architecture-card
 status: active
-tags: [architecture, workflow, verification]
-relates: ["[[architecture-workflow-routing]]", "[[architecture-knowledge-boundary]]"]
+tags: [architecture, role, verification]
+relates: ["[[architecture-role-system]]", "[[architecture-role-dispatch-routing]]", "[[architecture-knowledge-boundary]]"]
 read_when: 需要把任务压缩成一个可验证的最小闭环。
 source: Tharness 当前最小工作循环。
 updated: 2026-04-27
@@ -15,7 +15,7 @@ updated: 2026-04-27
 
 ## 结论
 
-通用项目工作流应把每轮任务压缩成一个可验证闭环，而不是一次读取全部资料或一次解决所有问题。
+通用项目工作循环应把每轮任务压缩成一个可验证闭环，而不是一次读取全部资料或一次解决所有问题。
 
 ## 适用场景
 
@@ -32,7 +32,7 @@ updated: 2026-04-27
 - 需要读取哪些最少文件。
 - 需要修改哪些最少内容。
 - 如何验证完成。
-- 结果写入可提交通用层还是本机项目胶囊。
+- 结果写入可提交通用层还是本机项目适配包。
 
 ## 验证方式
 

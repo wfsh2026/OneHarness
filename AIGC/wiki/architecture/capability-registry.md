@@ -5,7 +5,7 @@ summary: 用能力索引记录入口、状态、版本和读取条件。
 type: architecture-card
 status: active
 tags: [architecture, capability, versioning]
-relates: ["[[architecture-workflow-routing]]"]
+relates: ["[[architecture-role-dispatch-routing]]"]
 read_when: 需要设计能力入口、状态、版本和可检索维护规则。
 source: Tharness 当前能力索引结构。
 updated: 2026-04-27
@@ -19,7 +19,7 @@ updated: 2026-04-27
 
 ## 适用场景
 
-- 项目有多个可复用工作流、规则或工具能力。
+- 项目有多个可复用角色、规则或工具能力。
 - 能力需要区分可直接执行和候选状态。
 - 能力变更需要追溯版本影响。
 

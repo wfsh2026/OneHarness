@@ -1,12 +1,12 @@
 ---
 id: architecture-knowledge-boundary
 title: 知识写入边界
-summary: 用适用范围决定知识进入通用 wiki 还是本机项目胶囊。
+summary: 用适用范围决定知识进入通用 wiki 还是项目适配包。
 type: architecture-card
 status: active
 tags: [architecture, knowledge, boundary]
 relates: ["[[architecture-project-adapter-layer]]", "[[architecture-capability-registry]]"]
-read_when: 需要判断一条知识应该写入通用 wiki 还是本机项目胶囊。
+read_when: 需要判断一条知识应该写入通用 wiki 还是项目适配包。
 source: Tharness 当前写入边界规则。
 updated: 2026-04-27
 ---
@@ -15,7 +15,7 @@ updated: 2026-04-27
 
 ## 结论
 
-知识写入位置由适用范围决定：跨项目可复用的架构知识进通用 wiki，项目事实进本机项目胶囊。
+知识写入位置由适用范围决定：跨项目可复用的架构知识进通用 wiki，项目事实进本机项目适配包。
 
 ## 适用场景
 
@@ -36,7 +36,7 @@ updated: 2026-04-27
 ## 验证方式
 
 - 通用 wiki 页面不包含项目路径、项目运行记录或项目决策。
-- 项目 wiki 能保存该项目的稳定事实和决策。
+- 项目知识能保存该项目的稳定事实和决策。
 - 未确认内容不会写成稳定事实。
 
 ## 不适用场景

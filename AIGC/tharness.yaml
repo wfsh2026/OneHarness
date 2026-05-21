@@ -1,12 +1,12 @@
 framework_root: AIGC
-local_project_root: AIGC/_local
-local_project_registry: AIGC/_local/registry.yaml
+role_root: AIGC/roles
+role_rule_file_name: RULE.md
+project_adapter_root: AIGC/project-adapters
 
 required_entries:
   - AIGC/INDEX.md
-  - AIGC/workflows/INDEX.md
+  - AIGC/roles/INDEX.md
   - AIGC/wiki/INDEX.md
-  - AIGC/projects/INDEX.md
   - AIGC/capabilities/INDEX.md
 
 wiki_index_file: AIGC/wiki/index.yaml
@@ -24,56 +24,122 @@ wiki_front_matter_required_fields:
 wiki_front_matter_allow_empty_fields:
   - relates
 
-workflow_root: AIGC/workflows
-workflow_rules_dir_name: rules
-workflow_rules_index_name: INDEX.md
-workflow_rule_required_fields:
-  - id
-  - title
-  - workflow
-  - phase
-  - read_when
-  - updated
-workflow_rule_exclude_files:
-  - INDEX.md
+check_required_paths:
+  - AIGC/roles/common/RULE.md
+  - AIGC/roles/common/session-visible-state.md
+  - AIGC/roles/common/templates/user-visible-response.md
+  - AIGC/roles/common/templates/role-delivery.md
+  - AIGC/roles/role-manager/RULE.md
+  - AIGC/roles/role-manager/role-routing/INDEX.md
+  - AIGC/roles/role-manager/role-routing/ui-developer.md
+  - AIGC/roles/role-manager/role-routing/character-controller-developer.md
+  - AIGC/roles/role-manager/role-routing/scene-developer.md
+  - AIGC/roles/role-manager/role-routing/combat-developer.md
+  - AIGC/roles/role-manager/role-routing/ai-developer.md
+  - AIGC/roles/role-manager/role-routing/gameplay-systems-developer.md
+  - AIGC/roles/role-manager/role-routing/tools-developer.md
+  - AIGC/roles/role-manager/role-routing/technical-art-developer.md
+  - AIGC/roles/role-manager/role-routing/qa-verification.md
+  - AIGC/roles/role-manager/role-routing/wiki-manager.md
+  - AIGC/roles/role-manager/role-routing/tharness-maintainer.md
+  - AIGC/roles/role-manager/issue-routing.md
+  - AIGC/roles/role-manager/project-adapter-routing.md
+  - AIGC/roles/role-manager/templates/subagent-task.md
+  - AIGC/roles/role-manager/templates/dispatch-result.md
+  - AIGC/roles/role-manager/game-design/INDEX.md
+  - AIGC/roles/role-manager/game-design/methodology.md
+  - AIGC/roles/role-manager/game-design/method-cards/INDEX.md
+  - AIGC/roles/developer/RULE.md
+  - AIGC/roles/developer/templates/implementation-delivery.md
+  - AIGC/roles/ui-developer/RULE.md
+  - AIGC/roles/ui-developer/skills/INDEX.md
+  - AIGC/roles/ui-developer/tools/INDEX.md
+  - AIGC/roles/character-controller-developer/RULE.md
+  - AIGC/roles/character-controller-developer/skills/INDEX.md
+  - AIGC/roles/character-controller-developer/tools/INDEX.md
+  - AIGC/roles/scene-developer/RULE.md
+  - AIGC/roles/scene-developer/skills/INDEX.md
+  - AIGC/roles/scene-developer/tools/INDEX.md
+  - AIGC/roles/combat-developer/RULE.md
+  - AIGC/roles/combat-developer/skills/INDEX.md
+  - AIGC/roles/combat-developer/tools/INDEX.md
+  - AIGC/roles/ai-developer/RULE.md
+  - AIGC/roles/ai-developer/skills/INDEX.md
+  - AIGC/roles/ai-developer/tools/INDEX.md
+  - AIGC/roles/gameplay-systems-developer/RULE.md
+  - AIGC/roles/gameplay-systems-developer/skills/INDEX.md
+  - AIGC/roles/gameplay-systems-developer/tools/INDEX.md
+  - AIGC/roles/tools-developer/RULE.md
+  - AIGC/roles/tools-developer/skills/INDEX.md
+  - AIGC/roles/tools-developer/tools/INDEX.md
+  - AIGC/roles/technical-art-developer/RULE.md
+  - AIGC/roles/technical-art-developer/skills/INDEX.md
+  - AIGC/roles/technical-art-developer/tools/INDEX.md
+  - AIGC/roles/qa-verification/RULE.md
+  - AIGC/roles/qa-verification/skills/INDEX.md
+  - AIGC/roles/qa-verification/tools/INDEX.md
+  - AIGC/roles/qa-verification/templates/verification-report.md
+  - AIGC/roles/wiki-manager/RULE.md
+  - AIGC/roles/wiki-manager/skills/INDEX.md
+  - AIGC/roles/wiki-manager/tools/INDEX.md
+  - AIGC/roles/wiki-manager/skills/project-knowledge-routing.md
+  - AIGC/roles/tharness-maintainer/RULE.md
+  - AIGC/roles/tharness-maintainer/skills/INDEX.md
+  - AIGC/roles/tharness-maintainer/tools/INDEX.md
+  - AIGC/roles/tharness-maintainer/skills/self-check.md
+  - AIGC/roles/tharness-maintainer/skills/versioning.md
 
-gate_required_paths:
-  - AIGC/workflows/development/rules/intake.md
-  - AIGC/workflows/development/rules/scope.md
-  - AIGC/workflows/development/rules/verification.md
-  - AIGC/workflows/development/rules/self-check.md
-  - AIGC/workflows/development/rules/quality-gate.md
-  - AIGC/workflows/development/rules/delivery.md
-  - AIGC/workflows/development/rules/issue-routing.md
-  - AIGC/workflows/development/rules/wiki-sync.md
-  - AIGC/workflows/development/templates/development-task-delivery.md
-  - AIGC/projects/rules/project-isolation.md
-  - AIGC/projects/rules/project-wiki-retrieval.md
-  - AIGC/projects/rules/project-wiki-update.md
-
-gate_boundary_scan_paths:
+check_boundary_scan_paths:
+  - AIGC/roles
   - AIGC/wiki
-  - AIGC/workflows
-  - AIGC/projects
-gate_boundary_exclude_names:
+check_boundary_exclude_names:
   - templates
-  - _local
-gate_boundary_forbidden_patterns:
+check_boundary_forbidden_patterns:
   - ':\'
   - "file:///"
   - "/home/"
   - "/Users/"
-gate_gitignore_required_patterns:
-  - AIGC/_local/
+check_gitignore_required_patterns:
+  - AIGC/project-adapters/
+
+session_role_marker_file: AIGC/roles/common/session-visible-state.md
+session_role_required_fields:
+  - 【当前角色】
+  - 【主要职责】
+  - 【工作依据】
+  - 【详细内容】
+session_role_allowed_names:
+  - 角色管理员
+session_role_forbidden_current_role_names:
+  - UI 开发者
+  - 3C 开发者
+  - 场景开发者
+  - 战斗开发者
+  - AI 开发者
+  - 玩法系统开发者
+  - 工具开发者
+  - 技术美术开发者
+  - 验证审查员
+  - wiki 管理员
+  - Tharness 能力维护员
+session_role_fallback_name: 角色管理员
+session_role_required_statements:
+  - 本规则固定的是用户可见标识字段，不是让模型从标题、任务类型或输出内容中生成新角色
+  - 主会话用户可见 `【当前角色】` 只能是 `角色管理员`
+  - 具体执行角色只能由角色管理员通过 SubAgent 或全新会话派发
+  - 执行角色名称只能出现在任务派发、工作依据、回收结果或内部执行记录中
+  - 被派发角色不能出现在主会话正式输出的 `【当前角色】` 字段中
+  - 输出主题、文档类型、评审对象或任务标题不能作为当前角色名
+  - 禁止在主会话 `【当前角色】` 中写入任何被派发角色
+  - 禁止使用旧 AIGC 三段式作为 Tharness 当前会话的固定回复格式
 
 self_check_path_rules:
+  - AIGC/roles|python tools\tharness.py check
   - AIGC/wiki|python tools\tharness.py index --check
-  - AIGC/workflows|python tools\tharness.py doctor
-  - AIGC/projects|python tools\tharness.py doctor
   - AIGC/capabilities|python tools\tharness.py doctor
-  - AIGC/tharness.yaml|python tools\tharness.py gate
-  - tools|python tools\tharness.py gate
+  - AIGC/tharness.yaml|python tools\tharness.py check
+  - tools|python tools\tharness.py check
   - tools|python -m unittest tools.test_tharness
 
 self_check_delivery_commands:
-  - python tools\tharness.py gate
+  - python tools\tharness.py check

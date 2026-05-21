@@ -1,7 +1,7 @@
 ---
 id: template-architecture-card
 title: 架构知识页模板
-summary: 创建通用架构知识页时使用的最小页面结构。
+summary: 创建 Tharness 通用架构知识页时使用的最小页面结构。
 type: template
 status: active
 tags: [wiki, template, architecture]

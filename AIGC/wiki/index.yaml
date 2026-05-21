@@ -8,17 +8,13 @@ exclude:
 
 pages:
   - AIGC/wiki/architecture/capability-registry.md
-  - AIGC/wiki/architecture/configuration-surface.md
-  - AIGC/wiki/architecture/dependency-direction.md
-  - AIGC/wiki/architecture/entry-map.md
   - AIGC/wiki/architecture/knowledge-boundary.md
   - AIGC/wiki/architecture/knowledge-layering.md
-  - AIGC/wiki/architecture/module-boundaries.md
   - AIGC/wiki/architecture/project-adapter-layer.md
-  - AIGC/wiki/architecture/repository-structure.md
+  - AIGC/wiki/architecture/project-knowledge-handoff.md
+  - AIGC/wiki/architecture/role-dispatch-routing.md
+  - AIGC/wiki/architecture/role-system.md
   - AIGC/wiki/architecture/verifiable-work-loop.md
-  - AIGC/wiki/architecture/wiki-mediated-workflow-handoff.md
-  - AIGC/wiki/architecture/workflow-routing.md
   - AIGC/wiki/rules/building.md
   - AIGC/wiki/rules/health.md
   - AIGC/wiki/rules/retrieval.md

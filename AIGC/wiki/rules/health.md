@@ -18,12 +18,17 @@ updated: 2026-04-27
 - 入口可达：新增页面能从 `INDEX.md` 或分区索引命中。
 - 元数据完整：页面包含 `id`、`title`、`summary`、`type`、`status`、`tags`、`relates`、`read_when`、`source`、`updated`。
 - 边界干净：不包含具体项目事实、项目路径、运行记录、项目专用资料。
+- 角色边界干净：不包含具体角色技能正文、工具调用说明或派发边界表。
 - 读取成本可控：索引只做路由，不复制正文。
 - 关联有效：`relates` 指向存在的 `id`。
 
 ## 项目标记扫描
 
 通用 wiki 中不应出现具体项目标记。发现后必须移出通用 wiki 或改写为通用架构表达。
+
+## 角色资料扫描
+
+通用 wiki 中不应保存具体角色的执行技能、工具调用说明或派发边界。发现后必须移动到 `AIGC/roles/{role-id}/skills/`、`AIGC/roles/{role-id}/tools/` 或 `AIGC/roles/role-manager/role-routing/`。
 
 ## 禁止
 

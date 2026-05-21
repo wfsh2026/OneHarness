@@ -5,7 +5,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from tharness_checks import run_doctor, run_gate, run_index
+from tharness_checks import run_check, run_doctor, run_index
 from tharness_config import DEFAULT_CONFIG, config_value, load_simple_yaml, rel_path, repo_path
 from tharness_index import write_wiki_index
 from tharness_self_check import plan_self_check_commands
@@ -24,12 +24,12 @@ def print_report(title: str, errors: list[str], warnings: list[str], info: list[
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Tharness 自检工具")
-    parser.add_argument("command", nargs="?", help="doctor | index | gate | self-check")
+    parser.add_argument("command", nargs="?", help="doctor | index | check | self-check")
     parser.add_argument("--config", default=DEFAULT_CONFIG, help="检查配置文件")
     parser.add_argument("--check", action="store_true", help="index 命令只校验，不输出生成列表")
     parser.add_argument("--write", action="store_true", help="index 命令写回页面清单")
     parser.add_argument("--path", action="append", default=[], help="self-check 命令的变更路径，可重复传入")
-    parser.add_argument("--delivery", action="store_true", help="self-check 命令包含交付前门控")
+    parser.add_argument("--delivery", action="store_true", help="self-check 命令包含交付前结构自检")
     return parser.parse_args(argv)
 
 
@@ -73,8 +73,8 @@ def run_self_check_command(config: dict, paths: list[str], delivery: bool) -> in
 
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
-    if args.command not in {"doctor", "index", "gate", "self-check"}:
-        print("错误: 未知命令。可用命令: doctor, index, gate, self-check", file=sys.stderr)
+    if args.command not in {"doctor", "index", "check", "self-check"}:
+        print("错误: 未知命令。可用命令: doctor, index, check, self-check", file=sys.stderr)
         return 2
 
     repo_root = Path.cwd()
@@ -96,8 +96,8 @@ def main(argv: list[str]) -> int:
         if args.command == "self-check":
             return run_self_check_command(config, args.path, args.delivery)
 
-        errors, warnings, info = run_gate(repo_root, config)
-        print_report("gate", errors, warnings, info)
+        errors, warnings, info = run_check(repo_root, config)
+        print_report("check", errors, warnings, info)
         return 1 if errors else 0
     except (FileNotFoundError, ValueError) as exc:
         print(f"错误: {exc}", file=sys.stderr)

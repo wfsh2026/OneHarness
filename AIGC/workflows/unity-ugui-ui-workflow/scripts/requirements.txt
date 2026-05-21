@@ -1,1 +1,0 @@
-# Archived auto slicer only. The current workflow has no Python runtime requirements.
