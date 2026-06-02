@@ -8,6 +8,7 @@ from pathlib import Path
 from tharness_checks import run_check, run_doctor, run_index
 from tharness_config import DEFAULT_CONFIG, config_value, load_simple_yaml, rel_path, repo_path
 from tharness_index import write_wiki_index
+from tharness_project import run_project_command
 from tharness_self_check import plan_self_check_commands
 
 
@@ -24,12 +25,15 @@ def print_report(title: str, errors: list[str], warnings: list[str], info: list[
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Tharness 自检工具")
-    parser.add_argument("command", nargs="?", help="doctor | index | check | self-check")
+    parser.add_argument("command", nargs="?", help="doctor | index | check | self-check | project")
+    parser.add_argument("project_command", nargs="?", help="project 子命令: init | start")
     parser.add_argument("--config", default=DEFAULT_CONFIG, help="检查配置文件")
     parser.add_argument("--check", action="store_true", help="index 命令只校验，不输出生成列表")
     parser.add_argument("--write", action="store_true", help="index 命令写回页面清单")
     parser.add_argument("--path", action="append", default=[], help="self-check 命令的变更路径，可重复传入")
     parser.add_argument("--delivery", action="store_true", help="self-check 命令包含交付前结构自检")
+    parser.add_argument("--root", default=".", help="project 命令的目标项目目录，默认当前目录")
+    parser.add_argument("--force", action="store_true", help="project init 覆盖已存在的启动锚点文件")
     return parser.parse_args(argv)
 
 
@@ -73,11 +77,15 @@ def run_self_check_command(config: dict, paths: list[str], delivery: bool) -> in
 
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
-    if args.command not in {"doctor", "index", "check", "self-check"}:
-        print("错误: 未知命令。可用命令: doctor, index, check, self-check", file=sys.stderr)
+    if args.command not in {"doctor", "index", "check", "self-check", "project"}:
+        print("错误: 未知命令。可用命令: doctor, index, check, self-check, project", file=sys.stderr)
         return 2
 
     repo_root = Path(__file__).resolve().parents[1]
+
+    if args.command == "project":
+        return run_project_command(repo_root, args.project_command, args.root, args.force)
+
     try:
         config = load_simple_yaml(repo_path(repo_root, args.config))
     except (FileNotFoundError, ValueError) as exc:

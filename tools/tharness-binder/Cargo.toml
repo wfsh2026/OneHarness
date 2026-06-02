@@ -1,0 +1,15 @@
+[package]
+name = "tharness-binder"
+version = "1.0.3"
+edition = "2021"
+description = "A small GUI tool that binds a THarness root to a target project folder."
+license = "UNLICENSED"
+
+[dependencies]
+eframe = "0.27"
+rfd = "0.14"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

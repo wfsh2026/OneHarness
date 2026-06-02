@@ -2,7 +2,7 @@
 
 本目录记录当前 AIGC 可用能力，只保存路由、状态和版本信息，不保存具体项目事实。
 
-当前系统版本：`4.1.0`
+当前系统版本：`4.3.4`
 
 ## 当前能力
 
@@ -24,6 +24,8 @@
 | `generic-architecture-wiki` | 通用架构 Wiki | active | `../wiki/INDEX.md` | 1.0.2 | 需要检索跨项目通用架构知识；写入位置先由 `issue-routing` 判定。 |
 | `knowledge-layering` | 知识分层 | active | `../wiki/architecture/knowledge-layering.md` | 1.0.0 | 需要拆分过大的规则、知识页、说明文档或能力入口。 |
 | `tharness-self-check` | Tharness 结构自检 | active | `../../tools/tharness.py` | 2.0.0 | 需要从工具入口检查入口、元数据、wiki 索引、角色库、会话角色标识或结构边界是否存在问题。 |
+| `project-anchor-launch` | 项目锚点启动 | active | `../../tools/tharness.py` | 1.0.1 | 需要在指定项目目录快速部署轻量 `.tharness/` 启动锚点和目标项目根目录 `AGENTS.md` 桥接入口，或不复制主工程直接输出目标项目与 THarness 主工程绑定的启动包。 |
+| `visual-project-binder` | 可视化项目绑定 | active | `../../THarness-Binder.exe` | 1.0.4 | 需要直接启动深色圆角桌面 exe，选择目标项目文件夹、预览 `.tharness/` 和 `AGENTS.md` 绑定结果，并确认把当前 THarness 主工程绑定到该项目。 |
 | `role-self-check-trigger` | 自检触发规则 | active | `../roles/tharness-maintainer/skills/self-check.md` | 1.0.0 | Tharness 自身改动影响 AIGC 文档、角色规则、配置、工具或准备交付时。 |
 | `index-sync` | Wiki 索引同步 | active | `../../tools/tharness.py` | 1.0.0 | 需要按扫描结果校验或写回 `AIGC/wiki/index.yaml` 页面清单。 |
 | `self-check-planner` | 自检命令规划 | active | `../../tools/tharness.py` | 1.0.0 | 需要按变更路径确定本轮应该运行哪些自检命令。 |

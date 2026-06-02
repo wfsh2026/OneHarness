@@ -32,7 +32,7 @@ class TharnessCliTests(unittest.TestCase):
     def test_gate_command_is_removed(self) -> None:
         result = self.run_cli("gate")
         self.assertEqual(result.returncode, 2)
-        self.assertIn("可用命令: doctor, index, check, self-check", result.stderr)
+        self.assertIn("可用命令: doctor, index, check, self-check, project", result.stderr)
 
     def test_missing_config_fails(self) -> None:
         result = self.run_cli("doctor", "--config", "aigc/missing.yaml")
@@ -55,6 +55,71 @@ class TharnessCliTests(unittest.TestCase):
 
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("check: PASS", result.stdout)
+
+    def test_project_start_can_use_external_root_without_anchor(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            result = self.run_cli("project", "start", "--root", temp_dir)
+
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("project-start: PASS", result.stdout)
+        self.assertIn("manifest: not found; using transient startup", result.stdout)
+        self.assertIn(str(ROOT), result.stdout)
+
+    def test_project_init_creates_lightweight_anchor_without_copying_framework(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            result = self.run_cli("project", "init", "--root", temp_dir)
+            project_root = Path(temp_dir)
+            anchor = project_root / ".tharness"
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertTrue((anchor / "project.yaml").exists())
+            self.assertTrue((anchor / "start.ps1").exists())
+            self.assertTrue((anchor / "start.cmd").exists())
+            self.assertTrue((project_root / "AGENTS.md").exists())
+            self.assertFalse((project_root / "AIGC").exists())
+            self.assertIn(str(ROOT), (anchor / "project.yaml").read_text(encoding="utf-8"))
+            agents_text = (project_root / "AGENTS.md").read_text(encoding="utf-8")
+            self.assertIn(str(ROOT / "AGENTS.md"), agents_text)
+            self.assertIn(str(ROOT / "AIGC" / "INDEX.md"), agents_text)
+
+            start_result = self.run_cli("project", "start", "--root", temp_dir)
+
+        self.assertEqual(start_result.returncode, 0, start_result.stdout + start_result.stderr)
+        self.assertIn("manifest: found", start_result.stdout)
+        self.assertIn("write-policy:", start_result.stdout)
+
+    def test_project_init_refuses_to_overwrite_changed_anchor_without_force(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            first = self.run_cli("project", "init", "--root", temp_dir)
+            anchor_readme = Path(temp_dir) / ".tharness" / "README.md"
+            anchor_readme.write_text("local edit\n", encoding="utf-8")
+
+            second = self.run_cli("project", "init", "--root", temp_dir)
+            forced = self.run_cli("project", "init", "--root", temp_dir, "--force")
+
+        self.assertEqual(first.returncode, 0, first.stdout + first.stderr)
+        self.assertEqual(second.returncode, 2)
+        self.assertIn("--force", second.stderr)
+        self.assertEqual(forced.returncode, 0, forced.stdout + forced.stderr)
+
+    def test_project_init_merges_agents_bridge_without_removing_existing_rules(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            project_root = Path(temp_dir)
+            agents_path = project_root / "AGENTS.md"
+            agents_path.write_text("# Project Rules\n\nKeep local notes.\n", encoding="utf-8")
+
+            first = self.run_cli("project", "init", "--root", temp_dir)
+            first_text = agents_path.read_text(encoding="utf-8")
+            second = self.run_cli("project", "init", "--root", temp_dir)
+            second_text = agents_path.read_text(encoding="utf-8")
+
+        self.assertEqual(first.returncode, 0, first.stdout + first.stderr)
+        self.assertIn("# Project Rules", first_text)
+        self.assertIn("Keep local notes.", first_text)
+        self.assertIn("THARNESS_BINDING_START", first_text)
+        self.assertIn(str(ROOT / "AIGC" / "INDEX.md"), first_text)
+        self.assertEqual(second.returncode, 0, second.stdout + second.stderr)
+        self.assertEqual(first_text, second_text)
 
     def test_index_write_passes_current_repo(self) -> None:
         result = self.run_cli("index", "--write")

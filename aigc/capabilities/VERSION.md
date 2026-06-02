@@ -1,6 +1,6 @@
 # AIGC 版本
 
-current_version: 4.1.0
+current_version: 4.3.4
 
 ## 版本级别
 
@@ -27,7 +27,7 @@ current_version: 4.1.0
 - Claude Code 角色会话复活运行时标识字段。
 - 通用架构 wiki。
 - 能力索引、版本记录和变更记录。
-- 结构自检 CLI、wiki 索引校验和自检命令规划。
+- 结构自检 CLI、wiki 索引校验、自检命令规划、项目锚点启动和可视化项目绑定。
 - 角色资料、方法卡和自检触发规则。
 - 2D UI 绘图师实习标签、派发检索、完整界面视觉稿、批量资源绘制、资源绘制边界和正式 Sprite 规格交付要求。
 - 2D 游戏资源绘制师实习标签、派发检索、非 UI 游戏静态资源绘制和透明精灵验收边界。
@@ -62,6 +62,8 @@ current_version: 4.1.0
 | 通用架构 wiki | active | `../wiki/INDEX.md` | 保存跨项目可复用的项目架构搭建知识，用于低 token 架构检索。 |
 | 结构自检 | active | `../../tools/tharness.py` | 从工具入口解析 THarness 根目录，用 `doctor`、`index --check` 和 `check` 检查入口、元数据、索引、角色库、会话角色标识和结构边界。 |
 | 自检命令规划 | active | `../../tools/tharness.py` | 用 `self-check --path ... --delivery` 输出本轮应运行的自检命令。 |
+| 项目锚点启动 | active | `../../tools/tharness.py` | 用 `project init --root ...` 在目标项目部署轻量 `.tharness/` 启动锚点和目标项目根目录 `AGENTS.md` 桥接入口，或用 `project start --root ...` 在不复制主工程的情况下输出目标项目与 THarness 主工程绑定的启动包。 |
+| 可视化项目绑定 | active | `../../THarness-Binder.exe` | 直接打开 Rust 桌面工具，用深色圆角扁平化界面显示当前 THarness 主工程、目标项目文件夹选择、`.tharness/` 与 `AGENTS.md` 绑定预览、确认绑定和关闭按钮。 |
 
 ## 当前版本边界
 
@@ -119,4 +121,7 @@ current_version: 4.1.0
 - `python tools/tharness.py check` 可执行结构自检。
 - `python THarness/tools/tharness.py check` 可从父目录直接解析 THarness 入口并执行结构自检。
 - `python tools/tharness.py self-check --path AIGC/wiki/architecture/role-system.md --delivery` 可输出 `index --check` 和 `check`。
-- `python -m unittest tools.test_tharness` 覆盖 CLI 无效输入、索引写回、自检命令规划和会话角色标识检查。
+- `python tools/tharness.py project start --root <目标目录>` 可在不部署锚点时输出临时启动包。
+- `python tools/tharness.py project init --root <目标目录>` 可部署 `.tharness/project.yaml`、`start.ps1`、`start.cmd` 和说明文件，且不复制 `AIGC/`。
+- `tools/tharness-binder` 可构建 Rust 桌面绑定工具，打包后的 `THarness-Binder.exe` 位于 THarness 主目录，可直接双击启动。
+- `python -m unittest tools.test_tharness` 覆盖 CLI 无效输入、索引写回、自检命令规划、项目锚点启动和会话角色标识检查。

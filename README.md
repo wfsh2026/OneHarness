@@ -43,6 +43,38 @@ python tools/tharness.py check
 python THarness/tools/tharness.py check
 ```
 
+## 项目快速启动锚点
+
+THarness 可以作为独立版本化主工程使用，其他项目不需要复制 `AIGC/`。在目标项目目录部署轻量锚点：
+
+```powershell
+python D:\UnityDemo\THarness\tools\tharness.py project init --root F:\YourProject
+```
+
+之后在目标项目内启动：
+
+```powershell
+.\.tharness\start.ps1
+```
+
+也可以不部署锚点，直接对指定目录输出启动包：
+
+```powershell
+python D:\UnityDemo\THarness\tools\tharness.py project start --root F:\YourProject
+```
+
+启动锚点只记录 THarness 主工程路径和目标项目路径，不复制主工程。绑定会在目标项目根目录维护 `AGENTS.md` 桥接段，让 AI 在目标项目启动时先读取 THarness 主工程 `AGENTS.md` 和 `AIGC/INDEX.md`。通用框架、角色、规则、wiki、能力索引和工具改动写回 THarness 主工程；项目事实、项目代码、项目资源和项目专属决策留在目标项目。
+
+## 可视化绑定工具
+
+THarness 也提供 Rust 桌面绑定工具，用于通过界面选择目标项目目录并确认绑定：
+
+```text
+THarness-Binder.exe
+```
+
+源码位于 `tools/tharness-binder/`。打包后的应用放在 THarness 主目录 `THarness-Binder.exe`，可以直接双击启动。界面使用深色圆角扁平化设计，显示当前 THarness 主工程、目标项目文件夹选择按钮、`.tharness/` 与 `AGENTS.md` 绑定预览、确认绑定和关闭按钮。
+
 配置入口是 `AIGC/tharness.yaml`。动态检查范围、必需入口、元数据字段和结构自检扫描规则都从该配置读取。
 
 AI 修改 Tharness 自身时，按 `AIGC/roles/tharness-maintainer/skills/self-check.md` 的触发矩阵自动选择自检命令；也可以用 `self-check --path ... --delivery` 让工具输出本轮应运行的命令。交付前必须运行 `python tools\tharness.py check`。

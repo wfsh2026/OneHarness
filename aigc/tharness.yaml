@@ -77,6 +77,11 @@ check_required_paths:
   - AIGC/roles/tharness-maintainer/tools/INDEX.md
   - AIGC/roles/tharness-maintainer/skills/self-check.md
   - AIGC/roles/tharness-maintainer/skills/versioning.md
+  - tools/tharness_project.py
+  - tools/tharness-binder/Cargo.toml
+  - tools/tharness-binder/Cargo.lock
+  - tools/tharness-binder/src/main.rs
+  - THarness-Binder.exe
 
 check_boundary_scan_paths:
   - AIGC/roles
