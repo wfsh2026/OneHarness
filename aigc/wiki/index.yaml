@@ -1,0 +1,19 @@
+watch:
+  - AIGC/wiki/architecture/
+  - AIGC/wiki/rules/
+
+exclude:
+  - INDEX.md
+  - templates/
+
+pages:
+  - AIGC/wiki/architecture/capability-registry.md
+  - AIGC/wiki/architecture/knowledge-boundary.md
+  - AIGC/wiki/architecture/knowledge-layering.md
+  - AIGC/wiki/architecture/role-dispatch-routing.md
+  - AIGC/wiki/architecture/role-system.md
+  - AIGC/wiki/architecture/verifiable-work-loop.md
+  - AIGC/wiki/rules/building.md
+  - AIGC/wiki/rules/health.md
+  - AIGC/wiki/rules/retrieval.md
+  - AIGC/wiki/rules/schema.md
