@@ -22,5 +22,6 @@
 | 实习 UI 开发者 | 实习 | `intern-ui-developer.md` | 需要判断 UI 界面、控件层级、素材接入、运行时文字、交互状态、空态、禁用态、错误态或前台表现实现任务。 |
 | 实习玩法系统开发者 | 实习 | `intern-gameplay-systems-developer.md` | 需要判断非战斗逐帧玩法系统、成长、背包、装备、交易、区域、资源点、传送、推荐或对应配置任务。 |
 | 实习战斗开发者 | 实习 | `intern-combat-developer.md` | 需要判断战斗运行时、战斗角色属性、敌人行为、技能请求、预警、伤害、撤退、失败、胜利或战斗结算任务。 |
+| poe 小助手 | - | `poe-helper.md` | 需要判断 Path of Exile / Path of Exile 2、POE 补丁、MOD、GGPK、VisualGGPK、交易接口、通货价格、游戏安装包或 POE 知识沉淀任务。 |
 | wiki 管理员 | - | `wiki-manager.md` | 需要判断候选知识写入或通用 wiki 更新任务。 |
 | Tharness 能力维护员 | - | `tharness-maintainer.md` | 需要判断 Tharness 本体规则、角色库、能力索引、自检工具或模板维护任务。 |

@@ -37,6 +37,7 @@ check_required_paths:
   - AIGC/roles/role-manager/role-routing/intern-ui-developer.md
   - AIGC/roles/role-manager/role-routing/intern-gameplay-systems-developer.md
   - AIGC/roles/role-manager/role-routing/intern-combat-developer.md
+  - AIGC/roles/role-manager/role-routing/poe-helper.md
   - AIGC/roles/role-manager/role-routing/wiki-manager.md
   - AIGC/roles/role-manager/role-routing/tharness-maintainer.md
   - AIGC/roles/role-manager/issue-routing.md
@@ -69,6 +70,10 @@ check_required_paths:
   - AIGC/roles/intern-combat-developer/RULE.md
   - AIGC/roles/intern-combat-developer/skills/INDEX.md
   - AIGC/roles/intern-combat-developer/tools/INDEX.md
+  - AIGC/roles/poe-helper/RULE.md
+  - AIGC/roles/poe-helper/skills/INDEX.md
+  - AIGC/roles/poe-helper/skills/modes-landing.md
+  - AIGC/roles/poe-helper/skills/content-package-analysis.md
   - AIGC/roles/wiki-manager/RULE.md
   - AIGC/roles/wiki-manager/skills/INDEX.md
   - AIGC/roles/wiki-manager/tools/INDEX.md
@@ -112,6 +117,7 @@ session_role_forbidden_current_role_names:
   - 实习 UI 开发者
   - 实习玩法系统开发者
   - 实习战斗开发者
+  - poe 小助手
   - wiki 管理员
   - Tharness 能力维护员
 session_role_fallback_name: 角色管理员
