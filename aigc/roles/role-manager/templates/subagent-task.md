@@ -17,6 +17,15 @@
 
 {本次只完成的一件事}
 
+## 调度元数据
+
+- task_id：{稳定任务标识}
+- depends_on：{无 / 前置 task_id 列表}
+- primary_role：{是 / 否；默认是}
+- risk_level：{low / medium / high}
+- validation_level：{self / evidence-review / independent}
+- completion_status：{pending}
+
 ## 会话复活
 
 {当会话模式为 runtime-resume 或 runtime-mirror-resume 时，本段只写追加给原 session_id 和必要 agent_id 的继续目标。原会话不可唤醒时必须回报角色管理员，不得创建新会话冒充复活。summary-rebuild 只能说明为重建，不能称为复活。}
@@ -55,6 +64,12 @@
 ## 验证要求
 
 - {必须运行或说明无法运行的验证}
+- high 风险必须提供独立验证交接条件；不得由主执行角色独自宣告可交付。
+
+## 实际范围回报
+
+- actual_reads：{交付时填写实际读取，不得只复制允许读取}
+- actual_writes：{交付时填写实际写入，不得只复制允许写入}
 
 ## 输出格式
 
@@ -64,6 +79,8 @@
 ## 使用要求
 
 - 同一文件同一时间只能派给一个写入角色。
+- 默认只派发一个 `primary_role`；只有跨专业、高风险独立验证或写入冲突串行交接时才能补派，并通过 `depends_on` 复用既有证据。
+- 执行角色先读 `RULE.md`，再仅按命中任务读取自己的 skills/tools；任务包不得要求加载全部能力资料。
 - 写入范围不明确时不得派发。
 - 主会话不得为了编写任务包而预读执行角色 `skills/`、`tools/` 或其他能力资料；只能写入允许执行角色读取的入口。
 - 2D UI 或视觉资源任务必须在任务包中写明资源规格、命名约定、风格参考读取顺序和覆盖策略。

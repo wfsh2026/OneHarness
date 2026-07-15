@@ -21,7 +21,7 @@ updated: 2026-05-20
 | `AIGC/roles/**` | `python tools\tharness.py check` |
 | `AIGC/capabilities/**` | `python tools\tharness.py doctor` |
 | `AIGC/tharness.yaml` | `python tools\tharness.py check` |
-| `tools/**` | `python tools\tharness.py check` 和 `python -m unittest tools.test_tharness` |
+| `tools/**` | `python tools\tharness.py check` 和 `python -m unittest tools.test_tharness`；版本扫描器改动还要运行 `python -m unittest tools.test_version_feature_scan`，角色浏览器改动还要运行 `python -m unittest tools.test_role_browser` |
 | 交付前 | `python tools\tharness.py check` |
 
 ## 执行规则

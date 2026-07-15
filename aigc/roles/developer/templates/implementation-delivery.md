@@ -12,6 +12,13 @@
 
 {本次实现目标}
 
+## 任务状态
+
+- task_id：{任务标识}
+- depends_on：{无 / 前置任务}
+- risk_level / validation_level：{风险级别 / 验证级别}
+- status：{completed / partial / blocked / needs-confirmation / needs-dispatch}
+
 ## 修改内容
 
 - {修改点}
@@ -19,6 +26,11 @@
 ## 修改文件
 
 - {文件路径}
+
+## 实际范围
+
+- actual_reads：{实际读取路径或入口}
+- actual_writes：{实际写入路径；没有则写“无”}
 
 ## 验证
 

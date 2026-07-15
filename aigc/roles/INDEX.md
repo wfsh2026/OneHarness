@@ -33,6 +33,7 @@
 | 实习 UI 开发者 | 实习 | 2026-05-26 22:37:01 +0800 | `intern-ui-developer/RULE.md` | UI 界面、控件层级、素材接入、运行时文字、交互状态、空态、禁用态、错误态和前台表现。 |
 | 实习玩法系统开发者 | 实习 | 2026-05-26 22:37:01 +0800 | `intern-gameplay-systems-developer/RULE.md` | 非战斗逐帧玩法系统、成长、背包、装备、交易、区域、资源点、传送、推荐和对应配置。 |
 | 实习战斗开发者 | 实习 | 2026-05-26 22:37:01 +0800 | `intern-combat-developer/RULE.md` | 战斗运行时、战斗角色属性、敌人行为、技能请求、预警、伤害、撤退、失败、胜利和战斗结算。 |
+| 实习版本功能分析员 | 实习 | 2026-06-12 00:00:00 +0800 | `intern-version-feature-analyst/RULE.md` | 从 git 提交记录、merge 信息、diff 和版本分支反推大版本开发功能点，生成版本功能目录审核文档，并在确认后生成开发功能文档。 |
 | poe 小助手 | - | 2026-06-03 00:00:00 +0800 | `poe-helper/RULE.md` | Path of Exile / Path of Exile 2 相关补丁、工具、GGPK、交易接口、本地实验风险分析和项目知识沉淀。 |
 | wiki 管理员 | - | 2026-05-21 17:51:52 +0800 | `wiki-manager/RULE.md` | 判断候选知识写入通用 wiki、本轮交付物或不写入。 |
 | Tharness 能力维护员 | - | 2026-05-21 17:51:52 +0800 | `tharness-maintainer/RULE.md` | 修改 Tharness 规则、角色库、入口机制、能力索引、自检工具或模板。 |
