@@ -250,7 +250,7 @@ class TharnessCliTests(unittest.TestCase):
         )
         registry = (ROOT / "aigc/capabilities/registry.yaml").read_text(encoding="utf-8")
         for slug in slugs:
-            self.assertFalse(any(path.is_file() for path in (ROOT / "aigc/roles" / slug).rglob("*")))
+            self.assertFalse((ROOT / "aigc/roles" / slug).exists())
             self.assertFalse((ROOT / "aigc/roles/role-manager/role-routing" / f"{slug}.md").exists())
             self.assertNotIn(slug, registry)
         for domain in ("architecture", "ui", "gameplay", "combat"):
