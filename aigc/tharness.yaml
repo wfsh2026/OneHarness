@@ -1,4 +1,5 @@
 framework_root: AIGC
+system_version: 6.0.0
 role_root: AIGC/roles
 role_rule_file_name: RULE.md
 role_index_file: AIGC/roles/INDEX.md
@@ -29,6 +30,9 @@ wiki_front_matter_allow_empty_fields:
 
 check_required_paths:
   - AIGC/roles/common/RULE.md
+  - AIGC/roles/common/autonomy-policy.md
+  - AIGC/roles/common/tool-contract.md
+  - AIGC/roles/common/model-tiering.md
   - AIGC/roles/common/session-visible-state.md
   - AIGC/roles/common/templates/user-visible-response.md
   - AIGC/roles/common/templates/role-delivery.md
@@ -38,10 +42,6 @@ check_required_paths:
   - AIGC/roles/role-manager/role-routing/2d-game-asset-artist.md
   - AIGC/roles/role-manager/role-routing/ui-asset-slicer.md
   - AIGC/roles/role-manager/role-routing/intern-feature-designer.md
-  - AIGC/roles/role-manager/role-routing/intern-engine-architecture-developer.md
-  - AIGC/roles/role-manager/role-routing/intern-ui-developer.md
-  - AIGC/roles/role-manager/role-routing/intern-gameplay-systems-developer.md
-  - AIGC/roles/role-manager/role-routing/intern-combat-developer.md
   - AIGC/roles/role-manager/role-routing/intern-version-feature-analyst.md
   - AIGC/roles/role-manager/role-routing/poe-helper.md
   - AIGC/roles/role-manager/role-routing/wiki-manager.md
@@ -49,12 +49,23 @@ check_required_paths:
   - AIGC/roles/role-manager/issue-routing.md
   - AIGC/roles/role-manager/session-revival.md
   - AIGC/roles/role-manager/templates/subagent-task.md
+  - AIGC/roles/role-manager/templates/subagent-task-lite.md
   - AIGC/roles/role-manager/templates/dispatch-result.md
   - AIGC/roles/role-manager/game-design/INDEX.md
   - AIGC/roles/role-manager/game-design/methodology.md
   - AIGC/roles/role-manager/game-design/method-cards/INDEX.md
   - AIGC/roles/developer/RULE.md
   - AIGC/roles/developer/templates/implementation-delivery.md
+  - AIGC/roles/project-developer/RULE.md
+  - AIGC/roles/project-developer/domains/INDEX.md
+  - AIGC/roles/project-developer/domains/architecture.md
+  - AIGC/roles/project-developer/domains/ui.md
+  - AIGC/roles/project-developer/domains/gameplay.md
+  - AIGC/roles/project-developer/domains/combat.md
+  - AIGC/roles/project-developer/skills/INDEX.md
+  - AIGC/roles/project-developer/skills/domain-implementation.md
+  - AIGC/roles/project-developer/tools/INDEX.md
+  - AIGC/roles/role-manager/role-routing/project-developer.md
   - AIGC/roles/2d-ui-artist/RULE.md
   - AIGC/roles/2d-ui-artist/skills/INDEX.md
   - AIGC/roles/2d-ui-artist/tools/INDEX.md
@@ -67,18 +78,6 @@ check_required_paths:
   - AIGC/roles/intern-feature-designer/RULE.md
   - AIGC/roles/intern-feature-designer/skills/INDEX.md
   - AIGC/roles/intern-feature-designer/tools/INDEX.md
-  - AIGC/roles/intern-engine-architecture-developer/RULE.md
-  - AIGC/roles/intern-engine-architecture-developer/skills/INDEX.md
-  - AIGC/roles/intern-engine-architecture-developer/tools/INDEX.md
-  - AIGC/roles/intern-ui-developer/RULE.md
-  - AIGC/roles/intern-ui-developer/skills/INDEX.md
-  - AIGC/roles/intern-ui-developer/tools/INDEX.md
-  - AIGC/roles/intern-gameplay-systems-developer/RULE.md
-  - AIGC/roles/intern-gameplay-systems-developer/skills/INDEX.md
-  - AIGC/roles/intern-gameplay-systems-developer/tools/INDEX.md
-  - AIGC/roles/intern-combat-developer/RULE.md
-  - AIGC/roles/intern-combat-developer/skills/INDEX.md
-  - AIGC/roles/intern-combat-developer/tools/INDEX.md
   - AIGC/roles/intern-version-feature-analyst/RULE.md
   - AIGC/roles/intern-version-feature-analyst/skills/INDEX.md
   - AIGC/roles/intern-version-feature-analyst/tools/INDEX.md
@@ -98,6 +97,7 @@ check_required_paths:
   - AIGC/capabilities/registry.yaml
   - tools/version-feature-scan/version_feature_scan.py
   - tools/tharness_roles_ui.py
+  - tools/tharness_behavior.py
   - tools/role-browser/index.html
   - tools/role-browser/styles.css
   - tools/role-browser/app.js
@@ -129,23 +129,20 @@ session_role_required_fields:
 session_role_allowed_names:
   - 角色管理员
 session_role_forbidden_current_role_names:
+  - 项目开发者
   - 2D UI 绘图师
   - 2D 游戏资源绘制师
   - UI 素材拆分师
   - 实习功能案设计者
-  - 实习工程架构开发者
-  - 实习 UI 开发者
-  - 实习玩法系统开发者
-  - 实习战斗开发者
   - 实习版本功能分析员
   - poe 小助手
   - wiki 管理员
   - Tharness 能力维护员
 session_role_fallback_name: 角色管理员
 session_role_required_statements:
-  - 本文件是 Tharness 输出结果固定四字段格式的唯一权威
-  - 所有角色的输出结果都必须使用 `【当前角色】`、`【主要职责】`、`【工作依据】`、`【详细信息】` 四字段格式
-  - 过程消息、工具执行进度、文件读取说明、临时同步、计划说明、内部思考和任务派发包不强制使用固定格式
+  - 本文件是 Tharness 正式审计型输出四字段格式的唯一权威
+  - 正式派发回收、正式审查和中高风险验收必须使用 `【当前角色】`、`【主要职责】`、`【工作依据】`、`【详细信息】` 四字段格式
+  - 普通问答、短结论、代码解释、过程消息、工具进度、计划、任务包和用户指定格式不强制使用固定格式
   - 主会话输出结果的 `【当前角色】` 只能是 `角色管理员`
   - 被派发角色交付时，`【当前角色】` 填写被派发角色名
   - 执行角色名称可以出现在任务派发、工作依据、回收结果或内部执行记录中
@@ -155,14 +152,19 @@ session_role_required_statements:
 
 self_check_path_rules:
   - AIGC/roles|python tools\tharness.py check
+  - AIGC/roles|python tools\tharness.py eval
   - AIGC/wiki|python tools\tharness.py index --check
   - AIGC/capabilities|python tools\tharness.py doctor
+  - AIGC/capabilities|python tools\tharness.py registry
   - AIGC/tharness.yaml|python tools\tharness.py check
   - tools|python tools\tharness.py check
+  - tools|python tools\tharness.py eval
   - tools|python -m unittest tools.test_tharness
+  - tools/tharness_behavior.py|python tools\tharness.py eval
   - tools/version-feature-scan|python -m unittest tools.test_version_feature_scan
   - tools/role-browser|python -m unittest tools.test_role_browser
   - tools/tharness_roles_ui.py|python -m unittest tools.test_role_browser
 
 self_check_delivery_commands:
   - python tools\tharness.py check
+  - python tools\tharness.py eval

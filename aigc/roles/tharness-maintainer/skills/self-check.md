@@ -18,11 +18,11 @@ updated: 2026-05-20
 | 修改范围 | 必须运行 |
 | --- | --- |
 | `AIGC/wiki/**` | `python tools\tharness.py index --check` |
-| `AIGC/roles/**` | `python tools\tharness.py check` |
-| `AIGC/capabilities/**` | `python tools\tharness.py doctor` |
+| `AIGC/roles/**` | `python tools\tharness.py check` 和 `python tools\tharness.py eval` |
+| `AIGC/capabilities/**` | `python tools\tharness.py doctor` 和 `python tools\tharness.py registry` |
 | `AIGC/tharness.yaml` | `python tools\tharness.py check` |
-| `tools/**` | `python tools\tharness.py check` 和 `python -m unittest tools.test_tharness`；版本扫描器改动还要运行 `python -m unittest tools.test_version_feature_scan`，角色浏览器改动还要运行 `python -m unittest tools.test_role_browser` |
-| 交付前 | `python tools\tharness.py check` |
+| `tools/**` | `python tools\tharness.py check`、`python tools\tharness.py eval` 和 `python -m unittest tools.test_tharness`；版本扫描器改动还要运行 `python -m unittest tools.test_version_feature_scan`，角色浏览器改动还要运行 `python -m unittest tools.test_role_browser` |
+| 交付前 | `doctor`、`index --check`、`registry`、`check`、`eval` 和命中的单元测试 |
 
 ## 执行规则
 

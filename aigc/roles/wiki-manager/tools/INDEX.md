@@ -1,11 +1,13 @@
-# wiki 管理员工具索引
-
-本目录只保存 wiki 管理员执行任务时可使用的工具调用说明。工具只能在角色管理员任务包允许范围内使用。
-
-| 工具类别 | read_when |
-| --- | --- |
-| 文档检索 | 需要定位通用 wiki、来源索引或开放问题。 |
-| 索引检查 | 需要确认 wiki 索引、页面元数据或知识入口是否一致。 |
-| 文档编辑 | 需要按任务包允许范围更新知识页、决策页或来源记录。 |
-
-新增工具说明必须放在本目录，并在本索引登记。
+# wiki 管理员工具契约
+遵守 `../../common/tool-contract.md`。
+## tool: wiki-index
+- tool_id: `wiki-index`
+- purpose: 校验或更新通用 wiki 索引。
+- phase: wiki 页面新增、移动或交付前。
+- preconditions: 候选内容已通过通用性与边界判断。
+- inputs: wiki 页面与 `AIGC/wiki/index.yaml`。
+- outputs: 索引差异、扫描数量与错误列表。
+- side_effects: check 无；write 仅修改 wiki 索引。
+- errors: 元数据缺失、重复 id、页面缺失或边界违规。
+- retry_stop: 修复确定性错误后重试；项目专属事实不得通过重试写入通用层。
+- evidence: 命令、退出码、页面数和差异。

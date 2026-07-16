@@ -1,50 +1,47 @@
-# Tharness 最小机器注册源。
-# role_registry 行格式：目录|显示名|RULE 入口|派发页或 -|能力 ID 或 -|类型|配置与验证成熟度置信度（0-100）
-# capability_registry 行格式：能力 ID|入口
+# Tharness 机器事实源，schema_version=2。
+# role_registry: slug|display_name|rule_entry|route_entry|-or-capability_id|role_type|maturity|owner|contract_status|eval_suite|deprecated_by
+# capability_registry: capability_id|entry|owner|contract_status|maturity|last_verified|eval_suite|deprecated_by
+# maturity: draft / contracted / tested / evaluated；deprecated_by 使用 - 表示未弃用。
 
+schema_version: 2
 role_registry:
-  - role-manager|角色管理员|AIGC/roles/role-manager/RULE.md|-|role-dispatch|coordinator|100
-  - common|通用角色最小规则|AIGC/roles/common/RULE.md|-|session-role-marker|infrastructure|98
-  - developer|执行角色通用规则|AIGC/roles/developer/RULE.md|-|-|infrastructure|96
-  - 2d-ui-artist|2D UI 绘图师|AIGC/roles/2d-ui-artist/RULE.md|AIGC/roles/role-manager/role-routing/2d-ui-artist.md|2d-ui-art-production|dispatchable|84
-  - 2d-game-asset-artist|2D 游戏资源绘制师|AIGC/roles/2d-game-asset-artist/RULE.md|AIGC/roles/role-manager/role-routing/2d-game-asset-artist.md|2d-game-asset-production|dispatchable|82
-  - ui-asset-slicer|UI 素材拆分师|AIGC/roles/ui-asset-slicer/RULE.md|AIGC/roles/role-manager/role-routing/ui-asset-slicer.md|ui-asset-slicing|dispatchable|86
-  - intern-feature-designer|实习功能案设计者|AIGC/roles/intern-feature-designer/RULE.md|AIGC/roles/role-manager/role-routing/intern-feature-designer.md|intern-feature-design|dispatchable|78
-  - intern-engine-architecture-developer|实习工程架构开发者|AIGC/roles/intern-engine-architecture-developer/RULE.md|AIGC/roles/role-manager/role-routing/intern-engine-architecture-developer.md|intern-engine-architecture-development|dispatchable|76
-  - intern-ui-developer|实习 UI 开发者|AIGC/roles/intern-ui-developer/RULE.md|AIGC/roles/role-manager/role-routing/intern-ui-developer.md|intern-ui-development|dispatchable|74
-  - intern-gameplay-systems-developer|实习玩法系统开发者|AIGC/roles/intern-gameplay-systems-developer/RULE.md|AIGC/roles/role-manager/role-routing/intern-gameplay-systems-developer.md|intern-gameplay-systems-development|dispatchable|72
-  - intern-combat-developer|实习战斗开发者|AIGC/roles/intern-combat-developer/RULE.md|AIGC/roles/role-manager/role-routing/intern-combat-developer.md|intern-combat-development|dispatchable|70
-  - intern-version-feature-analyst|实习版本功能分析员|AIGC/roles/intern-version-feature-analyst/RULE.md|AIGC/roles/role-manager/role-routing/intern-version-feature-analyst.md|intern-version-feature-analysis|dispatchable|68
-  - poe-helper|poe 小助手|AIGC/roles/poe-helper/RULE.md|AIGC/roles/role-manager/role-routing/poe-helper.md|poe-domain-support|dispatchable|88
-  - wiki-manager|wiki 管理员|AIGC/roles/wiki-manager/RULE.md|AIGC/roles/role-manager/role-routing/wiki-manager.md|generic-architecture-wiki|dispatchable|90
-  - tharness-maintainer|Tharness 能力维护员|AIGC/roles/tharness-maintainer/RULE.md|AIGC/roles/role-manager/role-routing/tharness-maintainer.md|capability-evolution|dispatchable|94
+  - role-manager|角色管理员|AIGC/roles/role-manager/RULE.md|-|role-dispatch|coordinator|tested|tharness-core|tested|core-behavior|-
+  - common|通用角色最小规则|AIGC/roles/common/RULE.md|-|session-role-marker|infrastructure|tested|tharness-core|tested|core-behavior|-
+  - developer|执行角色通用规则|AIGC/roles/developer/RULE.md|-|-|infrastructure|contracted|tharness-core|contracted|-|-
+  - project-developer|项目开发者|AIGC/roles/project-developer/RULE.md|AIGC/roles/role-manager/role-routing/project-developer.md|project-development|dispatchable|tested|project-developer|tested|core-behavior|-
+  - 2d-ui-artist|2D UI 绘图师|AIGC/roles/2d-ui-artist/RULE.md|AIGC/roles/role-manager/role-routing/2d-ui-artist.md|2d-ui-art-production|dispatchable|contracted|2d-ui-artist|contracted|-|-
+  - 2d-game-asset-artist|2D 游戏资源绘制师|AIGC/roles/2d-game-asset-artist/RULE.md|AIGC/roles/role-manager/role-routing/2d-game-asset-artist.md|2d-game-asset-production|dispatchable|contracted|2d-game-asset-artist|contracted|-|-
+  - ui-asset-slicer|UI 素材拆分师|AIGC/roles/ui-asset-slicer/RULE.md|AIGC/roles/role-manager/role-routing/ui-asset-slicer.md|ui-asset-slicing|dispatchable|contracted|ui-asset-slicer|contracted|-|-
+  - intern-feature-designer|实习功能案设计者|AIGC/roles/intern-feature-designer/RULE.md|AIGC/roles/role-manager/role-routing/intern-feature-designer.md|intern-feature-design|dispatchable|contracted|intern-feature-designer|contracted|-|-
+  - intern-version-feature-analyst|实习版本功能分析员|AIGC/roles/intern-version-feature-analyst/RULE.md|AIGC/roles/role-manager/role-routing/intern-version-feature-analyst.md|intern-version-feature-analysis|dispatchable|tested|intern-version-feature-analyst|tested|version-feature-scan|-
+  - poe-helper|poe 小助手|AIGC/roles/poe-helper/RULE.md|AIGC/roles/role-manager/role-routing/poe-helper.md|poe-domain-support|dispatchable|contracted|poe-helper|contracted|-|-
+  - wiki-manager|wiki 管理员|AIGC/roles/wiki-manager/RULE.md|AIGC/roles/role-manager/role-routing/wiki-manager.md|generic-architecture-wiki|dispatchable|tested|wiki-manager|tested|core-structure|-
+  - tharness-maintainer|Tharness 能力维护员|AIGC/roles/tharness-maintainer/RULE.md|AIGC/roles/role-manager/role-routing/tharness-maintainer.md|capability-evolution|dispatchable|tested|tharness-maintainer|tested|core-behavior|-
 
 capability_registry:
-  - role-dispatch|AIGC/roles/INDEX.md
-  - role-library|AIGC/roles/INDEX.md
-  - 2d-ui-art-production|AIGC/roles/2d-ui-artist/RULE.md
-  - 2d-game-asset-production|AIGC/roles/2d-game-asset-artist/RULE.md
-  - ui-asset-slicing|AIGC/roles/ui-asset-slicer/RULE.md
-  - intern-feature-design|AIGC/roles/intern-feature-designer/RULE.md
-  - intern-engine-architecture-development|AIGC/roles/intern-engine-architecture-developer/RULE.md
-  - intern-ui-development|AIGC/roles/intern-ui-developer/RULE.md
-  - intern-gameplay-systems-development|AIGC/roles/intern-gameplay-systems-developer/RULE.md
-  - intern-combat-development|AIGC/roles/intern-combat-developer/RULE.md
-  - intern-version-feature-analysis|AIGC/roles/intern-version-feature-analyst/RULE.md
-  - poe-domain-support|AIGC/roles/poe-helper/RULE.md
-  - version-feature-scan|tools/version-feature-scan/version_feature_scan.py
-  - role-browser-ui|tools/tharness.py
-  - session-role-marker|AIGC/roles/common/session-visible-state.md
-  - role-session-revival|AIGC/roles/role-manager/session-revival.md
-  - issue-routing|AIGC/roles/role-manager/issue-routing.md
-  - capability-evolution|AIGC/roles/tharness-maintainer/RULE.md
-  - generic-architecture-wiki|AIGC/wiki/INDEX.md
-  - knowledge-layering|AIGC/wiki/architecture/knowledge-layering.md
-  - tharness-self-check|tools/tharness.py
-  - capability-registry-consistency|AIGC/capabilities/registry.yaml
-  - project-anchor-launch|tools/tharness.py
-  - visual-project-binder|THarness-Binder.exe
-  - role-self-check-trigger|AIGC/roles/tharness-maintainer/skills/self-check.md
-  - index-sync|tools/tharness.py
-  - self-check-planner|tools/tharness.py
-  - game-design-method-cards|AIGC/roles/role-manager/game-design/method-cards/INDEX.md
+  - role-dispatch|AIGC/roles/INDEX.md|role-manager|tested|tested|2026-07-16|core-behavior|-
+  - role-library|AIGC/roles/INDEX.md|tharness-maintainer|tested|tested|2026-07-16|core-structure|-
+  - project-development|AIGC/roles/project-developer/RULE.md|project-developer|tested|tested|2026-07-16|core-behavior|-
+  - 2d-ui-art-production|AIGC/roles/2d-ui-artist/RULE.md|2d-ui-artist|contracted|contracted|2026-07-16|-|-
+  - 2d-game-asset-production|AIGC/roles/2d-game-asset-artist/RULE.md|2d-game-asset-artist|contracted|contracted|2026-07-16|-|-
+  - ui-asset-slicing|AIGC/roles/ui-asset-slicer/RULE.md|ui-asset-slicer|contracted|contracted|2026-07-16|-|-
+  - intern-feature-design|AIGC/roles/intern-feature-designer/RULE.md|intern-feature-designer|contracted|contracted|2026-07-16|-|-
+  - intern-version-feature-analysis|AIGC/roles/intern-version-feature-analyst/RULE.md|intern-version-feature-analyst|tested|tested|2026-07-16|version-feature-scan|-
+  - poe-domain-support|AIGC/roles/poe-helper/RULE.md|poe-helper|contracted|contracted|2026-07-16|-|-
+  - version-feature-scan|tools/version-feature-scan/version_feature_scan.py|intern-version-feature-analyst|tested|tested|2026-07-16|version-feature-scan|-
+  - role-browser-ui|tools/tharness.py|tharness-maintainer|tested|tested|2026-07-16|role-browser|-
+  - session-role-marker|AIGC/roles/common/session-visible-state.md|role-manager|tested|tested|2026-07-16|core-behavior|-
+  - role-session-revival|AIGC/roles/role-manager/session-revival.md|role-manager|contracted|contracted|2026-07-16|-|-
+  - issue-routing|AIGC/roles/role-manager/issue-routing.md|role-manager|contracted|contracted|2026-07-16|-|-
+  - capability-evolution|AIGC/roles/tharness-maintainer/RULE.md|tharness-maintainer|tested|tested|2026-07-16|core-behavior|-
+  - generic-architecture-wiki|AIGC/wiki/INDEX.md|wiki-manager|tested|tested|2026-07-16|core-structure|-
+  - knowledge-layering|AIGC/wiki/architecture/knowledge-layering.md|wiki-manager|tested|tested|2026-07-16|core-structure|-
+  - tharness-self-check|tools/tharness.py|tharness-maintainer|tested|tested|2026-07-16|core-behavior|-
+  - capability-registry-consistency|AIGC/capabilities/registry.yaml|tharness-maintainer|tested|tested|2026-07-16|core-structure|-
+  - project-anchor-launch|tools/tharness.py|tharness-maintainer|tested|tested|2026-07-16|core-structure|-
+  - visual-project-binder|THarness-Binder.exe|tharness-maintainer|tested|tested|2026-07-16|core-structure|-
+  - role-self-check-trigger|AIGC/roles/tharness-maintainer/skills/self-check.md|tharness-maintainer|tested|tested|2026-07-16|core-structure|-
+  - index-sync|tools/tharness.py|tharness-maintainer|tested|tested|2026-07-16|core-structure|-
+  - self-check-planner|tools/tharness.py|tharness-maintainer|tested|tested|2026-07-16|core-structure|-
+  - game-design-method-cards|AIGC/roles/role-manager/game-design/method-cards/INDEX.md|role-manager|contracted|contracted|2026-07-16|-|-
+  - deterministic-behavior-eval|tools/tharness.py|tharness-maintainer|tested|tested|2026-07-16|core-behavior|-

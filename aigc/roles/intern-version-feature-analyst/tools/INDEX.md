@@ -1,12 +1,13 @@
-# 实习版本功能分析员工具索引
-
-| 工具 | 入口 | read_when |
-| --- | --- | --- |
-| 版本功能扫描器 | `../../../../tools/version-feature-scan/version_feature_scan.py` | 需要从一个或多个 Git 仓库生成结构化扫描摘要、证据文件和功能目录审核稿。 |
-
-## 调用约束
-
-- Python 必须使用当前会话可用解释器，不依赖 PATH 中的 `python`。
-- 首次执行优先使用 `--dry-run` 检查仓库、引用和聚类摘要；确认输出路径后再正式写入。
-- 工具退出码：`0` 表示全部仓库成功，`2` 表示参数或至少一个仓库取证失败。
-- 正式执行会在审核文档旁生成 `git-evidence/scan-summary.json`；该文件用于机器审计，不替代面向人的审核文档。
+# 实习版本功能分析员工具契约
+遵守 `../../common/tool-contract.md`。
+## tool: version-feature-scan
+- tool_id: `version-feature-scan`
+- purpose: 从 Git 历史和差异提取版本功能候选并生成审核产物。
+- phase: 版本功能分析与确认后生成。
+- preconditions: 仓库、版本范围、输出目录和确认阶段明确。
+- inputs: Git 仓库、起止引用、扫描/生成参数。
+- outputs: 审核目录、功能文档、结构化摘要与退出码。
+- side_effects: dry-run 无；确认生成时写入授权输出目录。
+- errors: 参数错误=2、证据/仓库错误=1，成功=0。
+- retry_stop: 修正参数或证据范围后重试；未获确认不得进入生成阶段。
+- evidence: 准确命令、版本范围、退出码与产物清单。

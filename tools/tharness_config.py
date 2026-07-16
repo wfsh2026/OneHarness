@@ -66,8 +66,28 @@ def config_value(config: dict, key: str) -> str:
 
 
 def repo_path(repo_root: Path, path_value: str) -> Path:
-    return repo_root / Path(path_value)
+    requested = Path(path_value)
+    candidate = repo_root / requested
+    if candidate.exists():
+        return candidate
+
+    # The repository historically documents the logical root as ``AIGC`` while
+    # some Windows checkouts store it as ``aigc``. Resolve each segment by a
+    # unique case-insensitive match so the same checkout remains verifiable on
+    # case-sensitive systems without a dangerous directory move.
+    current = repo_root
+    for part in requested.parts:
+        if not current.exists() or not current.is_dir():
+            return candidate
+        matches = [child for child in current.iterdir() if child.name.casefold() == part.casefold()]
+        if len(matches) != 1:
+            return candidate
+        current = matches[0]
+    return current
 
 
 def rel_path(repo_root: Path, path: Path) -> str:
-    return path.relative_to(repo_root).as_posix()
+    parts = list(path.relative_to(repo_root).parts)
+    if parts and parts[0].casefold() == "aigc":
+        parts[0] = "AIGC"
+    return Path(*parts).as_posix()

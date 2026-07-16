@@ -1,6 +1,6 @@
 # AIGC 版本
 
-current_version: 4.8.0
+current_version: 6.0.0
 
 ## 版本级别
 
@@ -20,9 +20,11 @@ current_version: 4.8.0
 
 ## 当前版本范围
 
+本轮使用 major：用户明确取消过渡层，四个已发布开发角色及路由入口被正式删除。全部有效职责和技能触发器已迁入项目开发者四领域；调用方必须把旧入口改为 `project-developer/RULE.md` 并声明对应 domain，不再提供回退入口。schema v2 机器契约继续保持。
+
 - 角色管理员默认入口。
 - 角色库、通用角色最小规则和角色派发规则。
-- SubAgent / 全新会话执行隔离规则。
+- 按收益委派、轻量/完整审计任务包与风险驱动假设。
 - 角色会话复活运行时标识、查找、唤醒和失败处理规则。
 - Claude Code 角色会话复活运行时标识字段。
 - 通用架构 wiki。
@@ -32,29 +34,25 @@ current_version: 4.8.0
 - 2D UI 绘图师实习标签、派发检索、完整界面视觉稿、批量资源绘制、资源绘制边界和正式 Sprite 规格交付要求。
 - 2D 游戏资源绘制师实习标签、派发检索、非 UI 游戏静态资源绘制和透明精灵验收边界。
 - UI 素材拆分师实习标签、多帧动画精灵表拆分、像素级对齐、透明边缘验收和正式目录清理规则。
-- 实习功能案设计者、实习工程架构开发者、实习 UI 开发者、实习玩法系统开发者和实习战斗开发者的通用角色规则与派发检索。
+- 项目开发者与 architecture/ui/gameplay/combat 领域配置是四类开发能力的唯一正式入口；旧角色目录和路由已删除。
 - 实习版本功能分析员、版本功能扫描器、功能目录审核稿和结构化 Git 证据输出。
-- 本地角色管理器、角色配置成熟度置信度、能力检索、筛选、规则按需加载与冲突保护编辑。
+- 本地角色管理器、证据成熟度、维护模式、差异与影响预览、规则按需加载与冲突保护编辑。
 - poe 小助手的通用角色规则、派发检索、modes 落地技能和目录与内容包分析技能。
 - 角色管理员批量视觉资源流程、正式资源规格回收规则和替代隔离方式。
-- 主会话能力隔离规则。
-- 单主角色、最小任务包、渐进读取、条件式补派和风险触发验证的低消耗完整开发闭环。
-- 角色、派发页、能力索引、自检配置与机器注册源的双向一致性检查。
+- 主会话可读紧凑工具摘要，完整技能与操作说明渐进加载。
+- schema v2 机器注册源、统一工具契约和确定性行为 Eval。
 - 候选问题、候选知识和规则变化的唯一写入位置路由。
 
 ## 当前版本功能
 
 | 功能 | 状态 | 入口 | 说明 |
 | --- | --- | --- | --- |
-| 角色管理员调度 | active | `../roles/INDEX.md` | 所有用户请求先由角色管理员接收，角色管理员确认目标、边界和验证方式后，通过 SubAgent 或全新会话派发具体角色；主会话不得读取执行角色能力资料。 |
-| 角色库 | active | `../roles/INDEX.md` | 维护当前有效角色边界、角色标签、角色添加时间、允许读取、允许写入、禁止范围、调用方式、主会话能力隔离、批量视觉资源流程、实习开发角色派发、POE 领域任务派发与角色技能入口、单主角色渐进读取、条件式补派、正式资源规格回收规则和多帧动画素材拆分边界。 |
+| 角色管理员调度 | active | `../roles/INDEX.md` | 先按授权和收益判断是否委派；低风险、小型、只读或单域任务可由主会话完成，委派时按风险使用轻量或完整审计任务包。 |
+| 角色库 | active | `../roles/INDEX.md` | 注册源驱动的角色、领域配置、兼容别名、工具摘要与渐进读取入口。 |
+| 项目开发 | active | `../roles/project-developer/RULE.md` | 以一个项目开发者组合 architecture、ui、gameplay、combat 独立领域；原四类开发入口已删除。 |
 | 2D UI 图片绘制 | active | `../roles/2d-ui-artist/RULE.md` | 标签：实习；根据任务描述和可选项目参考图风格绘制、重绘或补齐 UI 图片资源、完整界面效果图、整屏流程稿和 UI 状态变体；没有风格参考时按描述生成；正式 Sprite 或图标必须按透明 PNG / RGBA、语义匹配、无背景污染、非占位、非预览图的规格交付。 |
 | 2D 游戏资源绘制 | active | `../roles/2d-game-asset-artist/RULE.md` | 标签：实习；根据任务描述、用户确认样张、设计文档或项目参考资源绘制、重绘或补齐角色或怪物精灵、装备图标、物品图标、地图对象图标、掉落图标、资源点图标、静态 VFX 帧和非 UI 游戏静态资源。 |
 | 实习功能案设计 | active | `../roles/intern-feature-designer/RULE.md` | 标签：实习；拆分阶段、功能案、任务包建议、依赖契约、验收标准、读取写入范围和待确认项，不直接实现代码、场景、资源、配置或测试。 |
-| 实习工程架构开发 | active | `../roles/intern-engine-architecture-developer/RULE.md` | 标签：实习；实现启动入口、流程路由、全局服务、配置加载基础、错误处理、存档骨架、调试骨架和工程规范，不承接完整玩法、战斗或 UI 业务。 |
-| 实习 UI 开发 | active | `../roles/intern-ui-developer/RULE.md` | 标签：实习；实现 UI 界面、控件层级、素材接入、运行时文字、交互状态、空态、禁用态、错误态和前台表现，不负责正式 UI 绘制或素材拆分。 |
-| 实习玩法系统开发 | active | `../roles/intern-gameplay-systems-developer/RULE.md` | 标签：实习；实现非战斗逐帧玩法系统、成长、背包、装备、交易、区域、资源点、传送、推荐和对应配置，不承接战斗逐帧、UI 布局或正式素材绘制。 |
-| 实习战斗开发 | active | `../roles/intern-combat-developer/RULE.md` | 标签：实习；实现战斗运行时、战斗角色属性、敌人行为、技能请求、预警、伤害、撤退、失败、胜利和战斗结算，不直接修改长期背包、成长或经济系统。 |
 | 实习版本功能分析 | active | `../roles/intern-version-feature-analyst/RULE.md` | 标签：实习；从一个或多个 Git 仓库提取提交、merge、rename 和 diff 证据，先生成待确认功能目录，确认后再生成开发功能文档。 |
 | poe 小助手 | active | `../roles/poe-helper/RULE.md` | 处理 Path of Exile / Path of Exile 2、POE 补丁、MOD、modes 落地、GGPK、bundle、VisualGGPK、交易接口、通货价格、游戏安装包、内容包内部索引、补丁工具风险分析和 POE 项目知识沉淀；具体项目事实只写入目标项目。 |
 | 通用角色最小规则 | active | `../roles/common/RULE.md` | 所有角色共享的语言、事实、调度、写入、验证和交付规则。 |
@@ -67,10 +65,11 @@ current_version: 4.8.0
 | 写入位置路由 | active | `../roles/role-manager/issue-routing.md` | 候选问题、候选知识和规则变化统一由角色管理员按本入口选择唯一写入位置。 |
 | 游戏策划方法卡 | active | `../roles/role-manager/game-design/INDEX.md` | 角色管理员处理游戏策划讨论时调用的方法论、方法卡和输出模板。 |
 | 通用架构 wiki | active | `../wiki/INDEX.md` | 保存跨项目可复用的项目架构搭建知识，用于低 token 架构检索。 |
-| 结构自检 | active | `../../tools/tharness.py` | 从工具入口解析 THarness 根目录，用 `doctor`、`index --check` 和 `check` 检查入口、元数据、索引、角色库、会话角色标识和结构边界。 |
-| 角色能力注册一致性 | active | `registry.yaml` | 用机器注册源双向核对角色目录、角色库、派发页、能力索引、自检配置和主会话禁用角色名，拒绝半接入状态。 |
+| 结构自检 | active | `../../tools/tharness.py` | 用 `doctor`、`index --check`、`registry`、`check` 检查结构、schema、工具契约和边界。 |
+| 确定性行为评测 | active | `../../tools/tharness.py` | 用 `eval` 检查授权、委派、假设、输出/任务包分级、兼容路由和工具契约；不混入在线模型波动。 |
+| 角色能力注册一致性 | active | `registry.yaml` | schema v2 单一机器事实源验证角色、能力、owner、成熟度、契约状态、Eval、弃用迁移与衍生入口。 |
 | 版本功能扫描器 | active | `../../tools/version-feature-scan/version_feature_scan.py` | 预检仓库和 Git 引用，支持 dry-run、超时、输出冲突保护，并输出包含功能 commit/file/confidence 证据的 JSON 摘要。 |
-| 本地角色管理器 | active | `../../tools/tharness.py` | 通过 `roles-ui` 在 127.0.0.1 启动无登录深色页面，按注册置信度展示角色与能力；skills/tools 保持只读，RULE.md 可通过哈希冲突检查和原子替换安全编辑。 |
+| 本地角色管理器 | active | `../../tools/tharness.py` | 在 127.0.0.1 按证据成熟度展示角色；RULE.md 仅在维护模式下预览差异、影响、版本和自检计划后保存。 |
 | 自检命令规划 | active | `../../tools/tharness.py` | 用 `self-check --path ... --delivery` 输出本轮应运行的自检命令。 |
 | 项目锚点启动 | active | `../../tools/tharness.py` | 用 `project init --root ...` 在目标项目部署轻量 `.tharness/` 启动锚点和目标项目根目录 `AGENTS.md` 桥接入口，或用 `project start --root ...` 在不复制主工程的情况下输出目标项目与 THarness 主工程绑定的启动包。 |
 | 可视化项目绑定 | active | `../../THarness-Binder.exe` | 直接打开 Rust 桌面工具，用深色圆角扁平化界面显示当前 THarness 主工程、目标项目文件夹选择、`.tharness/` 与 `AGENTS.md` 绑定预览、确认绑定和关闭按钮。 |
@@ -78,19 +77,19 @@ current_version: 4.8.0
 ## 当前版本边界
 
 - 默认入口是角色管理员。
-- 主会话用户可见 `【当前角色】` 只能是 `角色管理员`；执行角色通过 SubAgent 或全新会话派发。
-- 主会话只能读取角色管理员规则、通用规则、派发检索资料和必要的角色 `RULE.md`；执行角色 `skills/`、`tools/`、工具调用说明和其他能力资料只能由被派发执行角色在自己的会话中读取。
+- 正式审计型主会话输出的 `【当前角色】` 只能是 `角色管理员`；普通问答和用户指定格式不强制四字段。
+- 主会话可读取任务相关角色规则和紧凑 `tools/INDEX.md`；完整 skills 与工具操作说明由实际执行者渐进读取。
 - 角色会话复活只允许恢复运行时原 `session_id`；Claude Code subagent 复活还必须恢复原 `agent_id`；原会话不可唤醒时不得把摘要继承或新建会话称为复活。
 - Tharness 不默认保存完整会话、工具调用、推理链路或 transcript 内容；跨机器或审计场景只允许保存可选镜像引用。
 - 多步骤执行方式由角色管理员基于角色库、用户输入、任务包允许读取入口和通用 wiki 组合任务包；批量视觉资源任务按缺口盘点、绘制派发、正式资源规格回收、异常清单、文档索引和链接校验组织。
 - 验证、审查和交付判断由角色管理员和执行角色承担。
-- 默认只派发一个主执行角色并传递最小任务包；仅在跨专业、高风险独立验证或写入冲突串行交接时补派，后续角色复用同一 `task_id` 和既有证据。
+- 低风险、小型、只读或单域任务不强制委派；只有独立并行、上下文隔离、明显专业差异、高风险独立证据或写入冲突有净收益时派发。
 - 可提交的通用 AIGC 只保存通用角色、通用规则、通用 wiki、入口机制和模板。
 - 候选内容写入位置只由 `../roles/role-manager/issue-routing.md` 判断；其他文件只引用该路由，不维护写入位置路由表。
 - 2D UI 绘图师标签为实习；该角色只保存通用 UI 绘图方法和角色边界；任务包提供项目参考图、风格文档或用户参考图时按参考风格生成，没有风格参考时按描述生成；完整界面效果图和批量 UI 视觉资源任务必须由任务包提供资源规格、命名约定、风格参考读取顺序和覆盖策略；正式 Sprite 或图标不得以截屏切片、调试预览、黑白底检查图或扁平占位图交付。
 - 2D 游戏资源绘制师标签为实习；该角色只保存通用游戏静态资源绘制方法和角色边界；任务包提供用户确认样张、项目资源、设计文档或风格文档时按参考风格生成，没有风格参考时按描述生成；透明精灵和批量游戏资源任务必须由任务包提供资源清单、资源规格、命名约定、风格参考读取顺序、写入目录和验收标准。
 - UI 素材拆分师标签为实习；该角色处理多帧动画素材时必须保持固定源网格、统一缩放、统一画布、统一贴入偏移或 Pivot 约定，并用黑底或深色底验收白底残留；正式目录默认只保留可接入帧 PNG。
-- 实习功能案设计者、实习工程架构开发者、实习 UI 开发者、实习玩法系统开发者和实习战斗开发者标签为实习；这些角色只保存通用开发职责边界，不保存具体项目事实；任务包必须提供目标项目的允许读取入口、允许写入范围、禁止范围、成功标准和验证要求。
+- 实习功能案设计者保留实习标签；项目工程、UI、玩法和战斗开发统一由项目开发者四领域承载，任务包必须提供目标项目的允许读取入口、允许写入范围、禁止范围、成功标准和验证要求。
 - 实习版本功能分析员标签为实习；未取得功能目录确认前不得生成详细开发功能文档，扫描证据不替代人工范围确认。
 - 角色管理器只允许读取机器注册源声明角色下的 `RULE.md`、`skills/INDEX.md` 和 `tools/INDEX.md`；唯一写入口只接受已注册角色 RULE.md，并要求 Host、Origin、CSRF、JSON、base hash 和内容限制校验；服务只绑定 `127.0.0.1`。
 - poe 小助手只保存 POE 领域任务的通用处理边界、modes 落地方法和目录与内容包分析方法，不保存具体补丁包路径、游戏安装目录、会话历史、内容包索引结果或本地实验结论；这些项目事实必须写入目标项目允许的知识库。
@@ -110,14 +109,7 @@ current_version: 4.8.0
 - UI 素材拆分师派发检索可从 `../roles/role-manager/role-routing/ui-asset-slicer.md` 命中。
 - 实习功能案设计者规则可从 `../roles/intern-feature-designer/RULE.md` 命中。
 - 实习功能案设计者派发检索可从 `../roles/role-manager/role-routing/intern-feature-designer.md` 命中。
-- 实习工程架构开发者规则可从 `../roles/intern-engine-architecture-developer/RULE.md` 命中。
-- 实习工程架构开发者派发检索可从 `../roles/role-manager/role-routing/intern-engine-architecture-developer.md` 命中。
-- 实习 UI 开发者规则可从 `../roles/intern-ui-developer/RULE.md` 命中。
-- 实习 UI 开发者派发检索可从 `../roles/role-manager/role-routing/intern-ui-developer.md` 命中。
-- 实习玩法系统开发者规则可从 `../roles/intern-gameplay-systems-developer/RULE.md` 命中。
-- 实习玩法系统开发者派发检索可从 `../roles/role-manager/role-routing/intern-gameplay-systems-developer.md` 命中。
-- 实习战斗开发者规则可从 `../roles/intern-combat-developer/RULE.md` 命中。
-- 实习战斗开发者派发检索可从 `../roles/role-manager/role-routing/intern-combat-developer.md` 命中。
+- 项目开发者规则、四领域、领域技能和正式路由可从 `../roles/project-developer/` 与 `../roles/role-manager/role-routing/project-developer.md` 命中；已删除入口由负向检查拒绝。
 - 实习版本功能分析员规则和派发检索可从 `../roles/intern-version-feature-analyst/RULE.md` 与 `../roles/role-manager/role-routing/intern-version-feature-analyst.md` 命中。
 - poe 小助手规则可从 `../roles/poe-helper/RULE.md` 命中。
 - poe 小助手技能索引可从 `../roles/poe-helper/skills/INDEX.md` 命中。

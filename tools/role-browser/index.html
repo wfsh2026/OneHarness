@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tharness 角色管理器</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#role-list">跳到角色列表</a>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">THARNESS · LOCAL ROLE MANAGER</p>
+        <h1>角色管理器</h1>
+        <p class="subtitle">查看角色、能力与规则入口；在维护模式中预览差异、影响入口和自检计划后安全编辑 RULE.md。</p>
+      </div>
+      <span class="local-badge" aria-label="本地角色管理服务，角色规则可编辑">127.0.0.1 · v<span id="system-version">—</span> · RULE 可编辑</span>
+    </header>
+
+    <section class="metrics" aria-label="能力概览">
+      <article><span id="role-count">—</span><small>角色总数</small></article>
+      <article><span id="dispatchable-count">—</span><small>可派发角色</small></article>
+      <article><span id="capability-count">—</span><small>能力总数</small></article>
+    </section>
+
+    <section class="workspace" aria-label="角色工作区">
+      <aside class="catalog-panel">
+        <div class="filters" role="search">
+          <label for="search">搜索角色</label>
+          <input id="search" type="search" placeholder="名称、slug、场景或能力" autocomplete="off">
+          <div class="select-row">
+            <label>类型<select id="type-filter"><option value="">全部类型</option></select></label>
+            <label>能力<select id="capability-filter"><option value="">全部能力</option></select></label>
+          </div>
+        </div>
+        <div class="list-heading">
+          <h2>角色列表</h2><span id="result-count" aria-live="polite"></span>
+        </div>
+        <div id="role-list" class="role-list" tabindex="-1" aria-label="筛选后的角色"></div>
+        <div id="empty-state" class="state-card hidden">没有匹配角色，请调整搜索或筛选条件。</div>
+      </aside>
+
+      <section id="detail-panel" class="detail-panel" aria-live="polite">
+        <div id="detail-empty" class="detail-empty">
+          <span aria-hidden="true">⌁</span>
+          <h2>选择一个角色</h2>
+          <p>查看能力说明、适用场景和按需加载的规则内容。</p>
+        </div>
+        <div id="detail-content" class="hidden">
+          <div class="detail-heading">
+            <div>
+              <span id="detail-type" class="type-pill"></span>
+              <span id="detail-confidence" class="confidence-badge"></span>
+              <h2 id="detail-name"></h2>
+              <code id="detail-slug"></code>
+            </div>
+          </div>
+          <div class="detail-grid">
+            <article><small>绑定能力</small><strong id="detail-capability"></strong><p id="detail-capability-description"></p></article>
+            <article><small>适用场景</small><p id="detail-scenario"></p></article>
+          </div>
+          <dl class="paths">
+            <div><dt>规则入口</dt><dd><code id="detail-rule"></code></dd></div>
+            <div><dt>路由入口</dt><dd><code id="detail-route"></code></dd></div>
+          </dl>
+          <section class="documents" aria-labelledby="documents-title">
+            <div class="documents-heading"><h3 id="documents-title">规则内容</h3><span>RULE 可编辑；skills/tools 只读，点击后才加载</span></div>
+            <div id="document-tabs" class="document-tabs" role="tablist"></div>
+            <div id="document-state" class="document-state">请选择要查看的文档。</div>
+            <article id="document-view" class="document-view hidden">
+              <div><strong id="document-title"></strong><code id="document-path"></code></div>
+              <pre id="document-content" tabindex="0"></pre>
+              <section id="rule-editor" class="rule-editor hidden" aria-label="角色规则编辑器">
+                <textarea id="rule-content" spellcheck="false" aria-label="角色规则内容"></textarea>
+                <label><input id="maintenance-mode" type="checkbox"> 进入维护模式（保存前必须预览差异与影响）</label>
+                <pre id="maintenance-impact" class="hidden" tabindex="0"></pre>
+                <div class="editor-toolbar">
+                  <span id="dirty-state">已保存</span>
+                  <span id="save-status" role="status" aria-live="polite"></span>
+                  <button id="preview-rule" type="button" disabled>预览差异与影响</button>
+                  <button id="save-rule" type="button" disabled>确认并保存 <kbd>Ctrl+S</kbd></button>
+                </div>
+              </section>
+            </article>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
